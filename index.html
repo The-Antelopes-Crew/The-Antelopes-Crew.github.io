@@ -8,6 +8,9 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/filter.css">
+<link rel="stylesheet" href="css/nouislider.min.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -30,9 +33,14 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="js/tailDT.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/wNumb.js"></script>
         <script src="data/Countries_0.js"></script>
-        <script src="data/New20182023_1.js"></script>
-        <script src="data/20182023geometries_2.js"></script>
+        <script src="data/Newcables20182023_1.js"></script>
+        <script src="data/2018cables2023geometries_2.js"></script>
+        <script src="data/Landingpoints2018Raw_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -84,7 +92,7 @@
         });
         bounds_group.addLayer(layer_Countries_0);
         map.addLayer(layer_Countries_0);
-        function pop_New20182023_1(feature, layer) {
+        function pop_Newcables20182023_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -94,9 +102,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_New20182023_1_0() {
+        function style_Newcables20182023_1_0() {
             return {
-                pane: 'pane_New20182023_1',
+                pane: 'pane_Newcables20182023_1',
                 opacity: 1,
                 color: 'rgba(51,205,243,1.0)',
                 dashArray: '',
@@ -107,21 +115,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_New20182023_1');
-        map.getPane('pane_New20182023_1').style.zIndex = 401;
-        map.getPane('pane_New20182023_1').style['mix-blend-mode'] = 'normal';
-        var layer_New20182023_1 = new L.geoJson(json_New20182023_1, {
+        map.createPane('pane_Newcables20182023_1');
+        map.getPane('pane_Newcables20182023_1').style.zIndex = 401;
+        map.getPane('pane_Newcables20182023_1').style['mix-blend-mode'] = 'normal';
+        var layer_Newcables20182023_1 = new L.geoJson(json_Newcables20182023_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_New20182023_1',
-            layerName: 'layer_New20182023_1',
-            pane: 'pane_New20182023_1',
-            onEachFeature: pop_New20182023_1,
-            style: style_New20182023_1_0,
+            dataVar: 'json_Newcables20182023_1',
+            layerName: 'layer_Newcables20182023_1',
+            pane: 'pane_Newcables20182023_1',
+            onEachFeature: pop_Newcables20182023_1,
+            style: style_Newcables20182023_1_0,
         });
-        bounds_group.addLayer(layer_New20182023_1);
-        map.addLayer(layer_New20182023_1);
-        function pop_20182023geometries_2(feature, layer) {
+        bounds_group.addLayer(layer_Newcables20182023_1);
+        map.addLayer(layer_Newcables20182023_1);
+        function pop_2018cables2023geometries_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -131,9 +139,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_20182023geometries_2_0() {
+        function style_2018cables2023geometries_2_0() {
             return {
-                pane: 'pane_20182023geometries_2',
+                pane: 'pane_2018cables2023geometries_2',
                 opacity: 1,
                 color: 'rgba(145,237,109,1.0)',
                 dashArray: '',
@@ -144,22 +152,67 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_20182023geometries_2');
-        map.getPane('pane_20182023geometries_2').style.zIndex = 402;
-        map.getPane('pane_20182023geometries_2').style['mix-blend-mode'] = 'normal';
-        var layer_20182023geometries_2 = new L.geoJson(json_20182023geometries_2, {
+        map.createPane('pane_2018cables2023geometries_2');
+        map.getPane('pane_2018cables2023geometries_2').style.zIndex = 402;
+        map.getPane('pane_2018cables2023geometries_2').style['mix-blend-mode'] = 'normal';
+        var layer_2018cables2023geometries_2 = new L.geoJson(json_2018cables2023geometries_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_20182023geometries_2',
-            layerName: 'layer_20182023geometries_2',
-            pane: 'pane_20182023geometries_2',
-            onEachFeature: pop_20182023geometries_2,
-            style: style_20182023geometries_2_0,
+            dataVar: 'json_2018cables2023geometries_2',
+            layerName: 'layer_2018cables2023geometries_2',
+            pane: 'pane_2018cables2023geometries_2',
+            onEachFeature: pop_2018cables2023geometries_2,
+            style: style_2018cables2023geometries_2_0,
         });
-        bounds_group.addLayer(layer_20182023geometries_2);
-        map.addLayer(layer_20182023geometries_2);
+        bounds_group.addLayer(layer_2018cables2023geometries_2);
+        map.addLayer(layer_2018cables2023geometries_2);
+        function pop_Landingpoints2018Raw_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Landingpoints2018Raw_3_0() {
+            return {
+                pane: 'pane_Landingpoints2018Raw_3',
+                radius: 1.8,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Landingpoints2018Raw_3');
+        map.getPane('pane_Landingpoints2018Raw_3').style.zIndex = 403;
+        map.getPane('pane_Landingpoints2018Raw_3').style['mix-blend-mode'] = 'normal';
+        var layer_Landingpoints2018Raw_3 = new L.geoJson(json_Landingpoints2018Raw_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Landingpoints2018Raw_3',
+            layerName: 'layer_Landingpoints2018Raw_3',
+            pane: 'pane_Landingpoints2018Raw_3',
+            onEachFeature: pop_Landingpoints2018Raw_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Landingpoints2018Raw_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Landingpoints2018Raw_3);
+        map.addLayer(layer_Landingpoints2018Raw_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/20182023geometries_2.png" /> 2018 (2023 geometries)': layer_20182023geometries_2,'<img src="legend/New20182023_1.png" /> New (2018-2023)': layer_New20182023_1,'<img src="legend/Countries_0.png" /> Countries': layer_Countries_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Landingpoints2018Raw_3.png" /> Landing points (2018 Raw)': layer_Landingpoints2018Raw_3,'<img src="legend/2018cables2023geometries_2.png" /> 2018 cables (2023 geometries)': layer_2018cables2023geometries_2,'<img src="legend/Newcables20182023_1.png" /> New cables (2018-2023)': layer_Newcables20182023_1,'<img src="legend/Countries_0.png" /> Countries': layer_Countries_0,},{collapsed:false}).addTo(map);
         map.on("zoomend", function(){
 
                 if (map.hasLayer(layer_Countries_0)) {
@@ -186,15 +239,1783 @@
                         });
                     }
                 }
-        resetLabels([layer_Countries_0]);
+        map.addControl(new L.Control.Search({
+            layer: layer_2018cables2023geometries_2,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Name'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        var mapDiv = document.getElementById('map');
+        var row = document.createElement('div');
+        row.className="row";
+        row.id="all";
+        row.style.height = "100%";
+        var col1 = document.createElement('div');
+        col1.className="col9";
+        col1.id = "mapWindow";
+        col1.style.height = "99%";
+        col1.style.width = "80%";
+        col1.style.display = "inline-block";
+        var col2 = document.createElement('div');
+        col2.className="col3";
+        col2.id = "menu";
+        col2.style.display = "inline-block";
+        mapDiv.parentNode.insertBefore(row, mapDiv);
+        document.getElementById("all").appendChild(col1);
+        document.getElementById("all").appendChild(col2);
+        col1.appendChild(mapDiv)
+        var Filters = {"Name": "str"};
+        function filterFunc() {
+          map.eachLayer(function(lyr){
+          if ("options" in lyr && "dataVar" in lyr["options"]){
+            features = this[lyr["options"]["dataVar"]].features.slice(0);
+            try{
+              for (key in Filters){
+                keyS = key.replace(/[^a-zA-Z0-9_]/g, "")
+                if (Filters[key] == "str" || Filters[key] == "bool"){
+                  var selection = [];
+                  var options = document.getElementById("sel_" + keyS).options
+                  for (var i=0; i < options.length; i++) {
+                    if (options[i].selected) selection.push(options[i].value);
+                  }
+                    try{
+                      if (key in features[0].properties){
+                        for (i = features.length - 1;
+                          i >= 0; --i){
+                          if (selection.indexOf(
+                          features[i].properties[key])<0
+                          && selection.length>0) {
+                          features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                  }
+                }
+                if (Filters[key] == "int"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (parseInt(features[i].properties[key])
+                          < sliderVals[0]
+                          || parseInt(features[i].properties[key])
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "real"){
+                  sliderVals =  document.getElementById(
+                    "div_" + keyS).noUiSlider.get();
+                  try{
+                    if (key in features[0].properties){
+                    for (i = features.length - 1; i >= 0; --i){
+                      if (features[i].properties[key]
+                          < sliderVals[0]
+                          || features[i].properties[key]
+                          > sliderVals[1]){
+                            features.splice(i,1);
+                          }
+                        }
+                      }
+                    } catch(err){
+                    }
+                  }
+                if (Filters[key] == "date"
+                  || Filters[key] == "datetime"
+                  || Filters[key] == "time"){
+                  try{
+                    if (key in features[0].properties){
+                      HTMLkey = key.replace(/[&\/\\#,+()$~%.'":*?<>{} ]/g, '');
+                      startdate = document.getElementById("dat_" +
+                        HTMLkey + "_date1").value.replace(" ", "T");
+                      enddate = document.getElementById("dat_" +
+                        HTMLkey + "_date2").value.replace(" ", "T");
+                      for (i = features.length - 1; i >= 0; --i){
+                        if (features[i].properties[key] < startdate
+                          || features[i].properties[key] > enddate){
+                          features.splice(i,1);
+                        }
+                      }
+                    }
+                  } catch(err){
+                  }
+                }
+              }
+            } catch(err){
+            }
+          this[lyr["options"]["layerName"]].clearLayers();
+          this[lyr["options"]["layerName"]].addData(features);
+          }
+          })
+        }
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_Name = document.createElement('div');
+            div_Name.id = "div_Name";
+            div_Name.className= "filterselect";
+            document.getElementById("menu").appendChild(div_Name);
+            sel_Name = document.createElement('select');
+            sel_Name.multiple = true;
+            sel_Name.size = 10;
+            sel_Name.id = "sel_Name";
+            var Name_options_str = "<option value='' unselected></option>";
+            sel_Name.onchange = function(){filterFunc()};
+            Name_options_str  += '<option value="2Africa">2Africa</option>';
+            Name_options_str  += '<option value="ACS Alaska-Oregon Network (AKORN)">ACS Alaska-Oregon Network (AKORN)</option>';
+            Name_options_str  += '<option value="AEC-1">AEC-1</option>';
+            Name_options_str  += '<option value="ALBA-1">ALBA-1</option>';
+            Name_options_str  += '<option value="ALPAL-2">ALPAL-2</option>';
+            Name_options_str  += '<option value="AMX-3/Tikal">AMX-3/Tikal</option>';
+            Name_options_str  += '<option value="APCN-2">APCN-2</option>';
+            Name_options_str  += '<option value="ARCOS">ARCOS</option>';
+            Name_options_str  += '<option value="ARIMAO">ARIMAO</option>';
+            Name_options_str  += '<option value="ARSAT Submarine Fiber Optic Cable">ARSAT Submarine Fiber Optic Cable</option>';
+            Name_options_str  += '<option value="Aasiaat, Greenland">Aasiaat, Greenland</option>';
+            Name_options_str  += '<option value="Aberdeen, United Kingdom">Aberdeen, United Kingdom</option>';
+            Name_options_str  += '<option value="Abidjan, Côte d&apos;Ivoire">Abidjan, Côte d&apos;Ivoire</option>';
+            Name_options_str  += '<option value="Abu Dhabi, United Arab Emirates">Abu Dhabi, United Arab Emirates</option>';
+            Name_options_str  += '<option value="Abu Talat, Egypt">Abu Talat, Egypt</option>';
+            Name_options_str  += '<option value="Accra, Ghana">Accra, Ghana</option>';
+            Name_options_str  += '<option value="Achnaba, United Kingdom">Achnaba, United Kingdom</option>';
+            Name_options_str  += '<option value="Aden, Yemen">Aden, Yemen</option>';
+            Name_options_str  += '<option value="Aden-Djibouti">Aden-Djibouti</option>';
+            Name_options_str  += '<option value="Adria-1">Adria-1</option>';
+            Name_options_str  += '<option value="Africa Coast to Europe (ACE)">Africa Coast to Europe (ACE)</option>';
+            Name_options_str  += '<option value="Africa-1">Africa-1</option>';
+            Name_options_str  += '<option value="Agats, Indonesia">Agats, Indonesia</option>';
+            Name_options_str  += '<option value="Aikerness , United Kingdom">Aikerness , United Kingdom</option>';
+            Name_options_str  += '<option value="Ajaccio, France">Ajaccio, France</option>';
+            Name_options_str  += '<option value="Ajigaura, Japan">Ajigaura, Japan</option>';
+            Name_options_str  += '<option value="Akutan, AK, United States">Akutan, AK, United States</option>';
+            Name_options_str  += '<option value="Al Baida, Libya">Al Baida, Libya</option>';
+            Name_options_str  += '<option value="Al Brega, Libya">Al Brega, Libya</option>';
+            Name_options_str  += '<option value="Al Bustan, Oman">Al Bustan, Oman</option>';
+            Name_options_str  += '<option value="Al Daayen, Qatar">Al Daayen, Qatar</option>';
+            Name_options_str  += '<option value="Al Ghaydah, Yemen">Al Ghaydah, Yemen</option>';
+            Name_options_str  += '<option value="Al Hidd, Bahrain">Al Hidd, Bahrain</option>';
+            Name_options_str  += '<option value="Al Hudaydah, Yemen">Al Hudaydah, Yemen</option>';
+            Name_options_str  += '<option value="Al Khobar, Saudi Arabia">Al Khobar, Saudi Arabia</option>';
+            Name_options_str  += '<option value="Al Khoms, Libya">Al Khoms, Libya</option>';
+            Name_options_str  += '<option value="Al Safat, Kuwait">Al Safat, Kuwait</option>';
+            Name_options_str  += '<option value="Al Seeb, Oman">Al Seeb, Oman</option>';
+            Name_options_str  += '<option value="Al-Faw, Iraq">Al-Faw, Iraq</option>';
+            Name_options_str  += '<option value="Al-Kheesa, Qatar">Al-Kheesa, Qatar</option>';
+            Name_options_str  += '<option value="Alaska United East (AU-East)">Alaska United East (AU-East)</option>';
+            Name_options_str  += '<option value="Alaska United Southeast (AU-SE)">Alaska United Southeast (AU-SE)</option>';
+            Name_options_str  += '<option value="Alaska United Turnagain Arm (AUTA)">Alaska United Turnagain Arm (AUTA)</option>';
+            Name_options_str  += '<option value="Alaska United West (AU-West)">Alaska United West (AU-West)</option>';
+            Name_options_str  += '<option value="Aldeburgh, United Kingdom">Aldeburgh, United Kingdom</option>';
+            Name_options_str  += '<option value="Aletar">Aletar</option>';
+            Name_options_str  += '<option value="Alexandria, Australia">Alexandria, Australia</option>';
+            Name_options_str  += '<option value="Alexandria, Egypt">Alexandria, Egypt</option>';
+            Name_options_str  += '<option value="Algiers, Algeria">Algiers, Algeria</option>';
+            Name_options_str  += '<option value="AlmerÃ­a-Melilla (ALME)">AlmerÃ­a-Melilla (ALME)</option>';
+            Name_options_str  += '<option value="Alonso de Ojeda">Alonso de Ojeda</option>';
+            Name_options_str  += '<option value="Alotau, Papua New Guinea">Alotau, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Alsgarde, Denmark">Alsgarde, Denmark</option>';
+            Name_options_str  += '<option value="Alta Vista, Canary Islands, Spain">Alta Vista, Canary Islands, Spain</option>';
+            Name_options_str  += '<option value="Ambalawi, Indonesia">Ambalawi, Indonesia</option>';
+            Name_options_str  += '<option value="Ambon, Indonesia">Ambon, Indonesia</option>';
+            Name_options_str  += '<option value="AmeriCan-1">AmeriCan-1</option>';
+            Name_options_str  += '<option value="America Movil Submarine Cable System-1 (AMX-1)">America Movil Submarine Cable System-1 (AMX-1)</option>';
+            Name_options_str  += '<option value="Americas-I North">Americas-I North</option>';
+            Name_options_str  += '<option value="Americas-II">Americas-II</option>';
+            Name_options_str  += '<option value="Amerigo Vespucci">Amerigo Vespucci</option>';
+            Name_options_str  += '<option value="Amitie">Amitie</option>';
+            Name_options_str  += '<option value="Amwaj Island, Bahrain">Amwaj Island, Bahrain</option>';
+            Name_options_str  += '<option value="Anchorage, Alaska, United States">Anchorage, Alaska, United States</option>';
+            Name_options_str  += '<option value="Ancol, Indonesia">Ancol, Indonesia</option>';
+            Name_options_str  += '<option value="Angoon, Alaska, United States">Angoon, Alaska, United States</option>';
+            Name_options_str  += '<option value="Angra do Heroismo, Portugal">Angra do Heroismo, Portugal</option>';
+            Name_options_str  += '<option value="Anjana">Anjana</option>';
+            Name_options_str  += '<option value="Annaba, Algeria">Annaba, Algeria</option>';
+            Name_options_str  += '<option value="Antillas 1">Antillas 1</option>';
+            Name_options_str  += '<option value="Antsiranana, Madagascar">Antsiranana, Madagascar</option>';
+            Name_options_str  += '<option value="Anyer, Indonesia">Anyer, Indonesia</option>';
+            Name_options_str  += '<option value="Apia, Samoa">Apia, Samoa</option>';
+            Name_options_str  += '<option value="Apollo">Apollo</option>';
+            Name_options_str  += '<option value="Apollo East and West">Apollo East and West</option>';
+            Name_options_str  += '<option value="Apricot">Apricot</option>';
+            Name_options_str  += '<option value="Aqaba, Jordan">Aqaba, Jordan</option>';
+            Name_options_str  += '<option value="Aqualink">Aqualink</option>';
+            Name_options_str  += '<option value="Aracajú, Brazil">Aracajú, Brazil</option>';
+            Name_options_str  += '<option value="Arawa, Papua New Guinea">Arawa, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Arcahaie, Haiti">Arcahaie, Haiti</option>';
+            Name_options_str  += '<option value="Archirondel, Jersey">Archirondel, Jersey</option>';
+            Name_options_str  += '<option value="Ardbeg Point, United Kingdom">Ardbeg Point, United Kingdom</option>';
+            Name_options_str  += '<option value="Ardgour, United Kingdom">Ardgour, United Kingdom</option>';
+            Name_options_str  += '<option value="Ardmair, United Kingdom">Ardmair, United Kingdom</option>';
+            Name_options_str  += '<option value="Ardnacross, United Kingdom">Ardnacross, United Kingdom</option>';
+            Name_options_str  += '<option value="Ardneil Bay, United Kingdom">Ardneil Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Ardvasar, United Kingdom">Ardvasar, United Kingdom</option>';
+            Name_options_str  += '<option value="Ardyne Point, United Kingdom">Ardyne Point, United Kingdom</option>';
+            Name_options_str  += '<option value="Arendal, Norway">Arendal, Norway</option>';
+            Name_options_str  += '<option value="Arica, Chile">Arica, Chile</option>';
+            Name_options_str  += '<option value="Arutua, French Polynesia">Arutua, French Polynesia</option>';
+            Name_options_str  += '<option value="Asia Africa Europe-1 (AAE-1)">Asia Africa Europe-1 (AAE-1)</option>';
+            Name_options_str  += '<option value="Asia Connect Cable-1 (ACC-1)">Asia Connect Cable-1 (ACC-1)</option>';
+            Name_options_str  += '<option value="Asia Direct Cable (ADC)">Asia Direct Cable (ADC)</option>';
+            Name_options_str  += '<option value="Asia Link Cable (ALC)">Asia Link Cable (ALC)</option>';
+            Name_options_str  += '<option value="Asia Pacific Gateway (APG)">Asia Pacific Gateway (APG)</option>';
+            Name_options_str  += '<option value="Asia Submarine-cable Express (ASE)/Cahaya Malaysia">Asia Submarine-cable Express (ASE)/Cahaya Malaysia</option>';
+            Name_options_str  += '<option value="Asia-America Gateway (AAG) Cable System">Asia-America Gateway (AAG) Cable System</option>';
+            Name_options_str  += '<option value="Asilah, Morocco">Asilah, Morocco</option>';
+            Name_options_str  += '<option value="Atafona, Brazil">Atafona, Brazil</option>';
+            Name_options_str  += '<option value="Athens, Greece">Athens, Greece</option>';
+            Name_options_str  += '<option value="Atisa">Atisa</option>';
+            Name_options_str  += '<option value="Atlantic Crossing-1 (AC-1)">Atlantic Crossing-1 (AC-1)</option>';
+            Name_options_str  += '<option value="Atlas Offshore">Atlas Offshore</option>';
+            Name_options_str  += '<option value="Auckland, New Zealand">Auckland, New Zealand</option>';
+            Name_options_str  += '<option value="Auki, Solomon Islands">Auki, Solomon Islands</option>';
+            Name_options_str  += '<option value="Aurora, Philippines">Aurora, Philippines</option>';
+            Name_options_str  += '<option value="Australia-Japan Cable (AJC)">Australia-Japan Cable (AJC)</option>';
+            Name_options_str  += '<option value="Australia-Singapore Cable (ASC)">Australia-Singapore Cable (ASC)</option>';
+            Name_options_str  += '<option value="Avassa">Avassa</option>';
+            Name_options_str  += '<option value="Ayre of Cara, United Kingdom">Ayre of Cara, United Kingdom</option>';
+            Name_options_str  += '<option value="Azores Fiber Optic System (AFOS)">Azores Fiber Optic System (AFOS)</option>';
+            Name_options_str  += '<option value="B2JS (Jakarta-Bangka-Batam-Singapore) Cable System">B2JS (Jakarta-Bangka-Batam-Singapore) Cable System</option>';
+            Name_options_str  += '<option value="BALOK">BALOK</option>';
+            Name_options_str  += '<option value="BCS East">BCS East</option>';
+            Name_options_str  += '<option value="BCS East-West Interlink">BCS East-West Interlink</option>';
+            Name_options_str  += '<option value="BCS North - Phase 1">BCS North - Phase 1</option>';
+            Name_options_str  += '<option value="BCS North - Phase 2">BCS North - Phase 2</option>';
+            Name_options_str  += '<option value="BERYTAR">BERYTAR</option>';
+            Name_options_str  += '<option value="BP Clair Ridge, United Kingdom">BP Clair Ridge, United Kingdom</option>';
+            Name_options_str  += '<option value="BRUSA">BRUSA</option>';
+            Name_options_str  += '<option value="BT Highlands and Islands Submarine Cable System">BT Highlands and Islands Submarine Cable System</option>';
+            Name_options_str  += '<option value="BT North Sea">BT North Sea</option>';
+            Name_options_str  += '<option value="BT-MT-1">BT-MT-1</option>';
+            Name_options_str  += '<option value="BUGIO">BUGIO</option>';
+            Name_options_str  += '<option value="Baa, Indonesia">Baa, Indonesia</option>';
+            Name_options_str  += '<option value="Baby Beach, Aruba">Baby Beach, Aruba</option>';
+            Name_options_str  += '<option value="Bahamas 2">Bahamas 2</option>';
+            Name_options_str  += '<option value="Bahamas Domestic Submarine Network (BDSNi)">Bahamas Domestic Submarine Network (BDSNi)</option>';
+            Name_options_str  += '<option value="Bahamas Internet Cable System (BICS)">Bahamas Internet Cable System (BICS)</option>';
+            Name_options_str  += '<option value="Bahar ic-Caghaq, Malta">Bahar ic-Caghaq, Malta</option>';
+            Name_options_str  += '<option value="Baie Jacotet, Mauritius">Baie Jacotet, Mauritius</option>';
+            Name_options_str  += '<option value="Baie Longue, SaintMartin">Baie Longue, SaintMartin</option>';
+            Name_options_str  += '<option value="Baie du Tombeau, Mauritius">Baie du Tombeau, Mauritius</option>';
+            Name_options_str  += '<option value="Baie-Mahault, Guadeloupe">Baie-Mahault, Guadeloupe</option>';
+            Name_options_str  += '<option value="Baillif, Guadeloupe">Baillif, Guadeloupe</option>';
+            Name_options_str  += '<option value="Balalink">Balalink</option>';
+            Name_options_str  += '<option value="Balboa, Panama">Balboa, Panama</option>';
+            Name_options_str  += '<option value="Balchik, Bulgaria">Balchik, Bulgaria</option>';
+            Name_options_str  += '<option value="Bali, Indonesia">Bali, Indonesia</option>';
+            Name_options_str  += '<option value="Balikpapan, Indonesia">Balikpapan, Indonesia</option>';
+            Name_options_str  += '<option value="Balla, United Kingdom">Balla, United Kingdom</option>';
+            Name_options_str  += '<option value="Ballesteros, Philippines">Ballesteros, Philippines</option>';
+            Name_options_str  += '<option value="Ballinesker, Ireland">Ballinesker, Ireland</option>';
+            Name_options_str  += '<option value="Balluta Bay, Malta">Balluta Bay, Malta</option>';
+            Name_options_str  += '<option value="Ballygrangans, Ireland">Ballygrangans, Ireland</option>';
+            Name_options_str  += '<option value="Ballyhornan, United Kingdom">Ballyhornan, United Kingdom</option>';
+            Name_options_str  += '<option value="Ballywater, United Kingdom">Ballywater, United Kingdom</option>';
+            Name_options_str  += '<option value="Baltic Sea Submarine Cable">Baltic Sea Submarine Cable</option>';
+            Name_options_str  += '<option value="Baltica">Baltica</option>';
+            Name_options_str  += '<option value="Banana Bay, VI, United States">Banana Bay, VI, United States</option>';
+            Name_options_str  += '<option value="Bandaneria, Indonesia">Bandaneria, Indonesia</option>';
+            Name_options_str  += '<option value="Bandar Abbas, Iran">Bandar Abbas, Iran</option>';
+            Name_options_str  += '<option value="Bandar Bukit Tinggi, Malaysia">Bandar Bukit Tinggi, Malaysia</option>';
+            Name_options_str  += '<option value="Bandar Lampung, Indonesia">Bandar Lampung, Indonesia</option>';
+            Name_options_str  += '<option value="Bandon, Oregon, United States">Bandon, Oregon, United States</option>';
+            Name_options_str  += '<option value="Banff, United Kingdom">Banff, United Kingdom</option>';
+            Name_options_str  += '<option value="Bangga, Indonesia">Bangga, Indonesia</option>';
+            Name_options_str  += '<option value="Banjarmasin, Indonesia">Banjarmasin, Indonesia</option>';
+            Name_options_str  += '<option value="Banjul, Gambia">Banjul, Gambia</option>';
+            Name_options_str  += '<option value="Banyu Urip, Indonesia">Banyu Urip, Indonesia</option>';
+            Name_options_str  += '<option value="Barcelona, Spain">Barcelona, Spain</option>';
+            Name_options_str  += '<option value="Bari, Italy">Bari, Italy</option>';
+            Name_options_str  += '<option value="Barka, Oman">Barka, Oman</option>';
+            Name_options_str  += '<option value="Barranquilla, Colombia">Barranquilla, Colombia</option>';
+            Name_options_str  += '<option value="Barsebäck, Sweden">Barsebäck, Sweden</option>';
+            Name_options_str  += '<option value="Bass Strait-1">Bass Strait-1</option>';
+            Name_options_str  += '<option value="Bass Strait-2">Bass Strait-2</option>';
+            Name_options_str  += '<option value="Basseterre, Saint Kitts and Nevis">Basseterre, Saint Kitts and Nevis</option>';
+            Name_options_str  += '<option value="Basslink">Basslink</option>';
+            Name_options_str  += '<option value="Bata, Equatorial Guinea">Bata, Equatorial Guinea</option>';
+            Name_options_str  += '<option value="Batam Dumai Melaka (BDM) Cable System">Batam Dumai Melaka (BDM) Cable System</option>';
+            Name_options_str  += '<option value="Batam Sarawak Internet Cable System (BaSICS)">Batam Sarawak Internet Cable System (BaSICS)</option>';
+            Name_options_str  += '<option value="Batam Singapore Cable System (BSCS)">Batam Singapore Cable System (BSCS)</option>';
+            Name_options_str  += '<option value="Batam, Indonesia">Batam, Indonesia</option>';
+            Name_options_str  += '<option value="Batam-Rengit Cable System (BRCS)">Batam-Rengit Cable System (BRCS)</option>';
+            Name_options_str  += '<option value="Batangas, Philippines">Batangas, Philippines</option>';
+            Name_options_str  += '<option value="Baturaja, Indonesia">Baturaja, Indonesia</option>';
+            Name_options_str  += '<option value="Baubau, Indonesia">Baubau, Indonesia</option>';
+            Name_options_str  += '<option value="Bay of Bengal Gateway (BBG)">Bay of Bengal Gateway (BBG)</option>';
+            Name_options_str  += '<option value="Bay of Tuquoy, United Kingdom">Bay of Tuquoy, United Kingdom</option>';
+            Name_options_str  += '<option value="Beculuk, Indonesia">Beculuk, Indonesia</option>';
+            Name_options_str  += '<option value="Beirut, Lebanon">Beirut, Lebanon</option>';
+            Name_options_str  += '<option value="Belize City, Belize">Belize City, Belize</option>';
+            Name_options_str  += '<option value="Bellport, New York, United States">Bellport, New York, United States</option>';
+            Name_options_str  += '<option value="Benghazi, Libya">Benghazi, Libya</option>';
+            Name_options_str  += '<option value="Berbera, Somalia">Berbera, Somalia</option>';
+            Name_options_str  += '<option value="Beverwijk, Netherlands">Beverwijk, Netherlands</option>';
+            Name_options_str  += '<option value="Bharat Lanka Cable System">Bharat Lanka Cable System</option>';
+            Name_options_str  += '<option value="Biak, Indonesia">Biak, Indonesia</option>';
+            Name_options_str  += '<option value="Bicentenario">Bicentenario</option>';
+            Name_options_str  += '<option value="Bifrost">Bifrost</option>';
+            Name_options_str  += '<option value="Bilbao, Spain">Bilbao, Spain</option>';
+            Name_options_str  += '<option value="Bintulu, Malaysia">Bintulu, Malaysia</option>';
+            Name_options_str  += '<option value="Bizerte, Tunisia">Bizerte, Tunisia</option>';
+            Name_options_str  += '<option value="Biznet Nusantara Cable System-1 (BNCS-1)">Biznet Nusantara Cable System-1 (BNCS-1)</option>';
+            Name_options_str  += '<option value="Blaabjerg, Denmark">Blaabjerg, Denmark</option>';
+            Name_options_str  += '<option value="Blackpool Sands, United Kingdom">Blackpool Sands, United Kingdom</option>';
+            Name_options_str  += '<option value="Blackpool, United Kingdom">Blackpool, United Kingdom</option>';
+            Name_options_str  += '<option value="Blackwaterfoot, United Kingdom">Blackwaterfoot, United Kingdom</option>';
+            Name_options_str  += '<option value="Blue">Blue</option>';
+            Name_options_str  += '<option value="Bluefields, Nicaragua">Bluefields, Nicaragua</option>';
+            Name_options_str  += '<option value="Boat Harbour, Tasmania, Australia">Boat Harbour, Tasmania, Australia</option>';
+            Name_options_str  += '<option value="Boca Raton, FL, United States">Boca Raton, FL, United States</option>';
+            Name_options_str  += '<option value="Boca Raton, Florida, United States">Boca Raton, Florida, United States</option>';
+            Name_options_str  += '<option value="Bodo-Rost Cable">Bodo-Rost Cable</option>';
+            Name_options_str  += '<option value="Bodø, Norway">Bodø, Norway</option>';
+            Name_options_str  += '<option value="Bomba, Belize">Bomba, Belize</option>';
+            Name_options_str  += '<option value="Bonny, Nigeria">Bonny, Nigeria</option>';
+            Name_options_str  += '<option value="Boracay-Palawan Submarine Cable System (BPSCS)">Boracay-Palawan Submarine Cable System (BPSCS)</option>';
+            Name_options_str  += '<option value="Bosaso, Somalia">Bosaso, Somalia</option>';
+            Name_options_str  += '<option value="Botnia">Botnia</option>';
+            Name_options_str  += '<option value="Branahuie Bay, United Kingdom">Branahuie Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Bratu Prahu, Indonesia">Bratu Prahu, Indonesia</option>';
+            Name_options_str  += '<option value="Brazilian Festoon">Brazilian Festoon</option>';
+            Name_options_str  += '<option value="Brean, United Kingdom">Brean, United Kingdom</option>';
+            Name_options_str  += '<option value="Bredene, Belgium">Bredene, Belgium</option>';
+            Name_options_str  += '<option value="Breivika, Norway">Breivika, Norway</option>';
+            Name_options_str  += '<option value="Brewer&apos;s Bay, VI, United States">Brewer&apos;s Bay, VI, United States</option>';
+            Name_options_str  += '<option value="Bridge One">Bridge One</option>';
+            Name_options_str  += '<option value="Bridgetown, Barbados">Bridgetown, Barbados</option>';
+            Name_options_str  += '<option value="Broadstairs, United Kingdom">Broadstairs, United Kingdom</option>';
+            Name_options_str  += '<option value="Brondby, Denmark">Brondby, Denmark</option>';
+            Name_options_str  += '<option value="Brookhaven, New York, United States">Brookhaven, New York, United States</option>';
+            Name_options_str  += '<option value="Brookvale, Australia">Brookvale, Australia</option>';
+            Name_options_str  += '<option value="Bude, United Kingdom">Bude, United Kingdom</option>';
+            Name_options_str  += '<option value="Buenaventura, Colombia">Buenaventura, Colombia</option>';
+            Name_options_str  += '<option value="Buffalo, New York, United States">Buffalo, New York, United States</option>';
+            Name_options_str  += '<option value="Bull Bay, Jamaica">Bull Bay, Jamaica</option>';
+            Name_options_str  += '<option value="Bunkeflostand, Sweden">Bunkeflostand, Sweden</option>';
+            Name_options_str  += '<option value="Buranga, Indonesia">Buranga, Indonesia</option>';
+            Name_options_str  += '<option value="Bushehr, Iran">Bushehr, Iran</option>';
+            Name_options_str  += '<option value="Butuan City, Philippines">Butuan City, Philippines</option>';
+            Name_options_str  += '<option value="C-Lion1">C-Lion1</option>';
+            Name_options_str  += '<option value="CADMOS">CADMOS</option>';
+            Name_options_str  += '<option value="CADMOS-2">CADMOS-2</option>';
+            Name_options_str  += '<option value="CAM Ring">CAM Ring</option>';
+            Name_options_str  += '<option value="CANDALTA">CANDALTA</option>';
+            Name_options_str  += '<option value="CANTAT-3">CANTAT-3</option>';
+            Name_options_str  += '<option value="CAP-1">CAP-1</option>';
+            Name_options_str  += '<option value="COBRAcable">COBRAcable</option>';
+            Name_options_str  += '<option value="COGIM">COGIM</option>';
+            Name_options_str  += '<option value="Cabimas, Venezuela">Cabimas, Venezuela</option>';
+            Name_options_str  += '<option value="Cabo Espiritu Santo, Argentina">Cabo Espiritu Santo, Argentina</option>';
+            Name_options_str  += '<option value="Cabo Verde Telecom Domestic Submarine Cable Phase 1">Cabo Verde Telecom Domestic Submarine Cable Phase 1</option>';
+            Name_options_str  += '<option value="Cabo Verde Telecom Domestic Submarine Cable Phase 2">Cabo Verde Telecom Domestic Submarine Cable Phase 2</option>';
+            Name_options_str  += '<option value="Cabo Verde Telecom Domestic Submarine Cable Phase 3">Cabo Verde Telecom Domestic Submarine Cable Phase 3</option>';
+            Name_options_str  += '<option value="Cacuaco, Angola">Cacuaco, Angola</option>';
+            Name_options_str  += '<option value="Cadiz City, Philippines">Cadiz City, Philippines</option>';
+            Name_options_str  += '<option value="Cagayan de Oro, Philippines">Cagayan de Oro, Philippines</option>';
+            Name_options_str  += '<option value="Cagliari, Italy">Cagliari, Italy</option>';
+            Name_options_str  += '<option value="Calbayog, Philippines">Calbayog, Philippines</option>';
+            Name_options_str  += '<option value="Calgary, United Kingdom">Calgary, United Kingdom</option>';
+            Name_options_str  += '<option value="Cambodia-Hong Kong">Cambodia-Hong Kong</option>';
+            Name_options_str  += '<option value="Camuri, Venezuela">Camuri, Venezuela</option>';
+            Name_options_str  += '<option value="Canalink">Canalink</option>';
+            Name_options_str  += '<option value="Cancún, Mexico">Cancún, Mexico</option>';
+            Name_options_str  += '<option value="Candelaria, Canary Islands, Spain">Candelaria, Canary Islands, Spain</option>';
+            Name_options_str  += '<option value="Candi Kusuma, Indonesia">Candi Kusuma, Indonesia</option>';
+            Name_options_str  += '<option value="Canefield, Dominica">Canefield, Dominica</option>';
+            Name_options_str  += '<option value="Cannes, France">Cannes, France</option>';
+            Name_options_str  += '<option value="Canterbury, New Zealand">Canterbury, New Zealand</option>';
+            Name_options_str  += '<option value="Cape D&apos;Aguilar, Hong Kong, China">Cape D&apos;Aguilar, Hong Kong, China</option>';
+            Name_options_str  += '<option value="Cape Town, South Africa">Cape Town, South Africa</option>';
+            Name_options_str  += '<option value="Carcavelos, Portugal">Carcavelos, Portugal</option>';
+            Name_options_str  += '<option value="Caribbean Express (CX)">Caribbean Express (CX)</option>';
+            Name_options_str  += '<option value="Caribbean Regional Communications Infrastructure Program (CARCIP)">Caribbean Regional Communications Infrastructure Program (CARCIP)</option>';
+            Name_options_str  += '<option value="Caribbean-Bermuda U.S. (CBUS)">Caribbean-Bermuda U.S. (CBUS)</option>';
+            Name_options_str  += '<option value="Carnival Submarine Network-1 (CSN-1)">Carnival Submarine Network-1 (CSN-1)</option>';
+            Name_options_str  += '<option value="Carrickfergus, United Kingdom">Carrickfergus, United Kingdom</option>';
+            Name_options_str  += '<option value="Cartagena, Colombia">Cartagena, Colombia</option>';
+            Name_options_str  += '<option value="Carúpano, Venezuela">Carúpano, Venezuela</option>';
+            Name_options_str  += '<option value="Castries, Saint Lucia">Castries, Saint Lucia</option>';
+            Name_options_str  += '<option value="Cat Island, Bahamas">Cat Island, Bahamas</option>';
+            Name_options_str  += '<option value="Catania, Italy">Catania, Italy</option>';
+            Name_options_str  += '<option value="Caucasus Cable System">Caucasus Cable System</option>';
+            Name_options_str  += '<option value="Caves Point, Bahamas">Caves Point, Bahamas</option>';
+            Name_options_str  += '<option value="Cavite, Philippines">Cavite, Philippines</option>';
+            Name_options_str  += '<option value="Cayenne, French Guiana">Cayenne, French Guiana</option>';
+            Name_options_str  += '<option value="Cayeux-sur-Mer, France">Cayeux-sur-Mer, France</option>';
+            Name_options_str  += '<option value="Cayman Brac, Cayman Islands">Cayman Brac, Cayman Islands</option>';
+            Name_options_str  += '<option value="Cayman-Jamaica Fiber System">Cayman-Jamaica Fiber System</option>';
+            Name_options_str  += '<option value="Cebu, Philippines">Cebu, Philippines</option>';
+            Name_options_str  += '<option value="Ceiba-1">Ceiba-1</option>';
+            Name_options_str  += '<option value="Ceiba-2">Ceiba-2</option>';
+            Name_options_str  += '<option value="Celtic Norse">Celtic Norse</option>';
+            Name_options_str  += '<option value="CeltixConnect-1 (CC-1)">CeltixConnect-1 (CC-1)</option>';
+            Name_options_str  += '<option value="Chabahar, Iran">Chabahar, Iran</option>';
+            Name_options_str  += '<option value="Chaguaramas, Trinidad and Tobago">Chaguaramas, Trinidad and Tobago</option>';
+            Name_options_str  += '<option value="Challenger Bermuda-1 (CB-1)">Challenger Bermuda-1 (CB-1)</option>';
+            Name_options_str  += '<option value="Changi North, Singapore">Changi North, Singapore</option>';
+            Name_options_str  += '<option value="Changi South, Singapore">Changi South, Singapore</option>';
+            Name_options_str  += '<option value="Chania, Greece">Chania, Greece</option>';
+            Name_options_str  += '<option value="Channel Islands-9 Liberty Submarine Cable">Channel Islands-9 Liberty Submarine Cable</option>';
+            Name_options_str  += '<option value="Charlestown, Rhode Island, United States">Charlestown, Rhode Island, United States</option>';
+            Name_options_str  += '<option value="Chennai, India">Chennai, India</option>';
+            Name_options_str  += '<option value="Chennai-Andaman & Nicobar Islands Cable">Chennai-Andaman & Nicobar Islands Cable</option>';
+            Name_options_str  += '<option value="Cherating, Malaysia">Cherating, Malaysia</option>';
+            Name_options_str  += '<option value="Chichiriviche, Venezuela">Chichiriviche, Venezuela</option>';
+            Name_options_str  += '<option value="Chikura, Japan">Chikura, Japan</option>';
+            Name_options_str  += '<option value="Chindini, Comoros">Chindini, Comoros</option>';
+            Name_options_str  += '<option value="Chipiona, Spain">Chipiona, Spain</option>';
+            Name_options_str  += '<option value="Chongming, China">Chongming, China</option>';
+            Name_options_str  += '<option value="Christiansted, VI, United States">Christiansted, VI, United States</option>';
+            Name_options_str  += '<option value="Chung Hom Kok, Hong Kong, China">Chung Hom Kok, Hong Kong, China</option>';
+            Name_options_str  += '<option value="Chuuk-Pohnpei Cable">Chuuk-Pohnpei Cable</option>';
+            Name_options_str  += '<option value="Circe North">Circe North</option>';
+            Name_options_str  += '<option value="Circe South">Circe South</option>';
+            Name_options_str  += '<option value="Cirebon, Indonesia">Cirebon, Indonesia</option>';
+            Name_options_str  += '<option value="Civitavecchia, Italy">Civitavecchia, Italy</option>';
+            Name_options_str  += '<option value="Clarence Town, Bahamas">Clarence Town, Bahamas</option>';
+            Name_options_str  += '<option value="Clonshaugh, Ireland">Clonshaugh, Ireland</option>';
+            Name_options_str  += '<option value="Cochin, India">Cochin, India</option>';
+            Name_options_str  += '<option value="Cockburn Town, Bahamas">Cockburn Town, Bahamas</option>';
+            Name_options_str  += '<option value="Coilleag, United Kingdom">Coilleag, United Kingdom</option>';
+            Name_options_str  += '<option value="Coleraine, United Kingdom">Coleraine, United Kingdom</option>';
+            Name_options_str  += '<option value="Colombia-Florida Subsea Fiber (CFX-1)">Colombia-Florida Subsea Fiber (CFX-1)</option>';
+            Name_options_str  += '<option value="Colombian Festoon">Colombian Festoon</option>';
+            Name_options_str  += '<option value="Colombo, Sri Lanka">Colombo, Sri Lanka</option>';
+            Name_options_str  += '<option value="Columbus-II b">Columbus-II b</option>';
+            Name_options_str  += '<option value="Columbus-III Azores-Portugal">Columbus-III Azores-Portugal</option>';
+            Name_options_str  += '<option value="Colón, Panama">Colón, Panama</option>';
+            Name_options_str  += '<option value="Comoros Domestic Cable System">Comoros Domestic Cable System</option>';
+            Name_options_str  += '<option value="Conakry, Guinea">Conakry, Guinea</option>';
+            Name_options_str  += '<option value="Concerto">Concerto</option>';
+            Name_options_str  += '<option value="Condado Beach, PR, United States">Condado Beach, PR, United States</option>';
+            Name_options_str  += '<option value="Confluence-1">Confluence-1</option>';
+            Name_options_str  += '<option value="Conil, Spain">Conil, Spain</option>';
+            Name_options_str  += '<option value="Connected Coast">Connected Coast</option>';
+            Name_options_str  += '<option value="Continente-Madeira">Continente-Madeira</option>';
+            Name_options_str  += '<option value="Converge Domestic Submarine Cable Network (CDSCN)">Converge Domestic Submarine Cable Network (CDSCN)</option>';
+            Name_options_str  += '<option value="Cook Strait">Cook Strait</option>';
+            Name_options_str  += '<option value="Copa Club, Jamaica">Copa Club, Jamaica</option>';
+            Name_options_str  += '<option value="Coral Sea Cable System (CS²)">Coral Sea Cable System (CS²)</option>';
+            Name_options_str  += '<option value="Corfu, Greece">Corfu, Greece</option>';
+            Name_options_str  += '<option value="Cork, Ireland">Cork, Ireland</option>';
+            Name_options_str  += '<option value="Coro, Venezuela">Coro, Venezuela</option>';
+            Name_options_str  += '<option value="Coron, Philippines">Coron, Philippines</option>';
+            Name_options_str  += '<option value="Corran, United Kingdom">Corran, United Kingdom</option>';
+            Name_options_str  += '<option value="Corrie, United Kingdom">Corrie, United Kingdom</option>';
+            Name_options_str  += '<option value="Corse-Continent 4 (CC4)">Corse-Continent 4 (CC4)</option>';
+            Name_options_str  += '<option value="Corse-Continent 5 (CC5)">Corse-Continent 5 (CC5)</option>';
+            Name_options_str  += '<option value="Corvo, Portugal">Corvo, Portugal</option>';
+            Name_options_str  += '<option value="Cotonou, Benin">Cotonou, Benin</option>';
+            Name_options_str  += '<option value="Cox’s Bazar, Bangladesh">Cox’s Bazar, Bangladesh</option>';
+            Name_options_str  += '<option value="Craighouse, United Kingdom">Craighouse, United Kingdom</option>';
+            Name_options_str  += '<option value="Crescent Beach, RI, United States">Crescent Beach, RI, United States</option>';
+            Name_options_str  += '<option value="Crooked Island, Bahamas">Crooked Island, Bahamas</option>';
+            Name_options_str  += '<option value="Cross Straits Cable Network (CSCN)">Cross Straits Cable Network (CSCN)</option>';
+            Name_options_str  += '<option value="Crosslake Fibre">Crosslake Fibre</option>';
+            Name_options_str  += '<option value="Crown Haven, Bahamas">Crown Haven, Bahamas</option>';
+            Name_options_str  += '<option value="Cumaná, Venezuela">Cumaná, Venezuela</option>';
+            Name_options_str  += '<option value="Curie">Curie</option>';
+            Name_options_str  += '<option value="Current, Bahamas">Current, Bahamas</option>';
+            Name_options_str  += '<option value="DAMAI Cable System">DAMAI Cable System</option>';
+            Name_options_str  += '<option value="DANICE">DANICE</option>';
+            Name_options_str  += '<option value="DOS CONTINENTES I & II">DOS CONTINENTES I & II</option>';
+            Name_options_str  += '<option value="Dadeng Island, China">Dadeng Island, China</option>';
+            Name_options_str  += '<option value="Daet, Philippines">Daet, Philippines</option>';
+            Name_options_str  += '<option value="Dakar, Senegal">Dakar, Senegal</option>';
+            Name_options_str  += '<option value="Dalian-Yantai Cable">Dalian-Yantai Cable</option>';
+            Name_options_str  += '<option value="Danang, Vietnam">Danang, Vietnam</option>';
+            Name_options_str  += '<option value="Dania Beach, FL, United States">Dania Beach, FL, United States</option>';
+            Name_options_str  += '<option value="Danica North">Danica North</option>';
+            Name_options_str  += '<option value="Dar Es Salaam, Tanzania">Dar Es Salaam, Tanzania</option>';
+            Name_options_str  += '<option value="Darnah, Libya">Darnah, Libya</option>';
+            Name_options_str  += '<option value="Dartmouth, United Kingdom">Dartmouth, United Kingdom</option>';
+            Name_options_str  += '<option value="Daru, Papua New Guinea">Daru, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Darwin, Australia">Darwin, Australia</option>';
+            Name_options_str  += '<option value="Darwin-Jakarta-Singapore Cable (DJSC)">Darwin-Jakarta-Singapore Cable (DJSC)</option>';
+            Name_options_str  += '<option value="Das Island, United Arab Emirates">Das Island, United Arab Emirates</option>';
+            Name_options_str  += '<option value="Davao, Philippines">Davao, Philippines</option>';
+            Name_options_str  += '<option value="Deep Blue One">Deep Blue One</option>';
+            Name_options_str  += '<option value="Deep Water Bay, Hong Kong, China">Deep Water Bay, Hong Kong, China</option>';
+            Name_options_str  += '<option value="Deeside Clwyd, United Kingdom">Deeside Clwyd, United Kingdom</option>';
+            Name_options_str  += '<option value="Denmark-Poland 2">Denmark-Poland 2</option>';
+            Name_options_str  += '<option value="Denmark-Sweden 15">Denmark-Sweden 15</option>';
+            Name_options_str  += '<option value="Denmark-Sweden 16">Denmark-Sweden 16</option>';
+            Name_options_str  += '<option value="Denmark-Sweden 17">Denmark-Sweden 17</option>';
+            Name_options_str  += '<option value="Denmark-Sweden 18">Denmark-Sweden 18</option>';
+            Name_options_str  += '<option value="Denpasar-Waingapu Cable Systems">Denpasar-Waingapu Cable Systems</option>';
+            Name_options_str  += '<option value="Dhangethi, Maldives">Dhangethi, Maldives</option>';
+            Name_options_str  += '<option value="Dhiraagu Cable Network">Dhiraagu Cable Network</option>';
+            Name_options_str  += '<option value="Dhiraagu-SLT Submarine Cable Network">Dhiraagu-SLT Submarine Cable Network</option>';
+            Name_options_str  += '<option value="Diba, Oman">Diba, Oman</option>';
+            Name_options_str  += '<option value="Didon">Didon</option>';
+            Name_options_str  += '<option value="Digital E4">Digital E4</option>';
+            Name_options_str  += '<option value="Djibouti Africa Regional Express 1 (DARE1)">Djibouti Africa Regional Express 1 (DARE1)</option>';
+            Name_options_str  += '<option value="Djibouti City, Djibouti">Djibouti City, Djibouti</option>';
+            Name_options_str  += '<option value="Doha, Qatar">Doha, Qatar</option>';
+            Name_options_str  += '<option value="Domburg, Netherlands">Domburg, Netherlands</option>';
+            Name_options_str  += '<option value="Donaghadee, United Kingdom">Donaghadee, United Kingdom</option>';
+            Name_options_str  += '<option value="Douala, Cameroon">Douala, Cameroon</option>';
+            Name_options_str  += '<option value="Douglas, Isle of Man">Douglas, Isle of Man</option>';
+            Name_options_str  += '<option value="Down Craig, United Kingdom">Down Craig, United Kingdom</option>';
+            Name_options_str  += '<option value="Dragor, Denmark">Dragor, Denmark</option>';
+            Name_options_str  += '<option value="Duart Bay, United Kingdom">Duart Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Dubai, United Arab Emirates">Dubai, United Arab Emirates</option>';
+            Name_options_str  += '<option value="Dublin, Ireland">Dublin, Ireland</option>';
+            Name_options_str  += '<option value="Dubrovnik, Croatia">Dubrovnik, Croatia</option>';
+            Name_options_str  += '<option value="Dumaguete, Philippines">Dumaguete, Philippines</option>';
+            Name_options_str  += '<option value="Dumai, Indonesia">Dumai, Indonesia</option>';
+            Name_options_str  += '<option value="Dumai-Melaka Cable System">Dumai-Melaka Cable System</option>';
+            Name_options_str  += '<option value="Dumpton Gap, United Kingdom">Dumpton Gap, United Kingdom</option>';
+            Name_options_str  += '<option value="Duncan Town, Bahamas">Duncan Town, Bahamas</option>';
+            Name_options_str  += '<option value="Dunnet Bay, United Kingdom">Dunnet Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Dunnet Head, United Kingdom">Dunnet Head, United Kingdom</option>';
+            Name_options_str  += '<option value="Dunvegan, United Kingdom">Dunvegan, United Kingdom</option>';
+            Name_options_str  += '<option value="Durban, South Africa">Durban, South Africa</option>';
+            Name_options_str  += '<option value="Durres, Albania">Durres, Albania</option>';
+            Name_options_str  += '<option value="Duynefontein, South Africa">Duynefontein, South Africa</option>';
+            Name_options_str  += '<option value="E-LLAN">E-LLAN</option>';
+            Name_options_str  += '<option value="EAC-C2C">EAC-C2C</option>';
+            Name_options_str  += '<option value="ECLink">ECLink</option>';
+            Name_options_str  += '<option value="ESAT-1">ESAT-1</option>';
+            Name_options_str  += '<option value="ESAT-2">ESAT-2</option>';
+            Name_options_str  += '<option value="EXA Express">EXA Express</option>';
+            Name_options_str  += '<option value="EXA North and South">EXA North and South</option>';
+            Name_options_str  += '<option value="East Coast Cable System">East Coast Cable System</option>';
+            Name_options_str  += '<option value="East London, South Africa">East London, South Africa</option>';
+            Name_options_str  += '<option value="East Micronesia Cable (EMC)">East Micronesia Cable (EMC)</option>';
+            Name_options_str  += '<option value="East-West">East-West</option>';
+            Name_options_str  += '<option value="East-West Submarine Cable System">East-West Submarine Cable System</option>';
+            Name_options_str  += '<option value="Eastern Africa Submarine System (EASSy)">Eastern Africa Submarine System (EASSy)</option>';
+            Name_options_str  += '<option value="Eastern Arctic Undersea Fibre Optic Network (EAUFON)">Eastern Arctic Undersea Fibre Optic Network (EAUFON)</option>';
+            Name_options_str  += '<option value="Eastern Caribbean Fiber System (ECFS)">Eastern Caribbean Fiber System (ECFS)</option>';
+            Name_options_str  += '<option value="Eastern Light Sweden-Finland I">Eastern Light Sweden-Finland I</option>';
+            Name_options_str  += '<option value="Eastern Light Sweden-Finland II">Eastern Light Sweden-Finland II</option>';
+            Name_options_str  += '<option value="Echo">Echo</option>';
+            Name_options_str  += '<option value="Eemshaven, Netherlands">Eemshaven, Netherlands</option>';
+            Name_options_str  += '<option value="Egmond, Netherlands">Egmond, Netherlands</option>';
+            Name_options_str  += '<option value="Eight-Mile Rock, Bahamas">Eight-Mile Rock, Bahamas</option>';
+            Name_options_str  += '<option value="El Djamila, Algeria">El Djamila, Algeria</option>';
+            Name_options_str  += '<option value="El Goro, Canary Islands, Spain">El Goro, Canary Islands, Spain</option>';
+            Name_options_str  += '<option value="El Médano, Canary Islands, Spain">El Médano, Canary Islands, Spain</option>';
+            Name_options_str  += '<option value="El Segundo, California, United States">El Segundo, California, United States</option>';
+            Name_options_str  += '<option value="El-Quawef, Libya">El-Quawef, Libya</option>';
+            Name_options_str  += '<option value="Ela Beach, Papua New Guinea">Ela Beach, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Elektra-GlobalConnect 1 (GC1)">Elektra-GlobalConnect 1 (GC1)</option>';
+            Name_options_str  += '<option value="EllaLink">EllaLink</option>';
+            Name_options_str  += '<option value="Emerald Bridge Fibres">Emerald Bridge Fibres</option>';
+            Name_options_str  += '<option value="Emi, Japan">Emi, Japan</option>';
+            Name_options_str  += '<option value="Ende, Indonesia">Ende, Indonesia</option>';
+            Name_options_str  += '<option value="Endrup, Denmark">Endrup, Denmark</option>';
+            Name_options_str  += '<option value="Energinet Laeso-Varberg">Energinet Laeso-Varberg</option>';
+            Name_options_str  += '<option value="Energinet Lyngsa-Laeso">Energinet Lyngsa-Laeso</option>';
+            Name_options_str  += '<option value="Energy Bridge Cable">Energy Bridge Cable</option>';
+            Name_options_str  += '<option value="Epic Malta-Sicily Cable System (EMSCS)">Epic Malta-Sicily Cable System (EMSCS)</option>';
+            Name_options_str  += '<option value="Equiano">Equiano</option>';
+            Name_options_str  += '<option value="Esbjerg, Denmark">Esbjerg, Denmark</option>';
+            Name_options_str  += '<option value="Estepona, Spain">Estepona, Spain</option>';
+            Name_options_str  += '<option value="Estepona-Tetouan">Estepona-Tetouan</option>';
+            Name_options_str  += '<option value="Europe India Gateway (EIG)">Europe India Gateway (EIG)</option>';
+            Name_options_str  += '<option value="Eviny Digital">Eviny Digital</option>';
+            Name_options_str  += '<option value="Eydhafushi, Maldives">Eydhafushi, Maldives</option>';
+            Name_options_str  += '<option value="FALCON">FALCON</option>';
+            Name_options_str  += '<option value="FARICE-1">FARICE-1</option>';
+            Name_options_str  += '<option value="FASTER">FASTER</option>';
+            Name_options_str  += '<option value="FLAG Atlantic-1 (FA-1)">FLAG Atlantic-1 (FA-1)</option>';
+            Name_options_str  += '<option value="FLAG Europe-Asia (FEA)">FLAG Europe-Asia (FEA)</option>';
+            Name_options_str  += '<option value="FLAG North Asia Loop/REACH North Asia Loop">FLAG North Asia Loop/REACH North Asia Loop</option>';
+            Name_options_str  += '<option value="FLY-LION3">FLY-LION3</option>';
+            Name_options_str  += '<option value="FOS Quellon-Chacabuco">FOS Quellon-Chacabuco</option>';
+            Name_options_str  += '<option value="Faial, Portugal">Faial, Portugal</option>';
+            Name_options_str  += '<option value="Fakarava, French Polynesia">Fakarava, French Polynesia</option>';
+            Name_options_str  += '<option value="Fakfak, Indonesia">Fakfak, Indonesia</option>';
+            Name_options_str  += '<option value="False Pass, Alaska, United States">False Pass, Alaska, United States</option>';
+            Name_options_str  += '<option value="Fangshan, Taiwan">Fangshan, Taiwan</option>';
+            Name_options_str  += '<option value="Far East Submarine Cable System">Far East Submarine Cable System</option>';
+            Name_options_str  += '<option value="Farland North">Farland North</option>';
+            Name_options_str  += '<option value="Farosund, Sweden">Farosund, Sweden</option>';
+            Name_options_str  += '<option value="Farsund, Norway">Farsund, Norway</option>';
+            Name_options_str  += '<option value="Fehmarn Bält">Fehmarn Bält</option>';
+            Name_options_str  += '<option value="Feolin Ferry, United Kingdom">Feolin Ferry, United Kingdom</option>';
+            Name_options_str  += '<option value="Fiber Internet Serving Homes in Alaska (FISH in AK)">Fiber Internet Serving Homes in Alaska (FISH in AK)</option>';
+            Name_options_str  += '<option value="Fiber Optic Gulf (FOG)">Fiber Optic Gulf (FOG)</option>';
+            Name_options_str  += '<option value="Fibra Optica Austral">Fibra Optica Austral</option>';
+            Name_options_str  += '<option value="Fibra Optica al PacÃ­fico">Fibra Optica al PacÃ­fico</option>';
+            Name_options_str  += '<option value="Fibralink">Fibralink</option>';
+            Name_options_str  += '<option value="Finland Estonia Connection (FEC)">Finland Estonia Connection (FEC)</option>';
+            Name_options_str  += '<option value="Finland-Estonia 2 (EESF-2)">Finland-Estonia 2 (EESF-2)</option>';
+            Name_options_str  += '<option value="Finland-Estonia 3 (EESF-3)">Finland-Estonia 3 (EESF-3)</option>';
+            Name_options_str  += '<option value="Firmina">Firmina</option>';
+            Name_options_str  += '<option value="Fish Camp, Alaska, United States">Fish Camp, Alaska, United States</option>';
+            Name_options_str  += '<option value="Flamingo Bay, VI, United States">Flamingo Bay, VI, United States</option>';
+            Name_options_str  += '<option value="Florence, Oregon, United States">Florence, Oregon, United States</option>';
+            Name_options_str  += '<option value="Flores, Portugal">Flores, Portugal</option>';
+            Name_options_str  += '<option value="Flores-Corvo Cable System">Flores-Corvo Cable System</option>';
+            Name_options_str  += '<option value="Flying Fish Cove, Christmas Island">Flying Fish Cove, Christmas Island</option>';
+            Name_options_str  += '<option value="Fomboni Moheli, Comoros">Fomboni Moheli, Comoros</option>';
+            Name_options_str  += '<option value="Fort Amador, Panama">Fort Amador, Panama</option>';
+            Name_options_str  += '<option value="Fort Bay, Bonaire, Sint Eustatius and Saba">Fort Bay, Bonaire, Sint Eustatius and Saba</option>';
+            Name_options_str  += '<option value="Fort Dauphin, Madagascar">Fort Dauphin, Madagascar</option>';
+            Name_options_str  += '<option value="Fortaleza, Brazil">Fortaleza, Brazil</option>';
+            Name_options_str  += '<option value="Fortune, NL, Canada">Fortune, NL, Canada</option>';
+            Name_options_str  += '<option value="Four Mile Bluff, Australia">Four Mile Bluff, Australia</option>';
+            Name_options_str  += '<option value="Frederiksted, VI, United States">Frederiksted, VI, United States</option>';
+            Name_options_str  += '<option value="Freetown, Sierra Leone">Freetown, Sierra Leone</option>';
+            Name_options_str  += '<option value="Fresh Creek, Bahamas">Fresh Creek, Bahamas</option>';
+            Name_options_str  += '<option value="Fujairah, United Arab Emirates">Fujairah, United Arab Emirates</option>';
+            Name_options_str  += '<option value="Fukuoka, Japan">Fukuoka, Japan</option>';
+            Name_options_str  += '<option value="Funchal, Portugal">Funchal, Portugal</option>';
+            Name_options_str  += '<option value="Funningsfjordur, Faeroe Islands">Funningsfjordur, Faeroe Islands</option>';
+            Name_options_str  += '<option value="Fuvahmulah, Maldives">Fuvahmulah, Maldives</option>';
+            Name_options_str  += '<option value="Fuzhou, China">Fuzhou, China</option>';
+            Name_options_str  += '<option value="GO-1 Mediterranean Cable System">GO-1 Mediterranean Cable System</option>';
+            Name_options_str  += '<option value="GTMO-1">GTMO-1</option>';
+            Name_options_str  += '<option value="GTMO-PR">GTMO-PR</option>';
+            Name_options_str  += '<option value="Gahdhoo, Maldives">Gahdhoo, Maldives</option>';
+            Name_options_str  += '<option value="Galapagos Cable System">Galapagos Cable System</option>';
+            Name_options_str  += '<option value="Gan, Maldives">Gan, Maldives</option>';
+            Name_options_str  += '<option value="Ganavan Bay, United Kingdom">Ganavan Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Ganaveh, Iran">Ganaveh, Iran</option>';
+            Name_options_str  += '<option value="Gavá, Spain">Gavá, Spain</option>';
+            Name_options_str  += '<option value="Gedebak Odde, Denmark">Gedebak Odde, Denmark</option>';
+            Name_options_str  += '<option value="Gedser, Denmark">Gedser, Denmark</option>';
+            Name_options_str  += '<option value="Gemini Bermuda">Gemini Bermuda</option>';
+            Name_options_str  += '<option value="Geo-Eirgrid">Geo-Eirgrid</option>';
+            Name_options_str  += '<option value="George Town, Bahamas">George Town, Bahamas</option>';
+            Name_options_str  += '<option value="Georgetown, Guyana">Georgetown, Guyana</option>';
+            Name_options_str  += '<option value="Georgia-Russia">Georgia-Russia</option>';
+            Name_options_str  += '<option value="Germany-Denmark 3">Germany-Denmark 3</option>';
+            Name_options_str  += '<option value="Gibraltar, Gibraltar">Gibraltar, Gibraltar</option>';
+            Name_options_str  += '<option value="Girne, Cyprus">Girne, Cyprus</option>';
+            Name_options_str  += '<option value="Girvan, United Kingdom">Girvan, United Kingdom</option>';
+            Name_options_str  += '<option value="Glen Lyon, United Kingdom">Glen Lyon, United Kingdom</option>';
+            Name_options_str  += '<option value="Glenbarr, United Kingdom">Glenbarr, United Kingdom</option>';
+            Name_options_str  += '<option value="Glo-1">Glo-1</option>';
+            Name_options_str  += '<option value="Global Caribbean Network (GCN)">Global Caribbean Network (GCN)</option>';
+            Name_options_str  += '<option value="GlobalConnect 2 (GC2)">GlobalConnect 2 (GC2)</option>';
+            Name_options_str  += '<option value="GlobalConnect 3 (GC3)">GlobalConnect 3 (GC3)</option>';
+            Name_options_str  += '<option value="GlobalConnect-KPN">GlobalConnect-KPN</option>';
+            Name_options_str  += '<option value="GlobeNet">GlobeNet</option>';
+            Name_options_str  += '<option value="Gold Data-1">Gold Data-1</option>';
+            Name_options_str  += '<option value="Golden Bay, Malta">Golden Bay, Malta</option>';
+            Name_options_str  += '<option value="Gondwana-1">Gondwana-1</option>';
+            Name_options_str  += '<option value="Gondwana-2/Picot-2">Gondwana-2/Picot-2</option>';
+            Name_options_str  += '<option value="Goonhilly Downs, United Kingdom">Goonhilly Downs, United Kingdom</option>';
+            Name_options_str  += '<option value="Governors Harbor, Bahamas">Governors Harbor, Bahamas</option>';
+            Name_options_str  += '<option value="Grace Hopper">Grace Hopper</option>';
+            Name_options_str  += '<option value="Graciosa, Portugal">Graciosa, Portugal</option>';
+            Name_options_str  += '<option value="Gran Canaria, Canary Islands, Spain">Gran Canaria, Canary Islands, Spain</option>';
+            Name_options_str  += '<option value="Grand Baie (Rodrigues), Mauritius">Grand Baie (Rodrigues), Mauritius</option>';
+            Name_options_str  += '<option value="Great Bay Beach, Saint Martin">Great Bay Beach, Saint Martin</option>';
+            Name_options_str  += '<option value="Great Bay, VI, United States">Great Bay, VI, United States</option>';
+            Name_options_str  += '<option value="Greenland Connect">Greenland Connect</option>';
+            Name_options_str  += '<option value="Greenland Connect North">Greenland Connect North</option>';
+            Name_options_str  += '<option value="Greve de Lecq, Jersey">Greve de Lecq, Jersey</option>';
+            Name_options_str  += '<option value="Groix 4">Groix 4</option>';
+            Name_options_str  += '<option value="Groudle Bay, United Kingdom">Groudle Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Grover Beach, California, United States">Grover Beach, California, United States</option>';
+            Name_options_str  += '<option value="Guadeloupe Cable des Iles du Sud (GCIS)">Guadeloupe Cable des Iles du Sud (GCIS)</option>';
+            Name_options_str  += '<option value="Guam Okinawa Kyushu Incheon (GOKI)">Guam Okinawa Kyushu Incheon (GOKI)</option>';
+            Name_options_str  += '<option value="Guantanamo Bay, Cuba">Guantanamo Bay, Cuba</option>';
+            Name_options_str  += '<option value="Guanyin Mountain, China">Guanyin Mountain, China</option>';
+            Name_options_str  += '<option value="Guernsey-Jersey-4">Guernsey-Jersey-4</option>';
+            Name_options_str  += '<option value="Gulf Bridge International Cable System (GBICS)/Middle East North Africa (MENA) Cable System">Gulf Bridge International Cable System (GBICS)/Middle East North Africa (MENA) Cable System</option>';
+            Name_options_str  += '<option value="Gulf of California Cable">Gulf of California Cable</option>';
+            Name_options_str  += '<option value="Gulf of Mexico Fiber Optic Network">Gulf of Mexico Fiber Optic Network</option>';
+            Name_options_str  += '<option value="Gulf2Africa (G2A)">Gulf2Africa (G2A)</option>';
+            Name_options_str  += '<option value="Guningtou, Taiwan">Guningtou, Taiwan</option>';
+            Name_options_str  += '<option value="Gustavia, Saint Barthélemy">Gustavia, Saint Barthélemy</option>';
+            Name_options_str  += '<option value="Gwadar, Pakistan">Gwadar, Pakistan</option>';
+            Name_options_str  += '<option value="Gwador, Pakistan">Gwador, Pakistan</option>';
+            Name_options_str  += '<option value="Güimar, Canary Islands">Güimar, Canary Islands</option>';
+            Name_options_str  += '<option value="HANNIBAL System">HANNIBAL System</option>';
+            Name_options_str  += '<option value="HANTRU1 Cable System">HANTRU1 Cable System</option>';
+            Name_options_str  += '<option value="HDR1">HDR1</option>';
+            Name_options_str  += '<option value="HDR2">HDR2</option>';
+            Name_options_str  += '<option value="HICS (Hawaii Inter-Island Cable System)">HICS (Hawaii Inter-Island Cable System)</option>';
+            Name_options_str  += '<option value="HIFN (Hawaii Island Fibre Network)">HIFN (Hawaii Island Fibre Network)</option>';
+            Name_options_str  += '<option value="Haifa, Israel">Haifa, Israel</option>';
+            Name_options_str  += '<option value="Haikou-Beihai Cable">Haikou-Beihai Cable</option>';
+            Name_options_str  += '<option value="Haina, Dominican Republic">Haina, Dominican Republic</option>';
+            Name_options_str  += '<option value="Hainan to Hong Kong Express (H2HE)">Hainan to Hong Kong Express (H2HE)</option>';
+            Name_options_str  += '<option value="Haines, Alaska, United States">Haines, Alaska, United States</option>';
+            Name_options_str  += '<option value="Half Moon Bay, Cayman Islands">Half Moon Bay, Cayman Islands</option>';
+            Name_options_str  += '<option value="Halifax, Nova Scotia, Canada">Halifax, Nova Scotia, Canada</option>';
+            Name_options_str  += '<option value="Halul Island, Qatar">Halul Island, Qatar</option>';
+            Name_options_str  += '<option value="Hanko, Finland">Hanko, Finland</option>';
+            Name_options_str  += '<option value="Hao, French Polynesia">Hao, French Polynesia</option>';
+            Name_options_str  += '<option value="Haradsholm, Finland">Haradsholm, Finland</option>';
+            Name_options_str  += '<option value="Harbour Pointe, Washington, United States">Harbour Pointe, Washington, United States</option>';
+            Name_options_str  += '<option value="Harbour View, Jamaica">Harbour View, Jamaica</option>';
+            Name_options_str  += '<option value="Havelet Bay, Guernsey">Havelet Bay, Guernsey</option>';
+            Name_options_str  += '<option value="Havfrue/AEC-2">Havfrue/AEC-2</option>';
+            Name_options_str  += '<option value="Havhingsten/CeltixConnect-2 (CC-2)">Havhingsten/CeltixConnect-2 (CC-2)</option>';
+            Name_options_str  += '<option value="Havhingsten/North Sea Connect (NSC)">Havhingsten/North Sea Connect (NSC)</option>';
+            Name_options_str  += '<option value="Havsil">Havsil</option>';
+            Name_options_str  += '<option value="Hawaii Kai,  Hawaii, United States">Hawaii Kai,  Hawaii, United States</option>';
+            Name_options_str  += '<option value="Hawaiki">Hawaiki</option>';
+            Name_options_str  += '<option value="Hawaiki Nui">Hawaiki Nui</option>';
+            Name_options_str  += '<option value="Hawk">Hawk</option>';
+            Name_options_str  += '<option value="Hawk Inlet, Alaska, United States">Hawk Inlet, Alaska, United States</option>';
+            Name_options_str  += '<option value="Hawksbill, Bahamas">Hawksbill, Bahamas</option>';
+            Name_options_str  += '<option value="Helsingborg, Sweden">Helsingborg, Sweden</option>';
+            Name_options_str  += '<option value="Helsingfors, Finland">Helsingfors, Finland</option>';
+            Name_options_str  += '<option value="Helsingør, Denmark">Helsingør, Denmark</option>';
+            Name_options_str  += '<option value="Helsinki, Finland">Helsinki, Finland</option>';
+            Name_options_str  += '<option value="Hermosa Beach, California, United States">Hermosa Beach, California, United States</option>';
+            Name_options_str  += '<option value="High-capacity Undersea Guernsey Optical-fibre (HUGO)">High-capacity Undersea Guernsey Optical-fibre (HUGO)</option>';
+            Name_options_str  += '<option value="Highbridge, United Kingdom">Highbridge, United Kingdom</option>';
+            Name_options_str  += '<option value="Higuerote, Venezuela">Higuerote, Venezuela</option>';
+            Name_options_str  += '<option value="Hillsboro, Oregon, United States">Hillsboro, Oregon, United States</option>';
+            Name_options_str  += '<option value="Hithadhoo, Maldives">Hithadhoo, Maldives</option>';
+            Name_options_str  += '<option value="Hitia&apos;a, French Polynesia">Hitia&apos;a, French Polynesia</option>';
+            Name_options_str  += '<option value="Hiva Oa, French Polynesia">Hiva Oa, French Polynesia</option>';
+            Name_options_str  += '<option value="Hjørring, Denmark">Hjørring, Denmark</option>';
+            Name_options_str  += '<option value="Hokkaido-Akita Cable">Hokkaido-Akita Cable</option>';
+            Name_options_str  += '<option value="Hokkaido-Sakhalin Cable System (HSCS)">Hokkaido-Sakhalin Cable System (HSCS)</option>';
+            Name_options_str  += '<option value="Hollywood, Florida, United States">Hollywood, Florida, United States</option>';
+            Name_options_str  += '<option value="Holyhead, United Kingdom">Holyhead, United Kingdom</option>';
+            Name_options_str  += '<option value="Homer, Alaska, United States">Homer, Alaska, United States</option>';
+            Name_options_str  += '<option value="Honiara, Solomon Islands">Honiara, Solomon Islands</option>';
+            Name_options_str  += '<option value="Honotua">Honotua</option>';
+            Name_options_str  += '<option value="Hronn">Hronn</option>';
+            Name_options_str  += '<option value="Huahine, French Polynesia">Huahine, French Polynesia</option>';
+            Name_options_str  += '<option value="Hudishibana, Aruba">Hudishibana, Aruba</option>';
+            Name_options_str  += '<option value="Hulhumale, Maldives">Hulhumale, Maldives</option>';
+            Name_options_str  += '<option value="IMEWE">IMEWE</option>';
+            Name_options_str  += '<option value="INDIGO-Central">INDIGO-Central</option>';
+            Name_options_str  += '<option value="INDIGO-West">INDIGO-West</option>';
+            Name_options_str  += '<option value="INGRID">INGRID</option>';
+            Name_options_str  += '<option value="IP-Only Denmark-Sweden">IP-Only Denmark-Sweden</option>';
+            Name_options_str  += '<option value="IRIS">IRIS</option>';
+            Name_options_str  += '<option value="Igiugig, Alaska, United States">Igiugig, Alaska, United States</option>';
+            Name_options_str  += '<option value="Ijmuiden, Netherlands">Ijmuiden, Netherlands</option>';
+            Name_options_str  += '<option value="Ilhéus, Brazil">Ilhéus, Brazil</option>';
+            Name_options_str  += '<option value="Illiamna, Alaska, United States">Illiamna, Alaska, United States</option>';
+            Name_options_str  += '<option value="Ilyich, Russia">Ilyich, Russia</option>';
+            Name_options_str  += '<option value="India Asia Xpress (IAX)">India Asia Xpress (IAX)</option>';
+            Name_options_str  += '<option value="India Europe Xpress (IEX)">India Europe Xpress (IEX)</option>';
+            Name_options_str  += '<option value="Indonesia Global Gateway (IGG) System">Indonesia Global Gateway (IGG) System</option>';
+            Name_options_str  += '<option value="Interchange Cable Network 1 (ICN1)">Interchange Cable Network 1 (ICN1)</option>';
+            Name_options_str  += '<option value="Inverloch, Australia">Inverloch, Australia</option>';
+            Name_options_str  += '<option value="Ionian">Ionian</option>';
+            Name_options_str  += '<option value="Ishikari, Japan">Ishikari, Japan</option>';
+            Name_options_str  += '<option value="Isla Verde, Puerto Rico, United States">Isla Verde, Puerto Rico, United States</option>';
+            Name_options_str  += '<option value="Island Park, New York, United States">Island Park, New York, United States</option>';
+            Name_options_str  += '<option value="Isles of Scilly Cable">Isles of Scilly Cable</option>';
+            Name_options_str  += '<option value="Istanbul, Turkey">Istanbul, Turkey</option>';
+            Name_options_str  += '<option value="Italy-Albania">Italy-Albania</option>';
+            Name_options_str  += '<option value="Italy-Croatia">Italy-Croatia</option>';
+            Name_options_str  += '<option value="Italy-Greece 1">Italy-Greece 1</option>';
+            Name_options_str  += '<option value="Italy-Libya">Italy-Libya</option>';
+            Name_options_str  += '<option value="Italy-Malta">Italy-Malta</option>';
+            Name_options_str  += '<option value="Italy-Monaco">Italy-Monaco</option>';
+            Name_options_str  += '<option value="Ixchel">Ixchel</option>';
+            Name_options_str  += '<option value="JAKABARE">JAKABARE</option>';
+            Name_options_str  += '<option value="JASUKA">JASUKA</option>';
+            Name_options_str  += '<option value="JSCFS">JSCFS</option>';
+            Name_options_str  += '<option value="JUNO">JUNO</option>';
+            Name_options_str  += '<option value="JUPITER">JUPITER</option>';
+            Name_options_str  += '<option value="JaKa2LaDeMa">JaKa2LaDeMa</option>';
+            Name_options_str  += '<option value="Jacksonville, Florida, United States">Jacksonville, Florida, United States</option>';
+            Name_options_str  += '<option value="Jakarta Surabaya Cable System (JAYABAYA)">Jakarta Surabaya Cable System (JAYABAYA)</option>';
+            Name_options_str  += '<option value="Jakarta, Indonesia">Jakarta, Indonesia</option>';
+            Name_options_str  += '<option value="Jakarta-Bangka-Bintan-Batam-Singapore (B3JS)">Jakarta-Bangka-Bintan-Batam-Singapore (B3JS)</option>';
+            Name_options_str  += '<option value="Jambi, Indonesia">Jambi, Indonesia</option>';
+            Name_options_str  += '<option value="Jambi-Batam Cable System (JIBA)">Jambi-Batam Cable System (JIBA)</option>';
+            Name_options_str  += '<option value="Janna">Janna</option>';
+            Name_options_str  += '<option value="Japan Information Highway (JIH)">Japan Information Highway (JIH)</option>';
+            Name_options_str  += '<option value="Japan-Guam-Australia North (JGA-N)">Japan-Guam-Australia North (JGA-N)</option>';
+            Name_options_str  += '<option value="Japan-Guam-Australia South (JGA-S)">Japan-Guam-Australia South (JGA-S)</option>';
+            Name_options_str  += '<option value="Japan-U.S. Cable Network (JUS)">Japan-U.S. Cable Network (JUS)</option>';
+            Name_options_str  += '<option value="Jarry, Guadeloupe">Jarry, Guadeloupe</option>';
+            Name_options_str  += '<option value="Jask, Iran">Jask, Iran</option>';
+            Name_options_str  += '<option value="Java Bali Cable System (JBCS)">Java Bali Cable System (JBCS)</option>';
+            Name_options_str  += '<option value="Java-Kalimantan-Sulawesi (JAKASUSI)">Java-Kalimantan-Sulawesi (JAKASUSI)</option>';
+            Name_options_str  += '<option value="Jayapura, Indonesia">Jayapura, Indonesia</option>';
+            Name_options_str  += '<option value="Jeddah, Saudi Arabia">Jeddah, Saudi Arabia</option>';
+            Name_options_str  += '<option value="Jerry Newton">Jerry Newton</option>';
+            Name_options_str  += '<option value="Jimbaran, Indonesia">Jimbaran, Indonesia</option>';
+            Name_options_str  += '<option value="Jonah">Jonah</option>';
+            Name_options_str  += '<option value="João Pessoa, Brazil">João Pessoa, Brazil</option>';
+            Name_options_str  += '<option value="Juneau, Alaska, United States">Juneau, Alaska, United States</option>';
+            Name_options_str  += '<option value="Junior">Junior</option>';
+            Name_options_str  += '<option value="KAFOS">KAFOS</option>';
+            Name_options_str  += '<option value="Kahe Point, Hawaii, United States">Kahe Point, Hawaii, United States</option>';
+            Name_options_str  += '<option value="Kaimana, Indonesia">Kaimana, Indonesia</option>';
+            Name_options_str  += '<option value="Kaliko, Haiti">Kaliko, Haiti</option>';
+            Name_options_str  += '<option value="Kaliningrad Cable">Kaliningrad Cable</option>';
+            Name_options_str  += '<option value="Kanawa">Kanawa</option>';
+            Name_options_str  += '<option value="Kapolei, HI, United States">Kapolei, HI, United States</option>';
+            Name_options_str  += '<option value="Karachi, Pakistan">Karachi, Pakistan</option>';
+            Name_options_str  += '<option value="Katong, Singapore">Katong, Singapore</option>';
+            Name_options_str  += '<option value="Kattegat 2">Kattegat 2</option>';
+            Name_options_str  += '<option value="Katthammarsvik, Sweden">Katthammarsvik, Sweden</option>';
+            Name_options_str  += '<option value="Kattittuq Nunavut Fibre Link">Kattittuq Nunavut Fibre Link</option>';
+            Name_options_str  += '<option value="Katwijk, Netherlands">Katwijk, Netherlands</option>';
+            Name_options_str  += '<option value="Kauditan, Indonesia">Kauditan, Indonesia</option>';
+            Name_options_str  += '<option value="Kaukura, French Polynesia">Kaukura, French Polynesia</option>';
+            Name_options_str  += '<option value="Kaunakakai, HI, United States">Kaunakakai, HI, United States</option>';
+            Name_options_str  += '<option value="Kaunakakai, Hawaii, United States">Kaunakakai, Hawaii, United States</option>';
+            Name_options_str  += '<option value="Kavieng, Papua New Guinea">Kavieng, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Kawaihae, Hawaii, United States">Kawaihae, Hawaii, United States</option>';
+            Name_options_str  += '<option value="Kaweni, Mayotte">Kaweni, Mayotte</option>';
+            Name_options_str  += '<option value="Keawaula, Hawaii, United States">Keawaula, Hawaii, United States</option>';
+            Name_options_str  += '<option value="Kekaha, Hawaii, United States">Kekaha, Hawaii, United States</option>';
+            Name_options_str  += '<option value="Kelibia, Tunisia">Kelibia, Tunisia</option>';
+            Name_options_str  += '<option value="Kenai, Alaska, United States">Kenai, Alaska, United States</option>';
+            Name_options_str  += '<option value="Kendal, Indonesia">Kendal, Indonesia</option>';
+            Name_options_str  += '<option value="Kendari, Indonesia">Kendari, Indonesia</option>';
+            Name_options_str  += '<option value="Keoje, Korea, Rep.">Keoje, Korea, Rep.</option>';
+            Name_options_str  += '<option value="Kep. Aru, Indonesia">Kep. Aru, Indonesia</option>';
+            Name_options_str  += '<option value="Kerch Strait Cable">Kerch Strait Cable</option>';
+            Name_options_str  += '<option value="Kerch, Ukraine">Kerch, Ukraine</option>';
+            Name_options_str  += '<option value="Kerema, Papua New Guinea">Kerema, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Ketapang, Indonesia">Ketapang, Indonesia</option>';
+            Name_options_str  += '<option value="KetchCan1 Submarine Fiber Cable System">KetchCan1 Submarine Fiber Cable System</option>';
+            Name_options_str  += '<option value="Khark Island, Iran">Khark Island, Iran</option>';
+            Name_options_str  += '<option value="Khasab, Oman">Khasab, Oman</option>';
+            Name_options_str  += '<option value="Kiamsam, Malaysia">Kiamsam, Malaysia</option>';
+            Name_options_str  += '<option value="Kihei, Maui, HI, United States">Kihei, Maui, HI, United States</option>';
+            Name_options_str  += '<option value="Kikori, Papua New Guinea">Kikori, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Kilchatten Bay, United Kingdom">Kilchatten Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Kilchoan Ferry, United Kingdom">Kilchoan Ferry, United Kingdom</option>';
+            Name_options_str  += '<option value="Killala, Ireland">Killala, Ireland</option>';
+            Name_options_str  += '<option value="Kilmore Quay, Ireland">Kilmore Quay, Ireland</option>';
+            Name_options_str  += '<option value="Kimbe, Papua New Guinea">Kimbe, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Kingston, Jamaica">Kingston, Jamaica</option>';
+            Name_options_str  += '<option value="Kingstown, Saint Vincent and the Grenadines">Kingstown, Saint Vincent and the Grenadines</option>';
+            Name_options_str  += '<option value="Kiritimati, Kiribati">Kiritimati, Kiribati</option>';
+            Name_options_str  += '<option value="Kita-kyushu, Japan">Kita-kyushu, Japan</option>';
+            Name_options_str  += '<option value="Kitaibaraki, Japan">Kitaibaraki, Japan</option>';
+            Name_options_str  += '<option value="Klagshamn, Sweden">Klagshamn, Sweden</option>';
+            Name_options_str  += '<option value="Klaipeda, Lithuania">Klaipeda, Lithuania</option>';
+            Name_options_str  += '<option value="Ko Olina, HI, United States">Ko Olina, HI, United States</option>';
+            Name_options_str  += '<option value="Kochi-Lakshadweep Islands (KLI)">Kochi-Lakshadweep Islands (KLI)</option>';
+            Name_options_str  += '<option value="Kodiak Kenai Fiber Link (KKFL)">Kodiak Kenai Fiber Link (KKFL)</option>';
+            Name_options_str  += '<option value="Kodiak, Alaska, United States">Kodiak, Alaska, United States</option>';
+            Name_options_str  += '<option value="Kokar, Indonesia">Kokar, Indonesia</option>';
+            Name_options_str  += '<option value="Kokhanok, Alaska, United States">Kokhanok, Alaska, United States</option>';
+            Name_options_str  += '<option value="Kokkini, Greece">Kokkini, Greece</option>';
+            Name_options_str  += '<option value="Koko Head, HI, United States">Koko Head, HI, United States</option>';
+            Name_options_str  += '<option value="Kokopo, Papua New Guinea">Kokopo, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Kolhufushi, Maldives">Kolhufushi, Maldives</option>';
+            Name_options_str  += '<option value="Kolobrzeg, Poland">Kolobrzeg, Poland</option>';
+            Name_options_str  += '<option value="Korea-Japan Cable Network (KJCN)">Korea-Japan Cable Network (KJCN)</option>';
+            Name_options_str  += '<option value="Korsor, Denmark">Korsor, Denmark</option>';
+            Name_options_str  += '<option value="Kota Kinabalu, Malaysia">Kota Kinabalu, Malaysia</option>';
+            Name_options_str  += '<option value="Kota Mappi, Indonesia">Kota Mappi, Indonesia</option>';
+            Name_options_str  += '<option value="Kotka, Finland">Kotka, Finland</option>';
+            Name_options_str  += '<option value="Kotzebue, Alaska, United States">Kotzebue, Alaska, United States</option>';
+            Name_options_str  += '<option value="Kourou, French Guiana">Kourou, French Guiana</option>';
+            Name_options_str  += '<option value="Krabozavodskoye, Russia">Krabozavodskoye, Russia</option>';
+            Name_options_str  += '<option value="Kralendijk, Bonaire, Netherlands">Kralendijk, Bonaire, Netherlands</option>';
+            Name_options_str  += '<option value="Kralendijk, Bonaire, Sint Eustatius and Saba">Kralendijk, Bonaire, Sint Eustatius and Saba</option>';
+            Name_options_str  += '<option value="Kribi, Cameroon">Kribi, Cameroon</option>';
+            Name_options_str  += '<option value="Kristiansand, Norway">Kristiansand, Norway</option>';
+            Name_options_str  += '<option value="Kristinelund, Sweden">Kristinelund, Sweden</option>';
+            Name_options_str  += '<option value="Kuakata, Bangladesh">Kuakata, Bangladesh</option>';
+            Name_options_str  += '<option value="Kuala Kurau, Malaysia">Kuala Kurau, Malaysia</option>';
+            Name_options_str  += '<option value="Kuala Tungkal, Indonesia">Kuala Tungkal, Indonesia</option>';
+            Name_options_str  += '<option value="Kuantan, Malaysia">Kuantan, Malaysia</option>';
+            Name_options_str  += '<option value="Kuching, Malaysia">Kuching, Malaysia</option>';
+            Name_options_str  += '<option value="Kulhudhufushi, Maldives">Kulhudhufushi, Maldives</option>';
+            Name_options_str  += '<option value="Kumul Domestic Submarine Cable System">Kumul Domestic Submarine Cable System</option>';
+            Name_options_str  += '<option value="Kungsbacka, Sweden">Kungsbacka, Sweden</option>';
+            Name_options_str  += '<option value="Kupang, Indonesia">Kupang, Indonesia</option>';
+            Name_options_str  += '<option value="Kupang-Alor Cable Systems">Kupang-Alor Cable Systems</option>';
+            Name_options_str  += '<option value="Kurilsk, Russia">Kurilsk, Russia</option>';
+            Name_options_str  += '<option value="Kuwait City, Kuwait">Kuwait City, Kuwait</option>';
+            Name_options_str  += '<option value="Kuwait-Iran">Kuwait-Iran</option>';
+            Name_options_str  += '<option value="Kwa Ibo, Nigeria">Kwa Ibo, Nigeria</option>';
+            Name_options_str  += '<option value="Kwajalein, Republic of Marshall Islands">Kwajalein, Republic of Marshall Islands</option>';
+            Name_options_str  += '<option value="Kärdla, Estonia">Kärdla, Estonia</option>';
+            Name_options_str  += '<option value="Kårstø, Norway">Kårstø, Norway</option>';
+            Name_options_str  += '<option value="L&apos;Ancresse Bay, Guernsey">L&apos;Ancresse Bay, Guernsey</option>';
+            Name_options_str  += '<option value="LFON (Libyan Fiber Optic Network)">LFON (Libyan Fiber Optic Network)</option>';
+            Name_options_str  += '<option value="La Cambuse, Mauritius">La Cambuse, Mauritius</option>';
+            Name_options_str  += '<option value="La Gomera-El Hierro">La Gomera-El Hierro</option>';
+            Name_options_str  += '<option value="La Guaira, Venezuela">La Guaira, Venezuela</option>';
+            Name_options_str  += '<option value="La Seyne, France">La Seyne, France</option>';
+            Name_options_str  += '<option value="La Union, Philippines">La Union, Philippines</option>';
+            Name_options_str  += '<option value="Labuan-Brunei Submarine Cable">Labuan-Brunei Submarine Cable</option>';
+            Name_options_str  += '<option value="Labuha, Indonesia">Labuha, Indonesia</option>';
+            Name_options_str  += '<option value="Lae, Papua New Guinea">Lae, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Lagos, Nigeria">Lagos, Nigeria</option>';
+            Name_options_str  += '<option value="Lahaina, Hawaii, United States">Lahaina, Hawaii, United States</option>';
+            Name_options_str  += '<option value="Lake Ci, Taiwan">Lake Ci, Taiwan</option>';
+            Name_options_str  += '<option value="Lakudo, Indonesia">Lakudo, Indonesia</option>';
+            Name_options_str  += '<option value="Lamaline, NL, Canada">Lamaline, NL, Canada</option>';
+            Name_options_str  += '<option value="Landeyjar, Iceland">Landeyjar, Iceland</option>';
+            Name_options_str  += '<option value="Landeyjasandur, Iceland">Landeyjasandur, Iceland</option>';
+            Name_options_str  += '<option value="Lanis-1">Lanis-1</option>';
+            Name_options_str  += '<option value="Lanis-2">Lanis-2</option>';
+            Name_options_str  += '<option value="Lanis-3">Lanis-3</option>';
+            Name_options_str  += '<option value="Lannion, France">Lannion, France</option>';
+            Name_options_str  += '<option value="Lantau Island, Hong Kong, China">Lantau Island, Hong Kong, China</option>';
+            Name_options_str  += '<option value="Lanzaarote, Canary Islands, Spain">Lanzaarote, Canary Islands, Spain</option>';
+            Name_options_str  += '<option value="Largs, United Kingdom">Largs, United Kingdom</option>';
+            Name_options_str  += '<option value="Larne, United Kingdom">Larne, United Kingdom</option>';
+            Name_options_str  += '<option value="Las Caletillas, Spain">Las Caletillas, Spain</option>';
+            Name_options_str  += '<option value="Las Toninas, Argentina">Las Toninas, Argentina</option>';
+            Name_options_str  += '<option value="Latvia-Sweden 1 (LV-SE 1)">Latvia-Sweden 1 (LV-SE 1)</option>';
+            Name_options_str  += '<option value="Lavagulin, United Kingdom">Lavagulin, United Kingdom</option>';
+            Name_options_str  += '<option value="Lazaro Cardenas-Manzanillo Santiago Submarine Cable System (LCMSSCS)">Lazaro Cardenas-Manzanillo Santiago Submarine Cable System (LCMSSCS)</option>';
+            Name_options_str  += '<option value="Le Lamentin, Martinique">Le Lamentin, Martinique</option>';
+            Name_options_str  += '<option value="Le Port, Réunion">Le Port, Réunion</option>';
+            Name_options_str  += '<option value="Leava, Wallis and Futuna">Leava, Wallis and Futuna</option>';
+            Name_options_str  += '<option value="Lecanvey, Ireland">Lecanvey, Ireland</option>';
+            Name_options_str  += '<option value="Legazpi City, Philippines">Legazpi City, Philippines</option>';
+            Name_options_str  += '<option value="Leif Erikson">Leif Erikson</option>';
+            Name_options_str  += '<option value="Lena Point, Alaska, United States">Lena Point, Alaska, United States</option>';
+            Name_options_str  += '<option value="Levelock, Alaska, United States">Levelock, Alaska, United States</option>';
+            Name_options_str  += '<option value="Leverburgh, United Kingdom">Leverburgh, United Kingdom</option>';
+            Name_options_str  += '<option value="Levin, New Zealand">Levin, New Zealand</option>';
+            Name_options_str  += '<option value="Libreville, Gabon">Libreville, Gabon</option>';
+            Name_options_str  += '<option value="Libreville-Port Gentil Cable">Libreville-Port Gentil Cable</option>';
+            Name_options_str  += '<option value="Liepaja, Latvia">Liepaja, Latvia</option>';
+            Name_options_str  += '<option value="Lihue, HI, United States">Lihue, HI, United States</option>';
+            Name_options_str  += '<option value="Limbe, Cameroon">Limbe, Cameroon</option>';
+            Name_options_str  += '<option value="Linao, Chile">Linao, Chile</option>';
+            Name_options_str  += '<option value="Lingang, China">Lingang, China</option>';
+            Name_options_str  += '<option value="Lingga, Indonesia">Lingga, Indonesia</option>';
+            Name_options_str  += '<option value="Link 1 Phase-1">Link 1 Phase-1</option>';
+            Name_options_str  += '<option value="Link 1 Phase-2">Link 1 Phase-2</option>';
+            Name_options_str  += '<option value="Link 2 Phase-1">Link 2 Phase-1</option>';
+            Name_options_str  += '<option value="Link 2 Phase-2">Link 2 Phase-2</option>';
+            Name_options_str  += '<option value="Link 3 Phase-1">Link 3 Phase-1</option>';
+            Name_options_str  += '<option value="Link 3 Phase-2">Link 3 Phase-2</option>';
+            Name_options_str  += '<option value="Link 4 Phase-2">Link 4 Phase-2</option>';
+            Name_options_str  += '<option value="Link 5 Phase-2">Link 5 Phase-2</option>';
+            Name_options_str  += '<option value="Lochmaddy, United Kingdom">Lochmaddy, United Kingdom</option>';
+            Name_options_str  += '<option value="Logi, Russia">Logi, Russia</option>';
+            Name_options_str  += '<option value="Lome, Togo">Lome, Togo</option>';
+            Name_options_str  += '<option value="Longyearbyen, Svalbard, Norway">Longyearbyen, Svalbard, Norway</option>';
+            Name_options_str  += '<option value="Lorengau, Papua New Guinea">Lorengau, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Los Angeles, CA, United States">Los Angeles, CA, United States</option>';
+            Name_options_str  += '<option value="Los Angeles, California, United States">Los Angeles, California, United States</option>';
+            Name_options_str  += '<option value="Lower Indian Ocean Network (LION)">Lower Indian Ocean Network (LION)</option>';
+            Name_options_str  += '<option value="Lower Indian Ocean Network 2 (LION2)">Lower Indian Ocean Network 2 (LION2)</option>';
+            Name_options_str  += '<option value="Lowestoft, United Kingdom">Lowestoft, United Kingdom</option>';
+            Name_options_str  += '<option value="Luanda, Angola">Luanda, Angola</option>';
+            Name_options_str  += '<option value="Ludag, United Kingdom">Ludag, United Kingdom</option>';
+            Name_options_str  += '<option value="Luganville, Vanuatu">Luganville, Vanuatu</option>';
+            Name_options_str  += '<option value="Lurin, Peru">Lurin, Peru</option>';
+            Name_options_str  += '<option value="Lusk, Ireland">Lusk, Ireland</option>';
+            Name_options_str  += '<option value="Luwuk Tutuyan Cable System (LTCS)">Luwuk Tutuyan Cable System (LTCS)</option>';
+            Name_options_str  += '<option value="Luwuk, Indonesia">Luwuk, Indonesia</option>';
+            Name_options_str  += '<option value="Lyngsa, Denmark">Lyngsa, Denmark</option>';
+            Name_options_str  += '<option value="Lynn Canal Fiber">Lynn Canal Fiber</option>';
+            Name_options_str  += '<option value="Lynn, Massachusetts, United States">Lynn, Massachusetts, United States</option>';
+            Name_options_str  += '<option value="Lynnwood, Washington, United States">Lynnwood, Washington, United States</option>';
+            Name_options_str  += '<option value="L’Île-Rousse, France">L’Île-Rousse, France</option>';
+            Name_options_str  += '<option value="MAREA">MAREA</option>';
+            Name_options_str  += '<option value="MIST">MIST</option>';
+            Name_options_str  += '<option value="Macaé, Brazil">Macaé, Brazil</option>';
+            Name_options_str  += '<option value="Maceió, Brazil">Maceió, Brazil</option>';
+            Name_options_str  += '<option value="Madang, Papua New Guinea">Madang, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Madura, Indonesia">Madura, Indonesia</option>';
+            Name_options_str  += '<option value="Magachgil, Yap, Federated States of Micronesia">Magachgil, Yap, Federated States of Micronesia</option>';
+            Name_options_str  += '<option value="Magen&apos;s Bay, VI, United States">Magen&apos;s Bay, VI, United States</option>';
+            Name_options_str  += '<option value="Mahuma, Curaçao">Mahuma, Curaçao</option>';
+            Name_options_str  += '<option value="MainOne">MainOne</option>';
+            Name_options_str  += '<option value="Maiquetia, Venezuela">Maiquetia, Venezuela</option>';
+            Name_options_str  += '<option value="Majuro, Republic of Marshall Islands">Majuro, Republic of Marshall Islands</option>';
+            Name_options_str  += '<option value="Makaha, Hawaii, United States">Makaha, Hawaii, United States</option>';
+            Name_options_str  += '<option value="Makassar, Indonesia">Makassar, Indonesia</option>';
+            Name_options_str  += '<option value="Makemo, French Polynesia">Makemo, French Polynesia</option>';
+            Name_options_str  += '<option value="Makena, Hawaii, United States">Makena, Hawaii, United States</option>';
+            Name_options_str  += '<option value="Malabo, Equatorial Guinea">Malabo, Equatorial Guinea</option>';
+            Name_options_str  += '<option value="Malaysia-Cambodia-Thailand (MCT) Cable">Malaysia-Cambodia-Thailand (MCT) Cable</option>';
+            Name_options_str  += '<option value="Malbec">Malbec</option>';
+            Name_options_str  += '<option value="Maldives Sri Lanka Cable (MSC)">Maldives Sri Lanka Cable (MSC)</option>';
+            Name_options_str  += '<option value="Maldonado, Uruguay">Maldonado, Uruguay</option>';
+            Name_options_str  += '<option value="Male, Maldives">Male, Maldives</option>';
+            Name_options_str  += '<option value="Mallaigvaig, United Kingdom">Mallaigvaig, United Kingdom</option>';
+            Name_options_str  += '<option value="Malta-Gozo Cable">Malta-Gozo Cable</option>';
+            Name_options_str  += '<option value="Malta-Italy Interconnector">Malta-Italy Interconnector</option>';
+            Name_options_str  += '<option value="Mamoudzou, Mayotte">Mamoudzou, Mayotte</option>';
+            Name_options_str  += '<option value="Manado, Indonesia">Manado, Indonesia</option>';
+            Name_options_str  += '<option value="Manama, Bahrain">Manama, Bahrain</option>';
+            Name_options_str  += '<option value="Manasquan, New Jersey, United States">Manasquan, New Jersey, United States</option>';
+            Name_options_str  += '<option value="Manatua">Manatua</option>';
+            Name_options_str  += '<option value="Manawatu-Wanganui, New Zealand">Manawatu-Wanganui, New Zealand</option>';
+            Name_options_str  += '<option value="Manchester, California, United States">Manchester, California, United States</option>';
+            Name_options_str  += '<option value="Mancora, Peru">Mancora, Peru</option>';
+            Name_options_str  += '<option value="Mandji Fiber Optic Cable">Mandji Fiber Optic Cable</option>';
+            Name_options_str  += '<option value="Manele Bay, HI, United States">Manele Bay, HI, United States</option>';
+            Name_options_str  += '<option value="Mangawhai, New Zealand">Mangawhai, New Zealand</option>';
+            Name_options_str  += '<option value="Manihi, French Polynesia">Manihi, French Polynesia</option>';
+            Name_options_str  += '<option value="Maniitsoq, Greenland">Maniitsoq, Greenland</option>';
+            Name_options_str  += '<option value="Manokwari, Indonesia">Manokwari, Indonesia</option>';
+            Name_options_str  += '<option value="Manta, Ecuador">Manta, Ecuador</option>';
+            Name_options_str  += '<option value="Manzanilla, Trinidad and Tobago">Manzanilla, Trinidad and Tobago</option>';
+            Name_options_str  += '<option value="Maputo, Mozambique">Maputo, Mozambique</option>';
+            Name_options_str  += '<option value="Maracaibo, Venezuela">Maracaibo, Venezuela</option>';
+            Name_options_str  += '<option value="Maria Chiquita, Panama">Maria Chiquita, Panama</option>';
+            Name_options_str  += '<option value="Mariana-Guam Cable">Mariana-Guam Cable</option>';
+            Name_options_str  += '<option value="Mariehamn, Finland">Mariehamn, Finland</option>';
+            Name_options_str  += '<option value="Markgrafenheide, Germany">Markgrafenheide, Germany</option>';
+            Name_options_str  += '<option value="Marlborough, New Zealand">Marlborough, New Zealand</option>';
+            Name_options_str  += '<option value="Marmaris, Turkey">Marmaris, Turkey</option>';
+            Name_options_str  += '<option value="Maroc Telecom West Africa">Maroc Telecom West Africa</option>';
+            Name_options_str  += '<option value="Marseille, France">Marseille, France</option>';
+            Name_options_str  += '<option value="Maruyama, Japan">Maruyama, Japan</option>';
+            Name_options_str  += '<option value="Masbate City, Philippines">Masbate City, Philippines</option>';
+            Name_options_str  += '<option value="Masohi, Indonesia">Masohi, Indonesia</option>';
+            Name_options_str  += '<option value="Mata-Utu, Wallis and Futuna">Mata-Utu, Wallis and Futuna</option>';
+            Name_options_str  += '<option value="Matara, Sri Lanka">Matara, Sri Lanka</option>';
+            Name_options_str  += '<option value="Mataram Kupang Cable System (MKCS)">Mataram Kupang Cable System (MKCS)</option>';
+            Name_options_str  += '<option value="Mataram, Indonesia">Mataram, Indonesia</option>';
+            Name_options_str  += '<option value="Matrix Cable System">Matrix Cable System</option>';
+            Name_options_str  += '<option value="Matthew Town, Bahamas">Matthew Town, Bahamas</option>';
+            Name_options_str  += '<option value="Mauritius and Rodrigues Submarine Cable System (MARS)">Mauritius and Rodrigues Submarine Cable System (MARS)</option>';
+            Name_options_str  += '<option value="Maya-1">Maya-1</option>';
+            Name_options_str  += '<option value="Mayaguana, Bahamas">Mayaguana, Bahamas</option>';
+            Name_options_str  += '<option value="Maywick, United Kingdom">Maywick, United Kingdom</option>';
+            Name_options_str  += '<option value="Mazara del Vallo, Italy">Mazara del Vallo, Italy</option>';
+            Name_options_str  += '<option value="Mazatlán, Mexico">Mazatlán, Mexico</option>';
+            Name_options_str  += '<option value="McGaurans Beach, Australia">McGaurans Beach, Australia</option>';
+            Name_options_str  += '<option value="McHugh Point, Alaska, United States">McHugh Point, Alaska, United States</option>';
+            Name_options_str  += '<option value="Med Cable Network">Med Cable Network</option>';
+            Name_options_str  += '<option value="MedNautilus Submarine System">MedNautilus Submarine System</option>';
+            Name_options_str  += '<option value="Medan, Indonesia">Medan, Indonesia</option>';
+            Name_options_str  += '<option value="Medloop">Medloop</option>';
+            Name_options_str  += '<option value="Medusa Submarine Cable System">Medusa Submarine Cable System</option>';
+            Name_options_str  += '<option value="Meimen, Chile">Meimen, Chile</option>';
+            Name_options_str  += '<option value="Melaka, Malaysia">Melaka, Malaysia</option>';
+            Name_options_str  += '<option value="Melita 1">Melita 1</option>';
+            Name_options_str  += '<option value="Melkbosstrand, South Africa">Melkbosstrand, South Africa</option>';
+            Name_options_str  += '<option value="Melonguane, Indonesia">Melonguane, Indonesia</option>';
+            Name_options_str  += '<option value="Meltingpot Indianoceanic Submarine System (METISS)">Meltingpot Indianoceanic Submarine System (METISS)</option>';
+            Name_options_str  += '<option value="Merauke, Indonesia">Merauke, Indonesia</option>';
+            Name_options_str  += '<option value="Meremöisa, Estonia">Meremöisa, Estonia</option>';
+            Name_options_str  += '<option value="Mersin, Turkey">Mersin, Turkey</option>';
+            Name_options_str  += '<option value="Mersing, Malaysia">Mersing, Malaysia</option>';
+            Name_options_str  += '<option value="Mestre, Italy">Mestre, Italy</option>';
+            Name_options_str  += '<option value="Mgarr Ix-Xini, Malta">Mgarr Ix-Xini, Malta</option>';
+            Name_options_str  += '<option value="Mid-Atlantic Crossing (MAC)">Mid-Atlantic Crossing (MAC)</option>';
+            Name_options_str  += '<option value="Middle East North Africa (MENA) Cable System/Gulf Bridge International">Middle East North Africa (MENA) Cable System/Gulf Bridge International</option>';
+            Name_options_str  += '<option value="Mielno, Poland">Mielno, Poland</option>';
+            Name_options_str  += '<option value="Milton, Newfoundland and Labrador, Canada">Milton, Newfoundland and Labrador, Canada</option>';
+            Name_options_str  += '<option value="Minamiboso, Japan">Minamiboso, Japan</option>';
+            Name_options_str  += '<option value="Minoas East and West">Minoas East and West</option>';
+            Name_options_str  += '<option value="Miquelon-Langlade, Saint Pierre and Miquelon">Miquelon-Langlade, Saint Pierre and Miquelon</option>';
+            Name_options_str  += '<option value="Miramar, Puerto Rico, United States">Miramar, Puerto Rico, United States</option>';
+            Name_options_str  += '<option value="Miri, Malaysia">Miri, Malaysia</option>';
+            Name_options_str  += '<option value="Misurata, Libya">Misurata, Libya</option>';
+            Name_options_str  += '<option value="Miura, Japan">Miura, Japan</option>';
+            Name_options_str  += '<option value="Miyazaki-Okinawa Cable (MOC)">Miyazaki-Okinawa Cable (MOC)</option>';
+            Name_options_str  += '<option value="Mogadishu, Somalia">Mogadishu, Somalia</option>';
+            Name_options_str  += '<option value="Mombasa, Kenya">Mombasa, Kenya</option>';
+            Name_options_str  += '<option value="Monaco, Monaco">Monaco, Monaco</option>';
+            Name_options_str  += '<option value="Monet">Monet</option>';
+            Name_options_str  += '<option value="Monrovia, Liberia">Monrovia, Liberia</option>';
+            Name_options_str  += '<option value="Monte Carlo, Monaco">Monte Carlo, Monaco</option>';
+            Name_options_str  += '<option value="Montego Bay, Jamaica">Montego Bay, Jamaica</option>';
+            Name_options_str  += '<option value="Moorea, French Polynesia">Moorea, French Polynesia</option>';
+            Name_options_str  += '<option value="Morant Point, Jamaica">Morant Point, Jamaica</option>';
+            Name_options_str  += '<option value="Moratelindo International Cable System-1 (MIC-1)">Moratelindo International Cable System-1 (MIC-1)</option>';
+            Name_options_str  += '<option value="Moroni, Comoros">Moroni, Comoros</option>';
+            Name_options_str  += '<option value="Morotai, Indonesia">Morotai, Indonesia</option>';
+            Name_options_str  += '<option value="Morro Bay, California, United States">Morro Bay, California, United States</option>';
+            Name_options_str  += '<option value="Mosede, Denmark">Mosede, Denmark</option>';
+            Name_options_str  += '<option value="Mouly, New Caledonia">Mouly, New Caledonia</option>';
+            Name_options_str  += '<option value="Msida, Malta">Msida, Malta</option>';
+            Name_options_str  += '<option value="Mt. Lavinia, Sri Lanka">Mt. Lavinia, Sri Lanka</option>';
+            Name_options_str  += '<option value="Mtunzini, South Africa">Mtunzini, South Africa</option>';
+            Name_options_str  += '<option value="Muanda, Congo, Dem. Rep.">Muanda, Congo, Dem. Rep.</option>';
+            Name_options_str  += '<option value="Mumbai, India">Mumbai, India</option>';
+            Name_options_str  += '<option value="Muncar, Indonesia">Muncar, Indonesia</option>';
+            Name_options_str  += '<option value="Muntok, Indonesia">Muntok, Indonesia</option>';
+            Name_options_str  += '<option value="Muscat, Oman">Muscat, Oman</option>';
+            Name_options_str  += '<option value="Mutsamudu, Comoros">Mutsamudu, Comoros</option>';
+            Name_options_str  += '<option value="N0r5k3 Viking 2">N0r5k3 Viking 2</option>';
+            Name_options_str  += '<option value="N0r5ke Viking">N0r5ke Viking</option>';
+            Name_options_str  += '<option value="NO-UK">NO-UK</option>';
+            Name_options_str  += '<option value="Nabire, Indonesia">Nabire, Indonesia</option>';
+            Name_options_str  += '<option value="Nakhodka, Russia">Nakhodka, Russia</option>';
+            Name_options_str  += '<option value="Namlea, Indonesia">Namlea, Indonesia</option>';
+            Name_options_str  += '<option value="Nanhui, China">Nanhui, China</option>';
+            Name_options_str  += '<option value="Nanny Cay, Virgin Islands (U.K.)">Nanny Cay, Virgin Islands (U.K.)</option>';
+            Name_options_str  += '<option value="Naoetsu, Japan">Naoetsu, Japan</option>';
+            Name_options_str  += '<option value="Naples, FL, United States">Naples, FL, United States</option>';
+            Name_options_str  += '<option value="Narragansett, RI, United States">Narragansett, RI, United States</option>';
+            Name_options_str  += '<option value="Narrow Cape, Alaska, United States">Narrow Cape, Alaska, United States</option>';
+            Name_options_str  += '<option value="Nassau, Bahamas">Nassau, Bahamas</option>';
+            Name_options_str  += '<option value="Nasugbu, Philippines">Nasugbu, Philippines</option>';
+            Name_options_str  += '<option value="Natal, Brazil">Natal, Brazil</option>';
+            Name_options_str  += '<option value="National Digital Transmission Network (NDTN)">National Digital Transmission Network (NDTN)</option>';
+            Name_options_str  += '<option value="Nationwide Submarine Cable Ooredoo Maldives (NaSCOM)">Nationwide Submarine Cable Ooredoo Maldives (NaSCOM)</option>';
+            Name_options_str  += '<option value="Natitua">Natitua</option>';
+            Name_options_str  += '<option value="Natitua Sud">Natitua Sud</option>';
+            Name_options_str  += '<option value="Natuna, Indonesia">Natuna, Indonesia</option>';
+            Name_options_str  += '<option value="Nedonna Beach, Oregon, United States">Nedonna Beach, Oregon, United States</option>';
+            Name_options_str  += '<option value="Needham’s Point, Barbados">Needham’s Point, Barbados</option>';
+            Name_options_str  += '<option value="Neiafu, Tonga">Neiafu, Tonga</option>';
+            Name_options_str  += '<option value="Nelson, New Zealand">Nelson, New Zealand</option>';
+            Name_options_str  += '<option value="Nelson-Levin">Nelson-Levin</option>';
+            Name_options_str  += '<option value="Nevelsk, Russia">Nevelsk, Russia</option>';
+            Name_options_str  += '<option value="New Cross Pacific (NCP) Cable System">New Cross Pacific (NCP) Cable System</option>';
+            Name_options_str  += '<option value="New Victoria, NS, Canada">New Victoria, NS, Canada</option>';
+            Name_options_str  += '<option value="Newcastle, United Kingdom">Newcastle, United Kingdom</option>';
+            Name_options_str  += '<option value="Newhalen, Alaska, United States">Newhalen, Alaska, United States</option>';
+            Name_options_str  += '<option value="Ngeremlengui, Palau">Ngeremlengui, Palau</option>';
+            Name_options_str  += '<option value="Ngwe Saung, Myanmar">Ngwe Saung, Myanmar</option>';
+            Name_options_str  += '<option value="Nigeria Cameroon Submarine Cable System (NCSCS)">Nigeria Cameroon Submarine Cable System (NCSCS)</option>';
+            Name_options_str  += '<option value="Nikiski, Alaska, United States">Nikiski, Alaska, United States</option>';
+            Name_options_str  += '<option value="Ningbo-Zhoushan Cable">Ningbo-Zhoushan Cable</option>';
+            Name_options_str  += '<option value="Ninomiya, Japan">Ninomiya, Japan</option>';
+            Name_options_str  += '<option value="Nome, Alaska, United States">Nome, Alaska, United States</option>';
+            Name_options_str  += '<option value="Nondalton, Alaska, United States">Nondalton, Alaska, United States</option>';
+            Name_options_str  += '<option value="NordBalt">NordBalt</option>';
+            Name_options_str  += '<option value="Norden, Germany">Norden, Germany</option>';
+            Name_options_str  += '<option value="Norfest">Norfest</option>';
+            Name_options_str  += '<option value="Noro, Solomon Islands">Noro, Solomon Islands</option>';
+            Name_options_str  += '<option value="Norrtalge, Sweden">Norrtalge, Sweden</option>';
+            Name_options_str  += '<option value="North Bay, United Kingdom">North Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="North Miami Beach, Florida, United States">North Miami Beach, Florida, United States</option>';
+            Name_options_str  += '<option value="North Salina, Bonaire, Netherlands">North Salina, Bonaire, Netherlands</option>';
+            Name_options_str  += '<option value="North West Cable System">North West Cable System</option>';
+            Name_options_str  += '<option value="NorthStar">NorthStar</option>';
+            Name_options_str  += '<option value="Northern Lights">Northern Lights</option>';
+            Name_options_str  += '<option value="Northport, New York, United States">Northport, New York, United States</option>';
+            Name_options_str  += '<option value="Nouakchott, Mauritania">Nouakchott, Mauritania</option>';
+            Name_options_str  += '<option value="Noumea, New Caledonia">Noumea, New Caledonia</option>';
+            Name_options_str  += '<option value="Novorossiysk, Russia">Novorossiysk, Russia</option>';
+            Name_options_str  += '<option value="Nuku Hiva, French Polynesia">Nuku Hiva, French Polynesia</option>';
+            Name_options_str  += '<option value="Nuku&apos;alofa, Tonga">Nuku&apos;alofa, Tonga</option>';
+            Name_options_str  += '<option value="Nukualofa, Tonga">Nukualofa, Tonga</option>';
+            Name_options_str  += '<option value="Nukunonu, Tokelau">Nukunonu, Tokelau</option>';
+            Name_options_str  += '<option value="Nuuk, Greenland">Nuuk, Greenland</option>';
+            Name_options_str  += '<option value="Nyali, Kenya">Nyali, Kenya</option>';
+            Name_options_str  += '<option value="Nybor, Denmark">Nybor, Denmark</option>';
+            Name_options_str  += '<option value="Nybro, Sweden">Nybro, Sweden</option>';
+            Name_options_str  += '<option value="Nynashamn, Sweden">Nynashamn, Sweden</option>';
+            Name_options_str  += '<option value="Nzadi Cable System">Nzadi Cable System</option>';
+            Name_options_str  += '<option value="OMRAN/EPEG Cable System">OMRAN/EPEG Cable System</option>';
+            Name_options_str  += '<option value="OTEGLOBE Kokkini-Bari">OTEGLOBE Kokkini-Bari</option>';
+            Name_options_str  += '<option value="Ocho Rios, Jamaica">Ocho Rios, Jamaica</option>';
+            Name_options_str  += '<option value="Okha, Russia">Okha, Russia</option>';
+            Name_options_str  += '<option value="Okinawa Cellular Cable">Okinawa Cellular Cable</option>';
+            Name_options_str  += '<option value="Okinawa, Japan">Okinawa, Japan</option>';
+            Name_options_str  += '<option value="Ola, Russia">Ola, Russia</option>';
+            Name_options_str  += '<option value="Olbia, Italy">Olbia, Italy</option>';
+            Name_options_str  += '<option value="Olisipo">Olisipo</option>';
+            Name_options_str  += '<option value="Oman Australia Cable (OAC)">Oman Australia Cable (OAC)</option>';
+            Name_options_str  += '<option value="Ondong Siau, Indonesia">Ondong Siau, Indonesia</option>';
+            Name_options_str  += '<option value="Oran, Algeria">Oran, Algeria</option>';
+            Name_options_str  += '<option value="Oran-Valencia (ORVAL)">Oran-Valencia (ORVAL)</option>';
+            Name_options_str  += '<option value="Oranjestad Bay, Bonaire, Sint Eustatius and Saba">Oranjestad Bay, Bonaire, Sint Eustatius and Saba</option>';
+            Name_options_str  += '<option value="Ormoc, Philippines">Ormoc, Philippines</option>';
+            Name_options_str  += '<option value="Ormsary, United Kingdom">Ormsary, United Kingdom</option>';
+            Name_options_str  += '<option value="Ostend, Belgium">Ostend, Belgium</option>';
+            Name_options_str  += '<option value="Osterby, Denmark">Osterby, Denmark</option>';
+            Name_options_str  += '<option value="Otranto, Italy">Otranto, Italy</option>';
+            Name_options_str  += '<option value="Otter Ferry, United Kingdom">Otter Ferry, United Kingdom</option>';
+            Name_options_str  += '<option value="Oxford Falls, Australia">Oxford Falls, Australia</option>';
+            Name_options_str  += '<option value="Oxwich Bay, United Kingdom">Oxwich Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Ozamiz City, Philippines">Ozamiz City, Philippines</option>';
+            Name_options_str  += '<option value="PASULI">PASULI</option>';
+            Name_options_str  += '<option value="PEACE Cable">PEACE Cable</option>';
+            Name_options_str  += '<option value="PGASCOM">PGASCOM</option>';
+            Name_options_str  += '<option value="PIPE Pacific Cable-1 (PPC-1)">PIPE Pacific Cable-1 (PPC-1)</option>';
+            Name_options_str  += '<option value="PLDT Domestic Fiber Optic Network (DFON)">PLDT Domestic Fiber Optic Network (DFON)</option>';
+            Name_options_str  += '<option value="PNG LNG">PNG LNG</option>';
+            Name_options_str  += '<option value="POSEIDON">POSEIDON</option>';
+            Name_options_str  += '<option value="Pa Li, Taiwan">Pa Li, Taiwan</option>';
+            Name_options_str  += '<option value="Pacific Caribbean Cable System (PCCS)">Pacific Caribbean Cable System (PCCS)</option>';
+            Name_options_str  += '<option value="Pacific City, OR, United States">Pacific City, OR, United States</option>';
+            Name_options_str  += '<option value="Pacific Crossing-1 (PC-1)">Pacific Crossing-1 (PC-1)</option>';
+            Name_options_str  += '<option value="Pacific Light Cable Network (PLCN)">Pacific Light Cable Network (PLCN)</option>';
+            Name_options_str  += '<option value="Padang, Indonesia">Padang, Indonesia</option>';
+            Name_options_str  += '<option value="Paddington, Australia">Paddington, Australia</option>';
+            Name_options_str  += '<option value="Paget, Bermuda">Paget, Bermuda</option>';
+            Name_options_str  += '<option value="Pago Pago, American Samoa">Pago Pago, American Samoa</option>';
+            Name_options_str  += '<option value="Palapa Ring East">Palapa Ring East</option>';
+            Name_options_str  += '<option value="Palapa Ring Middle">Palapa Ring Middle</option>';
+            Name_options_str  += '<option value="Palapa Ring West">Palapa Ring West</option>';
+            Name_options_str  += '<option value="Palawa-Iloilo Cable System">Palawa-Iloilo Cable System</option>';
+            Name_options_str  += '<option value="Palembang, Indonesia">Palembang, Indonesia</option>';
+            Name_options_str  += '<option value="Palermo, Italy">Palermo, Italy</option>';
+            Name_options_str  += '<option value="Palma, Spain">Palma, Spain</option>';
+            Name_options_str  += '<option value="Pan European Crossing (UK-Belgium)">Pan European Crossing (UK-Belgium)</option>';
+            Name_options_str  += '<option value="Pan European Crossing (UK-Ireland)">Pan European Crossing (UK-Ireland)</option>';
+            Name_options_str  += '<option value="Pan-American Crossing (PAC)">Pan-American Crossing (PAC)</option>';
+            Name_options_str  += '<option value="Panama City, Panama">Panama City, Panama</option>';
+            Name_options_str  += '<option value="Pangai, Tonga">Pangai, Tonga</option>';
+            Name_options_str  += '<option value="Paniolo Cable Network">Paniolo Cable Network</option>';
+            Name_options_str  += '<option value="Panipahan, Indonesia">Panipahan, Indonesia</option>';
+            Name_options_str  += '<option value="Pankalan, Indonesia">Pankalan, Indonesia</option>';
+            Name_options_str  += '<option value="Papenoo, French Polynesia">Papenoo, French Polynesia</option>';
+            Name_options_str  += '<option value="Paramaribo, Suriname">Paramaribo, Suriname</option>';
+            Name_options_str  += '<option value="Pargas, Finland">Pargas, Finland</option>';
+            Name_options_str  += '<option value="Pedersker, Denmark">Pedersker, Denmark</option>';
+            Name_options_str  += '<option value="Pedro Bay, Alaska, United States">Pedro Bay, Alaska, United States</option>';
+            Name_options_str  += '<option value="Peel, United Kingdom">Peel, United Kingdom</option>';
+            Name_options_str  += '<option value="Pekanbaru, Indonesia">Pekanbaru, Indonesia</option>';
+            Name_options_str  += '<option value="Pembroke, United Kingdom">Pembroke, United Kingdom</option>';
+            Name_options_str  += '<option value="Penang, Malaysia">Penang, Malaysia</option>';
+            Name_options_str  += '<option value="Penarik, Indonesia">Penarik, Indonesia</option>';
+            Name_options_str  += '<option value="Penbal-4">Penbal-4</option>';
+            Name_options_str  += '<option value="Penbal-5">Penbal-5</option>';
+            Name_options_str  += '<option value="Pencan-8">Pencan-8</option>';
+            Name_options_str  += '<option value="Pencan-9">Pencan-9</option>';
+            Name_options_str  += '<option value="Penmarch, France">Penmarch, France</option>';
+            Name_options_str  += '<option value="Pentaskhinos, Cyprus">Pentaskhinos, Cyprus</option>';
+            Name_options_str  += '<option value="Persona">Persona</option>';
+            Name_options_str  += '<option value="Perth, Australia">Perth, Australia</option>';
+            Name_options_str  += '<option value="Pesaren, Indonesia">Pesaren, Indonesia</option>';
+            Name_options_str  += '<option value="Petersburg, Alaska, United States">Petersburg, Alaska, United States</option>';
+            Name_options_str  += '<option value="Petropavlovsk-Kamchatsky - Anadyr">Petropavlovsk-Kamchatsky - Anadyr</option>';
+            Name_options_str  += '<option value="Pevensey Bay, United Kingdom">Pevensey Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Philippine Domestic Submarine Cable Network (PDSCN)">Philippine Domestic Submarine Cable Network (PDSCN)</option>';
+            Name_options_str  += '<option value="Philipsburg, Sint Maarten">Philipsburg, Sint Maarten</option>';
+            Name_options_str  += '<option value="Piano Isole Minori">Piano Isole Minori</option>';
+            Name_options_str  += '<option value="Picot-1">Picot-1</option>';
+            Name_options_str  += '<option value="Piedra Santa, Spain">Piedra Santa, Spain</option>';
+            Name_options_str  += '<option value="Pigeon Point, Trinidad and Tobago">Pigeon Point, Trinidad and Tobago</option>';
+            Name_options_str  += '<option value="Pile Bay, Alaska, United States">Pile Bay, Alaska, United States</option>';
+            Name_options_str  += '<option value="Pinamalayan, Philippines">Pinamalayan, Philippines</option>';
+            Name_options_str  += '<option value="Pishgaman Oman Iran (POI) Network">Pishgaman Oman Iran (POI) Network</option>';
+            Name_options_str  += '<option value="Piti, Guam">Piti, Guam</option>';
+            Name_options_str  += '<option value="Plerin, France">Plerin, France</option>';
+            Name_options_str  += '<option value="Plymouth, Montserrat">Plymouth, Montserrat</option>';
+            Name_options_str  += '<option value="Pohnpei, Federated States of Micronesia">Pohnpei, Federated States of Micronesia</option>';
+            Name_options_str  += '<option value="Poindimie, New Caledonia">Poindimie, New Caledonia</option>';
+            Name_options_str  += '<option value="Point Hope, Alaska, United States">Point Hope, Alaska, United States</option>';
+            Name_options_str  += '<option value="Point Noire, Congo, Rep.">Point Noire, Congo, Rep.</option>';
+            Name_options_str  += '<option value="Pointe-a-Pitre, Guadeloupe">Pointe-a-Pitre, Guadeloupe</option>';
+            Name_options_str  += '<option value="Polar Circle Cable">Polar Circle Cable</option>';
+            Name_options_str  += '<option value="Polar Express">Polar Express</option>';
+            Name_options_str  += '<option value="Ponta Delgada, Portugal">Ponta Delgada, Portugal</option>';
+            Name_options_str  += '<option value="Pontianak, Indonesia">Pontianak, Indonesia</option>';
+            Name_options_str  += '<option value="Popondetta, Papua New Guinea">Popondetta, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Porlamar, Venezuela">Porlamar, Venezuela</option>';
+            Name_options_str  += '<option value="Port Alwsorth, Alaska, United States">Port Alwsorth, Alaska, United States</option>';
+            Name_options_str  += '<option value="Port Askaig, United Kingdom">Port Askaig, United Kingdom</option>';
+            Name_options_str  += '<option value="Port Gentil, Gabon">Port Gentil, Gabon</option>';
+            Name_options_str  += '<option value="Port Grenaugh, United Kingdom">Port Grenaugh, United Kingdom</option>';
+            Name_options_str  += '<option value="Port Hedland, Australia">Port Hedland, Australia</option>';
+            Name_options_str  += '<option value="Port Heiden, Alaska, United States">Port Heiden, Alaska, United States</option>';
+            Name_options_str  += '<option value="Port Moresby, Papua New Guinea">Port Moresby, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Port Nelson, Bahamas">Port Nelson, Bahamas</option>';
+            Name_options_str  += '<option value="Port Sudan, Sudan">Port Sudan, Sudan</option>';
+            Name_options_str  += '<option value="Port Vila, Vanuatu">Port Vila, Vanuatu</option>';
+            Name_options_str  += '<option value="Port of Spain, Trinidad and Tobago">Port of Spain, Trinidad and Tobago</option>';
+            Name_options_str  += '<option value="Port-au-Prince, Haiti">Port-au-Prince, Haiti</option>';
+            Name_options_str  += '<option value="Portachur Point, United Kingdom">Portachur Point, United Kingdom</option>';
+            Name_options_str  += '<option value="Portage, Alaska, United States">Portage, Alaska, United States</option>';
+            Name_options_str  += '<option value="Porthcressa Beach, United Kingdom">Porthcressa Beach, United Kingdom</option>';
+            Name_options_str  += '<option value="Porthcurno, United Kingdom">Porthcurno, United Kingdom</option>';
+            Name_options_str  += '<option value="Porto Santo, Madeira, Portugal">Porto Santo, Madeira, Portugal</option>';
+            Name_options_str  += '<option value="Porto Seguro, Brazil">Porto Seguro, Brazil</option>';
+            Name_options_str  += '<option value="Portpatrick, United Kingdom">Portpatrick, United Kingdom</option>';
+            Name_options_str  += '<option value="Poti, Georgia">Poti, Georgia</option>';
+            Name_options_str  += '<option value="Pozzallo, Italy">Pozzallo, Italy</option>';
+            Name_options_str  += '<option value="Praia Grande, Brazil">Praia Grande, Brazil</option>';
+            Name_options_str  += '<option value="Praia, Cape Verde">Praia, Cape Verde</option>';
+            Name_options_str  += '<option value="Prat">Prat</option>';
+            Name_options_str  += '<option value="Providenciales, Turks and Caicos Islands">Providenciales, Turks and Caicos Islands</option>';
+            Name_options_str  += '<option value="Prudhoe Bay, Alaska, United States">Prudhoe Bay, Alaska, United States</option>';
+            Name_options_str  += '<option value="Puducherry, India">Puducherry, India</option>';
+            Name_options_str  += '<option value="Puerto Barrios, Guatemala">Puerto Barrios, Guatemala</option>';
+            Name_options_str  += '<option value="Puerto Cabello, Venezuela">Puerto Cabello, Venezuela</option>';
+            Name_options_str  += '<option value="Puerto Cabezas, Nicaragua">Puerto Cabezas, Nicaragua</option>';
+            Name_options_str  += '<option value="Puerto Chacabuco, Chile">Puerto Chacabuco, Chile</option>';
+            Name_options_str  += '<option value="Puerto Cortes, Honduras">Puerto Cortes, Honduras</option>';
+            Name_options_str  += '<option value="Puerto La Cruz, Venezuela">Puerto La Cruz, Venezuela</option>';
+            Name_options_str  += '<option value="Puerto Lempira, Honduras">Puerto Lempira, Honduras</option>';
+            Name_options_str  += '<option value="Puerto Limon, Costa Rica">Puerto Limon, Costa Rica</option>';
+            Name_options_str  += '<option value="Puerto Montt, Chile">Puerto Montt, Chile</option>';
+            Name_options_str  += '<option value="Puerto Plata, Dominican Republic">Puerto Plata, Dominican Republic</option>';
+            Name_options_str  += '<option value="Puerto San Jose, Guatemala">Puerto San Jose, Guatemala</option>';
+            Name_options_str  += '<option value="Puerto Viejo, Venezuela">Puerto Viejo, Venezuela</option>';
+            Name_options_str  += '<option value="Puerto Williams, Chile">Puerto Williams, Chile</option>';
+            Name_options_str  += '<option value="Punta Arenas, Chile">Punta Arenas, Chile</option>';
+            Name_options_str  += '<option value="Punta Cana, Dominican Republic">Punta Cana, Dominican Republic</option>';
+            Name_options_str  += '<option value="Punta Carnero, Ecuador">Punta Carnero, Ecuador</option>';
+            Name_options_str  += '<option value="Punta Dungeness, Argentina">Punta Dungeness, Argentina</option>';
+            Name_options_str  += '<option value="Punta Salina, PR, United States">Punta Salina, PR, United States</option>';
+            Name_options_str  += '<option value="Punto Fijo, Venezuela">Punto Fijo, Venezuela</option>';
+            Name_options_str  += '<option value="Pusan, Korea, Rep.">Pusan, Korea, Rep.</option>';
+            Name_options_str  += '<option value="Puttgarden, Germany">Puttgarden, Germany</option>';
+            Name_options_str  += '<option value="Pyapon, Myanmar">Pyapon, Myanmar</option>';
+            Name_options_str  += '<option value="Qalhat, Oman">Qalhat, Oman</option>';
+            Name_options_str  += '<option value="Qaqortoq, Greenland">Qaqortoq, Greenland</option>';
+            Name_options_str  += '<option value="Qatar-U.A.E. Submarine Cable System">Qatar-U.A.E. Submarine Cable System</option>';
+            Name_options_str  += '<option value="Qingdao, China">Qingdao, China</option>';
+            Name_options_str  += '<option value="Quellon, Chile">Quellon, Chile</option>';
+            Name_options_str  += '<option value="Quintillion Subsea Cable Network">Quintillion Subsea Cable Network</option>';
+            Name_options_str  += '<option value="Quy Nhon, Vietnam">Quy Nhon, Vietnam</option>';
+            Name_options_str  += '<option value="R100">R100</option>';
+            Name_options_str  += '<option value="Raglan, New Zealand">Raglan, New Zealand</option>';
+            Name_options_str  += '<option value="Raha, Indonesia">Raha, Indonesia</option>';
+            Name_options_str  += '<option value="Raman">Raman</option>';
+            Name_options_str  += '<option value="Rangiroa, French Polynesia">Rangiroa, French Polynesia</option>';
+            Name_options_str  += '<option value="Rantu Prapat, Indonesia">Rantu Prapat, Indonesia</option>';
+            Name_options_str  += '<option value="Ras Lanuf, Libya">Ras Lanuf, Libya</option>';
+            Name_options_str  += '<option value="Ratmalana, Sri Lanka">Ratmalana, Sri Lanka</option>';
+            Name_options_str  += '<option value="Rayong, Thailand">Rayong, Thailand</option>';
+            Name_options_str  += '<option value="Recife, Brazil">Recife, Brazil</option>';
+            Name_options_str  += '<option value="Red2Med">Red2Med</option>';
+            Name_options_str  += '<option value="Redondo Beach, California, United States">Redondo Beach, California, United States</option>';
+            Name_options_str  += '<option value="Rengit, Malaysia">Rengit, Malaysia</option>';
+            Name_options_str  += '<option value="Ribnitz, Germany">Ribnitz, Germany</option>';
+            Name_options_str  += '<option value="Riding Point, Bahamas">Riding Point, Bahamas</option>';
+            Name_options_str  += '<option value="Rio de Janeiro, Brazil">Rio de Janeiro, Brazil</option>';
+            Name_options_str  += '<option value="Riohacha, Colombia">Riohacha, Colombia</option>';
+            Name_options_str  += '<option value="Rockabill">Rockabill</option>';
+            Name_options_str  += '<option value="Rockly Bay, Trinidad and Tobago">Rockly Bay, Trinidad and Tobago</option>';
+            Name_options_str  += '<option value="Rodbyhavn, Denmark">Rodbyhavn, Denmark</option>';
+            Name_options_str  += '<option value="Rodney Bay, Saint Lucia">Rodney Bay, Saint Lucia</option>';
+            Name_options_str  += '<option value="Romulo">Romulo</option>';
+            Name_options_str  += '<option value="Roquetas-Melilla (CAM)">Roquetas-Melilla (CAM)</option>';
+            Name_options_str  += '<option value="Rose Blanche, NL, Canada">Rose Blanche, NL, Canada</option>';
+            Name_options_str  += '<option value="Roseau, Dominica">Roseau, Dominica</option>';
+            Name_options_str  += '<option value="Rostock, Germany">Rostock, Germany</option>';
+            Name_options_str  += '<option value="Rota, Northern Mariana Islands">Rota, Northern Mariana Islands</option>';
+            Name_options_str  += '<option value="Rota, Spain">Rota, Spain</option>';
+            Name_options_str  += '<option value="Roxas, Philippines">Roxas, Philippines</option>';
+            Name_options_str  += '<option value="Russia-Japan Cable Network (RJCN)">Russia-Japan Cable Network (RJCN)</option>';
+            Name_options_str  += '<option value="RÃ¸nne-RÃ¸dvig">RÃ¸nne-RÃ¸dvig</option>';
+            Name_options_str  += '<option value="Røst, Norway">Røst, Norway</option>';
+            Name_options_str  += '<option value="S-U-B Cable System">S-U-B Cable System</option>';
+            Name_options_str  += '<option value="SAFE">SAFE</option>';
+            Name_options_str  += '<option value="SAT-3/WASC">SAT-3/WASC</option>';
+            Name_options_str  += '<option value="SEA-H2X">SEA-H2X</option>';
+            Name_options_str  += '<option value="SEA-US">SEA-US</option>';
+            Name_options_str  += '<option value="SEACOM/Tata TGN-Eurasia">SEACOM/Tata TGN-Eurasia</option>';
+            Name_options_str  += '<option value="SEALink">SEALink</option>';
+            Name_options_str  += '<option value="SEAX-1">SEAX-1</option>';
+            Name_options_str  += '<option value="SHEFA-2">SHEFA-2</option>';
+            Name_options_str  += '<option value="SJJK">SJJK</option>';
+            Name_options_str  += '<option value="SMPCS Packet-1">SMPCS Packet-1</option>';
+            Name_options_str  += '<option value="SMPCS Packet-2">SMPCS Packet-2</option>';
+            Name_options_str  += '<option value="Saba, Statia Cable System (SSCS)">Saba, Statia Cable System (SSCS)</option>';
+            Name_options_str  += '<option value="Saeby, Denmark">Saeby, Denmark</option>';
+            Name_options_str  += '<option value="Sagres">Sagres</option>';
+            Name_options_str  += '<option value="Saida, Lebanon">Saida, Lebanon</option>';
+            Name_options_str  += '<option value="Saint Barthelemy, Guadeloupe">Saint Barthelemy, Guadeloupe</option>';
+            Name_options_str  += '<option value="Saint Maarten, Sint Maarten">Saint Maarten, Sint Maarten</option>';
+            Name_options_str  += '<option value="Saint Martin, Guadeloupe">Saint Martin, Guadeloupe</option>';
+            Name_options_str  += '<option value="Saint Paul, Réunion">Saint Paul, Réunion</option>';
+            Name_options_str  += '<option value="Saint-Pierre, Saint Pierre and Miquelon">Saint-Pierre, Saint Pierre and Miquelon</option>';
+            Name_options_str  += '<option value="Sainte Marie, Réunion">Sainte Marie, Réunion</option>';
+            Name_options_str  += '<option value="Saints Bay, United Kingdom">Saints Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Saipan, Northern Mariana Islands">Saipan, Northern Mariana Islands</option>';
+            Name_options_str  += '<option value="Sakhalin-Kuril Islands Cable">Sakhalin-Kuril Islands Cable</option>';
+            Name_options_str  += '<option value="Sakra Island, Singapore">Sakra Island, Singapore</option>';
+            Name_options_str  += '<option value="Salakan, Indonesia">Salakan, Indonesia</option>';
+            Name_options_str  += '<option value="Salalah, Oman">Salalah, Oman</option>';
+            Name_options_str  += '<option value="Saltcoats, United Kingdom">Saltcoats, United Kingdom</option>';
+            Name_options_str  += '<option value="Salvador, Brazil">Salvador, Brazil</option>';
+            Name_options_str  += '<option value="Samandag, Turkey">Samandag, Turkey</option>';
+            Name_options_str  += '<option value="Samoa-American Samoa (SAS)">Samoa-American Samoa (SAS)</option>';
+            Name_options_str  += '<option value="San Andres Isla Tolu Submarine Cable (SAIT)">San Andres Isla Tolu Submarine Cable (SAIT)</option>';
+            Name_options_str  += '<option value="San Andres, Colombia">San Andres, Colombia</option>';
+            Name_options_str  += '<option value="San Fernando City, Philippines">San Fernando City, Philippines</option>';
+            Name_options_str  += '<option value="San Jose de Buenavista, Philippines">San Jose de Buenavista, Philippines</option>';
+            Name_options_str  += '<option value="San Jose, Philippines">San Jose, Philippines</option>';
+            Name_options_str  += '<option value="San Juan, PR, United States">San Juan, PR, United States</option>';
+            Name_options_str  += '<option value="San Juan, Puerto Rico, United States">San Juan, Puerto Rico, United States</option>';
+            Name_options_str  += '<option value="San Luis Obispo, California, United States">San Luis Obispo, California, United States</option>';
+            Name_options_str  += '<option value="San Pedro, Belize">San Pedro, Belize</option>';
+            Name_options_str  += '<option value="Sanana, Indonesia">Sanana, Indonesia</option>';
+            Name_options_str  += '<option value="Sandwick Village, United Kingdom">Sandwick Village, United Kingdom</option>';
+            Name_options_str  += '<option value="Sandwick, United Kingdom">Sandwick, United Kingdom</option>';
+            Name_options_str  += '<option value="Sandy Point, Australia">Sandy Point, Australia</option>';
+            Name_options_str  += '<option value="Sandy Point, Bahamas">Sandy Point, Bahamas</option>';
+            Name_options_str  += '<option value="Sandymount, Ireland">Sandymount, Ireland</option>';
+            Name_options_str  += '<option value="Sangano, Angola">Sangano, Angola</option>';
+            Name_options_str  += '<option value="Sangata, Indonesia">Sangata, Indonesia</option>';
+            Name_options_str  += '<option value="Santa Cruz de La Palma, Canary Islands, Spain">Santa Cruz de La Palma, Canary Islands, Spain</option>';
+            Name_options_str  += '<option value="Santana, Sao Tome and Principe">Santana, Sao Tome and Principe</option>';
+            Name_options_str  += '<option value="Santiago de Cuba, Cuba">Santiago de Cuba, Cuba</option>';
+            Name_options_str  += '<option value="Santo Domingo, Dominican Republic">Santo Domingo, Dominican Republic</option>';
+            Name_options_str  += '<option value="Santos, Brazil">Santos, Brazil</option>';
+            Name_options_str  += '<option value="Sao Mateus, Portugal">Sao Mateus, Portugal</option>';
+            Name_options_str  += '<option value="Sape-Labuan Bajo-Ende-Kupang Cable Systems">Sape-Labuan Bajo-Ende-Kupang Cable Systems</option>';
+            Name_options_str  += '<option value="Saraemee, Indonesia">Saraemee, Indonesia</option>';
+            Name_options_str  += '<option value="Sarasota, Florida, United States">Sarasota, Florida, United States</option>';
+            Name_options_str  += '<option value="Sarmi, Indonesia">Sarmi, Indonesia</option>';
+            Name_options_str  += '<option value="Sasanlagu, Rota, Northern Mariana Islands">Sasanlagu, Rota, Northern Mariana Islands</option>';
+            Name_options_str  += '<option value="Satun, Thailand">Satun, Thailand</option>';
+            Name_options_str  += '<option value="Saudi Arabia-Sudan-1 (SAS-1)">Saudi Arabia-Sudan-1 (SAS-1)</option>';
+            Name_options_str  += '<option value="Saudi Arabia-Sudan-2 (SAS-2)">Saudi Arabia-Sudan-2 (SAS-2)</option>';
+            Name_options_str  += '<option value="Saudi Vision">Saudi Vision</option>';
+            Name_options_str  += '<option value="Savona, Italy">Savona, Italy</option>';
+            Name_options_str  += '<option value="Savusavu, Fiji">Savusavu, Fiji</option>';
+            Name_options_str  += '<option value="Scandinavian Ring North">Scandinavian Ring North</option>';
+            Name_options_str  += '<option value="Scandinavian Ring South">Scandinavian Ring South</option>';
+            Name_options_str  += '<option value="Scarinish, United Kingdom">Scarinish, United Kingdom</option>';
+            Name_options_str  += '<option value="Schoelcher, Martinique">Schoelcher, Martinique</option>';
+            Name_options_str  += '<option value="Scotland-Northern Ireland 1">Scotland-Northern Ireland 1</option>';
+            Name_options_str  += '<option value="Scotland-Northern Ireland 2">Scotland-Northern Ireland 2</option>';
+            Name_options_str  += '<option value="Scotland-Northern Ireland 3">Scotland-Northern Ireland 3</option>';
+            Name_options_str  += '<option value="Scotland-Northern Ireland 4">Scotland-Northern Ireland 4</option>';
+            Name_options_str  += '<option value="Scylla">Scylla</option>';
+            Name_options_str  += '<option value="SeaMeWe-3">SeaMeWe-3</option>';
+            Name_options_str  += '<option value="SeaMeWe-4">SeaMeWe-4</option>';
+            Name_options_str  += '<option value="SeaMeWe-5">SeaMeWe-5</option>';
+            Name_options_str  += '<option value="SeaMeWe-6">SeaMeWe-6</option>';
+            Name_options_str  += '<option value="Seabras-1">Seabras-1</option>';
+            Name_options_str  += '<option value="Seaton Sluice, United Kingdom">Seaton Sluice, United Kingdom</option>';
+            Name_options_str  += '<option value="Seba, Indonesia">Seba, Indonesia</option>';
+            Name_options_str  += '<option value="SednaLink Fibre">SednaLink Fibre</option>';
+            Name_options_str  += '<option value="Segunda FOS Canal de Chacao">Segunda FOS Canal de Chacao</option>';
+            Name_options_str  += '<option value="Seixal, Portugal">Seixal, Portugal</option>';
+            Name_options_str  += '<option value="Senegal Horn of Africa Regional Express (SHARE) Cable">Senegal Horn of Africa Regional Express (SHARE) Cable</option>';
+            Name_options_str  += '<option value="Sengigi, Indonesia">Sengigi, Indonesia</option>';
+            Name_options_str  += '<option value="Sennen Cove, United Kingdom">Sennen Cove, United Kingdom</option>';
+            Name_options_str  += '<option value="Seraya, Indonesia">Seraya, Indonesia</option>';
+            Name_options_str  += '<option value="Serwaru, Indonesia">Serwaru, Indonesia</option>';
+            Name_options_str  += '<option value="Ses Covetes, Spain">Ses Covetes, Spain</option>';
+            Name_options_str  += '<option value="Sesimbra, Portugal">Sesimbra, Portugal</option>';
+            Name_options_str  += '<option value="Seward, Alaska, United States">Seward, Alaska, United States</option>';
+            Name_options_str  += '<option value="Seychelles to East Africa System (SEAS)">Seychelles to East Africa System (SEAS)</option>';
+            Name_options_str  += '<option value="Seydisfjordur, Iceland">Seydisfjordur, Iceland</option>';
+            Name_options_str  += '<option value="Shanghai, China">Shanghai, China</option>';
+            Name_options_str  += '<option value="Shantou, China">Shantou, China</option>';
+            Name_options_str  += '<option value="Shima, Japan">Shima, Japan</option>';
+            Name_options_str  += '<option value="Shindu-Ri, Korea, Rep.">Shindu-Ri, Korea, Rep.</option>';
+            Name_options_str  += '<option value="Shirley, New York, United States">Shirley, New York, United States</option>';
+            Name_options_str  += '<option value="Sibolga, Indonesia">Sibolga, Indonesia</option>';
+            Name_options_str  += '<option value="Siboney, Cuba">Siboney, Cuba</option>';
+            Name_options_str  += '<option value="Sihanoukville, Cambodia">Sihanoukville, Cambodia</option>';
+            Name_options_str  += '<option value="Silecroft Beach, United Kingdom">Silecroft Beach, United Kingdom</option>';
+            Name_options_str  += '<option value="Silphium">Silphium</option>';
+            Name_options_str  += '<option value="Sines, Portugal">Sines, Portugal</option>';
+            Name_options_str  += '<option value="Singapore India Gateway (SING) Cable">Singapore India Gateway (SING) Cable</option>';
+            Name_options_str  += '<option value="Singapore, Singapore">Singapore, Singapore</option>';
+            Name_options_str  += '<option value="Singapore-Myanmar (SIGMAR)">Singapore-Myanmar (SIGMAR)</option>';
+            Name_options_str  += '<option value="Singkawang, Indonesia">Singkawang, Indonesia</option>';
+            Name_options_str  += '<option value="Sint Maarten Puerto Rico Network One (SMPR-1)">Sint Maarten Puerto Rico Network One (SMPR-1)</option>';
+            Name_options_str  += '<option value="Sir Abu Nu&apos;ayr Cable">Sir Abu Nu&apos;ayr Cable</option>';
+            Name_options_str  += '<option value="Sirius North">Sirius North</option>';
+            Name_options_str  += '<option value="Sirius South">Sirius South</option>';
+            Name_options_str  += '<option value="Sirt, Libya">Sirt, Libya</option>';
+            Name_options_str  += '<option value="Sisimiut, Greenland">Sisimiut, Greenland</option>';
+            Name_options_str  += '<option value="Sistem Kabel Rakyat 1Malaysia (SKR1M)">Sistem Kabel Rakyat 1Malaysia (SKR1M)</option>';
+            Name_options_str  += '<option value="Sitio, Brazil">Sitio, Brazil</option>';
+            Name_options_str  += '<option value="Sitka, Alaska, United States">Sitka, Alaska, United States</option>';
+            Name_options_str  += '<option value="Sizewell, United Kingdom">Sizewell, United Kingdom</option>';
+            Name_options_str  += '<option value="Skagenfiber West">Skagenfiber West</option>';
+            Name_options_str  += '<option value="Skagerrak 4">Skagerrak 4</option>';
+            Name_options_str  += '<option value="Skagway, Alaska, United States">Skagway, Alaska, United States</option>';
+            Name_options_str  += '<option value="Skaill, United Kingdom">Skaill, United Kingdom</option>';
+            Name_options_str  += '<option value="Skalvik, Sweden">Skalvik, Sweden</option>';
+            Name_options_str  += '<option value="Skewjack, United Kingdom">Skewjack, United Kingdom</option>';
+            Name_options_str  += '<option value="Sochi, Russia">Sochi, Russia</option>';
+            Name_options_str  += '<option value="Sofifi, Indonesia">Sofifi, Indonesia</option>';
+            Name_options_str  += '<option value="Solas">Solas</option>';
+            Name_options_str  += '<option value="Songkhla, Thailand">Songkhla, Thailand</option>';
+            Name_options_str  += '<option value="Sorong, Indonesia">Sorong, Indonesia</option>';
+            Name_options_str  += '<option value="Soroosh Platform, Iran">Soroosh Platform, Iran</option>';
+            Name_options_str  += '<option value="Sorsogon-Samar Submarine Fiber Optical Interconnection Project (SSSFOIP)">Sorsogon-Samar Submarine Fiber Optical Interconnection Project (SSSFOIP)</option>';
+            Name_options_str  += '<option value="South America-1 (SAm-1)">South America-1 (SAm-1)</option>';
+            Name_options_str  += '<option value="South American Crossing (SAC)">South American Crossing (SAC)</option>';
+            Name_options_str  += '<option value="South Arne">South Arne</option>';
+            Name_options_str  += '<option value="South Atlantic Cable System (SACS)">South Atlantic Cable System (SACS)</option>';
+            Name_options_str  += '<option value="South Atlantic Inter Link (SAIL)">South Atlantic Inter Link (SAIL)</option>';
+            Name_options_str  += '<option value="South Pacific Cable System (SPSC)/Mistral">South Pacific Cable System (SPSC)/Mistral</option>';
+            Name_options_str  += '<option value="Southeast Asia Japan Cable (SJC)">Southeast Asia Japan Cable (SJC)</option>';
+            Name_options_str  += '<option value="Southeast Asia-Japan Cable 2 (SJC2)">Southeast Asia-Japan Cable 2 (SJC2)</option>';
+            Name_options_str  += '<option value="Southern Caribbean Fiber">Southern Caribbean Fiber</option>';
+            Name_options_str  += '<option value="Southern Cross Cable Network (SCCN)">Southern Cross Cable Network (SCCN)</option>';
+            Name_options_str  += '<option value="Southern Cross NEXT">Southern Cross NEXT</option>';
+            Name_options_str  += '<option value="Southport, United Kingdom">Southport, United Kingdom</option>';
+            Name_options_str  += '<option value="Spanish River Park, Florida, United States">Spanish River Park, Florida, United States</option>';
+            Name_options_str  += '<option value="Spencer Beach, Hawaii, United States">Spencer Beach, Hawaii, United States</option>';
+            Name_options_str  += '<option value="Sri Racha, Thailand">Sri Racha, Thailand</option>';
+            Name_options_str  += '<option value="St. Austell, United Kingdom">St. Austell, United Kingdom</option>';
+            Name_options_str  += '<option value="St. Croix, Virgin Islands, United States">St. Croix, Virgin Islands, United States</option>';
+            Name_options_str  += '<option value="St. David’s, Bermuda">St. David’s, Bermuda</option>';
+            Name_options_str  += '<option value="St. George&apos;s, Grenada">St. George&apos;s, Grenada</option>';
+            Name_options_str  += '<option value="St. George’s, Grenada">St. George’s, Grenada</option>';
+            Name_options_str  += '<option value="St. John’s, Antigua and Barbuda">St. John’s, Antigua and Barbuda</option>';
+            Name_options_str  += '<option value="St. Louis, Saint Martin">St. Louis, Saint Martin</option>';
+            Name_options_str  += '<option value="St. Ouens Bay, Jersey">St. Ouens Bay, Jersey</option>';
+            Name_options_str  += '<option value="St. Paul&apos;s Bay, Malta">St. Paul&apos;s Bay, Malta</option>';
+            Name_options_str  += '<option value="St. Pierre and Miquelon Cable">St. Pierre and Miquelon Cable</option>';
+            Name_options_str  += '<option value="St. Thomas, Virgin Islands (U.S.)">St. Thomas, Virgin Islands (U.S.)</option>';
+            Name_options_str  += '<option value="St. Thomas-St. Croix System">St. Thomas-St. Croix System</option>';
+            Name_options_str  += '<option value="St. Valéry, France">St. Valéry, France</option>';
+            Name_options_str  += '<option value="Stanley, Australia">Stanley, Australia</option>';
+            Name_options_str  += '<option value="Stavanger, Norway">Stavanger, Norway</option>';
+            Name_options_str  += '<option value="Stavsnas, Sweden">Stavsnas, Sweden</option>';
+            Name_options_str  += '<option value="Stockholm, Sweden">Stockholm, Sweden</option>';
+            Name_options_str  += '<option value="Strategic Evolution Underwater Link (SEUL)">Strategic Evolution Underwater Link (SEUL)</option>';
+            Name_options_str  += '<option value="Subcan Link 1">Subcan Link 1</option>';
+            Name_options_str  += '<option value="Subcan Link 2">Subcan Link 2</option>';
+            Name_options_str  += '<option value="Submarine Cable in the Philippines (SCiP)">Submarine Cable in the Philippines (SCiP)</option>';
+            Name_options_str  += '<option value="Suemlaki, Indonesia">Suemlaki, Indonesia</option>';
+            Name_options_str  += '<option value="Suez, Egypt">Suez, Egypt</option>';
+            Name_options_str  += '<option value="Sugar Dock, Saipan">Sugar Dock, Saipan</option>';
+            Name_options_str  += '<option value="Sumatera Bangka Cable System (SBCS)">Sumatera Bangka Cable System (SBCS)</option>';
+            Name_options_str  += '<option value="Sumbawa Besar, Indonesia">Sumbawa Besar, Indonesia</option>';
+            Name_options_str  += '<option value="Sungai Kakap, Indonesia">Sungai Kakap, Indonesia</option>';
+            Name_options_str  += '<option value="Sunoque I">Sunoque I</option>';
+            Name_options_str  += '<option value="Sunoque II">Sunoque II</option>';
+            Name_options_str  += '<option value="Sunoque III">Sunoque III</option>';
+            Name_options_str  += '<option value="Supiori, Indonesia">Supiori, Indonesia</option>';
+            Name_options_str  += '<option value="Surabaya, Indonesia">Surabaya, Indonesia</option>';
+            Name_options_str  += '<option value="Suriname-Guyana Submarine Cable System (SG-SCS)">Suriname-Guyana Submarine Cable System (SG-SCS)</option>';
+            Name_options_str  += '<option value="Suro, Guinea-Bissau">Suro, Guinea-Bissau</option>';
+            Name_options_str  += '<option value="Surville, France">Surville, France</option>';
+            Name_options_str  += '<option value="Suva, Fiji">Suva, Fiji</option>';
+            Name_options_str  += '<option value="Svalbard Undersea Cable System">Svalbard Undersea Cable System</option>';
+            Name_options_str  += '<option value="Sventoji, Lithuania">Sventoji, Lithuania</option>';
+            Name_options_str  += '<option value="Swakopmund, Namibia">Swakopmund, Namibia</option>';
+            Name_options_str  += '<option value="Sweden-Estonia (EE-S 1)">Sweden-Estonia (EE-S 1)</option>';
+            Name_options_str  += '<option value="Sweden-Finland 4 (SFS-4)">Sweden-Finland 4 (SFS-4)</option>';
+            Name_options_str  += '<option value="Sweden-Finland Link (SFL)">Sweden-Finland Link (SFL)</option>';
+            Name_options_str  += '<option value="Sweden-Latvia">Sweden-Latvia</option>';
+            Name_options_str  += '<option value="Sydney, Australia">Sydney, Australia</option>';
+            Name_options_str  += '<option value="Sylt, Germany">Sylt, Germany</option>';
+            Name_options_str  += '<option value="São Mateus, Brazil">São Mateus, Brazil</option>';
+            Name_options_str  += '<option value="T3">T3</option>';
+            Name_options_str  += '<option value="TE North/TGN-Eurasia/SEACOM/Alexandros/Medex">TE North/TGN-Eurasia/SEACOM/Alexandros/Medex</option>';
+            Name_options_str  += '<option value="TEGOPA">TEGOPA</option>';
+            Name_options_str  += '<option value="TERRA SW">TERRA SW</option>';
+            Name_options_str  += '<option value="TPU">TPU</option>';
+            Name_options_str  += '<option value="TRANSCAN-2">TRANSCAN-2</option>';
+            Name_options_str  += '<option value="TRANSCAN-3">TRANSCAN-3</option>';
+            Name_options_str  += '<option value="TT-1">TT-1</option>';
+            Name_options_str  += '<option value="Taba, Egypt">Taba, Egypt</option>';
+            Name_options_str  += '<option value="Taba-Aqaba">Taba-Aqaba</option>';
+            Name_options_str  += '<option value="Tachognya Beach, Tinian, Northern Mariana Islands">Tachognya Beach, Tinian, Northern Mariana Islands</option>';
+            Name_options_str  += '<option value="Tahuna, Indonesia">Tahuna, Indonesia</option>';
+            Name_options_str  += '<option value="Taino-Carib">Taino-Carib</option>';
+            Name_options_str  += '<option value="Taipa, China">Taipa, China</option>';
+            Name_options_str  += '<option value="Taiwan Penghu Kinmen Matsu No.2 (TPKM2)">Taiwan Penghu Kinmen Matsu No.2 (TPKM2)</option>';
+            Name_options_str  += '<option value="Taiwan Penghu Kinmen Matsu No.3 (TPKM3)">Taiwan Penghu Kinmen Matsu No.3 (TPKM3)</option>';
+            Name_options_str  += '<option value="Taiwan Strait Express-1 (TSE-1)">Taiwan Strait Express-1 (TSE-1)</option>';
+            Name_options_str  += '<option value="Takapuna, New Zealand">Takapuna, New Zealand</option>';
+            Name_options_str  += '<option value="Takaroa, French Polynesia">Takaroa, French Polynesia</option>';
+            Name_options_str  += '<option value="Taliabu, Indonesia">Taliabu, Indonesia</option>';
+            Name_options_str  += '<option value="Tallinn, Estonia">Tallinn, Estonia</option>';
+            Name_options_str  += '<option value="Tamares North">Tamares North</option>';
+            Name_options_str  += '<option value="Tampnet Offshore FOC Network">Tampnet Offshore FOC Network</option>';
+            Name_options_str  += '<option value="Tanah Merah, Singapore">Tanah Merah, Singapore</option>';
+            Name_options_str  += '<option value="Tangerine">Tangerine</option>';
+            Name_options_str  += '<option value="Tanguisson Point, Guam">Tanguisson Point, Guam</option>';
+            Name_options_str  += '<option value="Tanjun Pandan-Sungai Kakap Cable System">Tanjun Pandan-Sungai Kakap Cable System</option>';
+            Name_options_str  += '<option value="Tanjung Bemban, Indonesia">Tanjung Bemban, Indonesia</option>';
+            Name_options_str  += '<option value="Tanjung Pakis, Indonesia">Tanjung Pakis, Indonesia</option>';
+            Name_options_str  += '<option value="Tanjung Pandan, Indonesia">Tanjung Pandan, Indonesia</option>';
+            Name_options_str  += '<option value="Tanjung Selor, Indonesia">Tanjung Selor, Indonesia</option>';
+            Name_options_str  += '<option value="Tannat">Tannat</option>';
+            Name_options_str  += '<option value="Tanshui, Taiwan">Tanshui, Taiwan</option>';
+            Name_options_str  += '<option value="Tarahales, Spain">Tarahales, Spain</option>';
+            Name_options_str  += '<option value="Tarakan Selor Cable System (TSCS)">Tarakan Selor Cable System (TSCS)</option>';
+            Name_options_str  += '<option value="Tarakan, Indonesia">Tarakan, Indonesia</option>';
+            Name_options_str  += '<option value="Taranaki, New Zealand">Taranaki, New Zealand</option>';
+            Name_options_str  += '<option value="Taro, Solomon Islands">Taro, Solomon Islands</option>';
+            Name_options_str  += '<option value="Tartous, Syria">Tartous, Syria</option>';
+            Name_options_str  += '<option value="Tasman Global Access (TGA) Cable">Tasman Global Access (TGA) Cable</option>';
+            Name_options_str  += '<option value="Tata TGN-Atlantic">Tata TGN-Atlantic</option>';
+            Name_options_str  += '<option value="Tata TGN-Gulf">Tata TGN-Gulf</option>';
+            Name_options_str  += '<option value="Tata TGN-Intra Asia (TGN-IA)">Tata TGN-Intra Asia (TGN-IA)</option>';
+            Name_options_str  += '<option value="Tata TGN-Pacific">Tata TGN-Pacific</option>';
+            Name_options_str  += '<option value="Tata TGN-Tata Indicom">Tata TGN-Tata Indicom</option>';
+            Name_options_str  += '<option value="Tata TGN-Western Europe">Tata TGN-Western Europe</option>';
+            Name_options_str  += '<option value="Taytay, Philippines">Taytay, Philippines</option>';
+            Name_options_str  += '<option value="Tel Aviv, Israel">Tel Aviv, Israel</option>';
+            Name_options_str  += '<option value="Telisai, Brunei">Telisai, Brunei</option>';
+            Name_options_str  += '<option value="Telstra Endeavour">Telstra Endeavour</option>';
+            Name_options_str  += '<option value="Teluk, Indonesia">Teluk, Indonesia</option>';
+            Name_options_str  += '<option value="Tenerife, Canary Islands, Spain">Tenerife, Canary Islands, Spain</option>';
+            Name_options_str  += '<option value="Tenerife-Gran Canaria">Tenerife-Gran Canaria</option>';
+            Name_options_str  += '<option value="Tenerife-La Palma">Tenerife-La Palma</option>';
+            Name_options_str  += '<option value="Teping Tinggi, Indonesia">Teping Tinggi, Indonesia</option>';
+            Name_options_str  += '<option value="Terante, Indonesia">Terante, Indonesia</option>';
+            Name_options_str  += '<option value="Terempa, Indonesia">Terempa, Indonesia</option>';
+            Name_options_str  += '<option value="Ternate, Indonesia">Ternate, Indonesia</option>';
+            Name_options_str  += '<option value="Terre Rouge, Mauritius">Terre Rouge, Mauritius</option>';
+            Name_options_str  += '<option value="Thailand-Indonesia-Singapore (TIS)">Thailand-Indonesia-Singapore (TIS)</option>';
+            Name_options_str  += '<option value="The East African Marine System (TEAMS)">The East African Marine System (TEAMS)</option>';
+            Name_options_str  += '<option value="The Valley, Anguilla">The Valley, Anguilla</option>';
+            Name_options_str  += '<option value="Thetis">Thetis</option>';
+            Name_options_str  += '<option value="Thinadhoo, Maldives">Thinadhoo, Maldives</option>';
+            Name_options_str  += '<option value="Thisted, Denmark">Thisted, Denmark</option>';
+            Name_options_str  += '<option value="Thorpeness, United Kingdom">Thorpeness, United Kingdom</option>';
+            Name_options_str  += '<option value="Tiakur, Indonesia">Tiakur, Indonesia</option>';
+            Name_options_str  += '<option value="Tidore, Indonesia">Tidore, Indonesia</option>';
+            Name_options_str  += '<option value="Tijuana, Mexico">Tijuana, Mexico</option>';
+            Name_options_str  += '<option value="Timika, Indonesia">Timika, Indonesia</option>';
+            Name_options_str  += '<option value="Timor Leste South Submarine Cable (TLSSC)">Timor Leste South Submarine Cable (TLSSC)</option>';
+            Name_options_str  += '<option value="Tinian, Northern Mariana Islands">Tinian, Northern Mariana Islands</option>';
+            Name_options_str  += '<option value="Tinocas, Canary Islands, Spain">Tinocas, Canary Islands, Spain</option>';
+            Name_options_str  += '<option value="Tjele, Denmark">Tjele, Denmark</option>';
+            Name_options_str  += '<option value="Tjornuvik, Faeroe Islands">Tjornuvik, Faeroe Islands</option>';
+            Name_options_str  += '<option value="Toamasina, Madagascar">Toamasina, Madagascar</option>';
+            Name_options_str  += '<option value="Tobelo, Indonesia">Tobelo, Indonesia</option>';
+            Name_options_str  += '<option value="Tobermory, United Kingdom">Tobermory, United Kingdom</option>';
+            Name_options_str  += '<option value="Tobrok, Libya">Tobrok, Libya</option>';
+            Name_options_str  += '<option value="Tobrok-Emasaed Cable System">Tobrok-Emasaed Cable System</option>';
+            Name_options_str  += '<option value="Toco, Trinidad and Tobago">Toco, Trinidad and Tobago</option>';
+            Name_options_str  += '<option value="Tokelau Submarine Cable">Tokelau Submarine Cable</option>';
+            Name_options_str  += '<option value="Toliara, Madagascar">Toliara, Madagascar</option>';
+            Name_options_str  += '<option value="Tolmeta, Libya">Tolmeta, Libya</option>';
+            Name_options_str  += '<option value="Tolu, Colombia">Tolu, Colombia</option>';
+            Name_options_str  += '<option value="Tong Fuk, Hong Kong, China">Tong Fuk, Hong Kong, China</option>';
+            Name_options_str  += '<option value="Tonga Cable">Tonga Cable</option>';
+            Name_options_str  += '<option value="Tonga Domestic Cable Extension (TCDE)">Tonga Domestic Cable Extension (TCDE)</option>';
+            Name_options_str  += '<option value="Topaz">Topaz</option>';
+            Name_options_str  += '<option value="Toronto, ON, Canada">Toronto, ON, Canada</option>';
+            Name_options_str  += '<option value="Torshavn, Faeroe Islands">Torshavn, Faeroe Islands</option>';
+            Name_options_str  += '<option value="Tortel, Chile">Tortel, Chile</option>';
+            Name_options_str  += '<option value="Tortola, Virgin Islands (U.K.)">Tortola, Virgin Islands (U.K.)</option>';
+            Name_options_str  += '<option value="Totness, Suriname">Totness, Suriname</option>';
+            Name_options_str  += '<option value="Toucheng, Taiwan">Toucheng, Taiwan</option>';
+            Name_options_str  += '<option value="Toulon, France">Toulon, France</option>';
+            Name_options_str  += '<option value="Toweli, Indonesia">Toweli, Indonesia</option>';
+            Name_options_str  += '<option value="Toyohashi, Japan">Toyohashi, Japan</option>';
+            Name_options_str  += '<option value="Trablous, Lebanon">Trablous, Lebanon</option>';
+            Name_options_str  += '<option value="Trans Adriatic Express (TAE)">Trans Adriatic Express (TAE)</option>';
+            Name_options_str  += '<option value="Trans-Pacific Express (TPE) Cable System">Trans-Pacific Express (TPE) Cable System</option>';
+            Name_options_str  += '<option value="Transworld (TW1)">Transworld (TW1)</option>';
+            Name_options_str  += '<option value="Trapani, Italy">Trapani, Italy</option>';
+            Name_options_str  += '<option value="Trapani-Kelibia">Trapani-Kelibia</option>';
+            Name_options_str  += '<option value="Tricomo, Cyprus">Tricomo, Cyprus</option>';
+            Name_options_str  += '<option value="Tripoli, Lebanon">Tripoli, Lebanon</option>';
+            Name_options_str  += '<option value="Tripoli, Libya">Tripoli, Libya</option>';
+            Name_options_str  += '<option value="Trivendrum, India">Trivendrum, India</option>';
+            Name_options_str  += '<option value="Troon, United Kingdom">Troon, United Kingdom</option>';
+            Name_options_str  += '<option value="Trujillo, Honduras">Trujillo, Honduras</option>';
+            Name_options_str  += '<option value="Tseung Kwan O, Hong Kong, China">Tseung Kwan O, Hong Kong, China</option>';
+            Name_options_str  += '<option value="Tual, Indonesia">Tual, Indonesia</option>';
+            Name_options_str  += '<option value="Tuas, Singapore">Tuas, Singapore</option>';
+            Name_options_str  += '<option value="Tuasivi, Samoa">Tuasivi, Samoa</option>';
+            Name_options_str  += '<option value="Tuborg, Denmark">Tuborg, Denmark</option>';
+            Name_options_str  += '<option value="Tuckerton, New Jersey, United States">Tuckerton, New Jersey, United States</option>';
+            Name_options_str  += '<option value="Tui-Samoa">Tui-Samoa</option>';
+            Name_options_str  += '<option value="Tulum, Mexico">Tulum, Mexico</option>';
+            Name_options_str  += '<option value="Tumon Bay, Guam">Tumon Bay, Guam</option>';
+            Name_options_str  += '<option value="Tungku, Brunei">Tungku, Brunei</option>';
+            Name_options_str  += '<option value="Turcyos-1">Turcyos-1</option>';
+            Name_options_str  += '<option value="Turcyos-2">Turcyos-2</option>';
+            Name_options_str  += '<option value="Turku, Finland">Turku, Finland</option>';
+            Name_options_str  += '<option value="Turtle Farm, Cayman Islands">Turtle Farm, Cayman Islands</option>';
+            Name_options_str  += '<option value="Tuticorine, India">Tuticorine, India</option>';
+            Name_options_str  += '<option value="Tutuyan, Indonesia">Tutuyan, Indonesia</option>';
+            Name_options_str  += '<option value="Tverrlinken">Tverrlinken</option>';
+            Name_options_str  += '<option value="Tyra">Tyra</option>';
+            Name_options_str  += '<option value="Tétouan, Morocco">Tétouan, Morocco</option>';
+            Name_options_str  += '<option value="UAE-Iran">UAE-Iran</option>';
+            Name_options_str  += '<option value="UGARIT">UGARIT</option>';
+            Name_options_str  += '<option value="UK-Channel Islands-7">UK-Channel Islands-7</option>';
+            Name_options_str  += '<option value="UK-Channel Islands-8">UK-Channel Islands-8</option>';
+            Name_options_str  += '<option value="Ultramar GE">Ultramar GE</option>';
+            Name_options_str  += '<option value="Ulysses 2">Ulysses 2</option>';
+            Name_options_str  += '<option value="Umag, Croatia">Umag, Croatia</option>';
+            Name_options_str  += '<option value="Umeå, Sweden">Umeå, Sweden</option>';
+            Name_options_str  += '<option value="Unalaska, Alaska, United States">Unalaska, Alaska, United States</option>';
+            Name_options_str  += '<option value="Unisur">Unisur</option>';
+            Name_options_str  += '<option value="Unitel North Submarine Cable (UNSC)">Unitel North Submarine Cable (UNSC)</option>';
+            Name_options_str  += '<option value="Unitirreno Cable">Unitirreno Cable</option>';
+            Name_options_str  += '<option value="Unity/EAC-Pacific">Unity/EAC-Pacific</option>';
+            Name_options_str  += '<option value="Unqui, Costa Rica">Unqui, Costa Rica</option>';
+            Name_options_str  += '<option value="Ust-Bolsheretsk, Russia">Ust-Bolsheretsk, Russia</option>';
+            Name_options_str  += '<option value="Utqiaġvik, Alaska, United States">Utqiaġvik, Alaska, United States</option>';
+            Name_options_str  += '<option value="Uturoa, French Polynesia">Uturoa, French Polynesia</option>';
+            Name_options_str  += '<option value="Vaasa, Finland">Vaasa, Finland</option>';
+            Name_options_str  += '<option value="Vaitape, French Polynesia">Vaitape, French Polynesia</option>';
+            Name_options_str  += '<option value="Valdemar">Valdemar</option>';
+            Name_options_str  += '<option value="Valdez, Alaska, United States">Valdez, Alaska, United States</option>';
+            Name_options_str  += '<option value="Valencia, Spain">Valencia, Spain</option>';
+            Name_options_str  += '<option value="Valparaíso, Chile">Valparaíso, Chile</option>';
+            Name_options_str  += '<option value="Vancouver-Bowen Island-Vancouver Island">Vancouver-Bowen Island-Vancouver Island</option>';
+            Name_options_str  += '<option value="Vanimo, Papua New Guinea">Vanimo, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Velas, Portugal">Velas, Portugal</option>';
+            Name_options_str  += '<option value="Velling, Sweden">Velling, Sweden</option>';
+            Name_options_str  += '<option value="Venezuelan Festoon">Venezuelan Festoon</option>';
+            Name_options_str  += '<option value="Ventspils, Latvia">Ventspils, Latvia</option>';
+            Name_options_str  += '<option value="Vero Beach, Florida, United States">Vero Beach, Florida, United States</option>';
+            Name_options_str  += '<option value="Vestero, Denmark">Vestero, Denmark</option>';
+            Name_options_str  += '<option value="Vestmannaeyjar, Iceland">Vestmannaeyjar, Iceland</option>';
+            Name_options_str  += '<option value="Victoria, Seychelles">Victoria, Seychelles</option>';
+            Name_options_str  += '<option value="Vila Olga, VI, United States">Vila Olga, VI, United States</option>';
+            Name_options_str  += '<option value="Vila do Porto, Portugal">Vila do Porto, Portugal</option>';
+            Name_options_str  += '<option value="Virginia Beach, Virginia, United States">Virginia Beach, Virginia, United States</option>';
+            Name_options_str  += '<option value="Vitória, Brazil">Vitória, Brazil</option>';
+            Name_options_str  += '<option value="Vodafone Greece Domestic">Vodafone Greece Domestic</option>';
+            Name_options_str  += '<option value="Vung Tau, Vietnam">Vung Tau, Vietnam</option>';
+            Name_options_str  += '<option value="Väddö, Sweden">Väddö, Sweden</option>';
+            Name_options_str  += '<option value="WALL-LI">WALL-LI</option>';
+            Name_options_str  += '<option value="Wada, Japan">Wada, Japan</option>';
+            Name_options_str  += '<option value="Waikato, New Zealand">Waikato, New Zealand</option>';
+            Name_options_str  += '<option value="Waingapu, Indonesia">Waingapu, Indonesia</option>';
+            Name_options_str  += '<option value="Wainwright, Alaska, United States">Wainwright, Alaska, United States</option>';
+            Name_options_str  += '<option value="Waisai, Indonesia">Waisai, Indonesia</option>';
+            Name_options_str  += '<option value="Wall Township, New Jersey, United States">Wall Township, New Jersey, United States</option>';
+            Name_options_str  += '<option value="Warrenton, Oregon, United States">Warrenton, Oregon, United States</option>';
+            Name_options_str  += '<option value="Wawonii, Indonesia">Wawonii, Indonesia</option>';
+            Name_options_str  += '<option value="Wellington, New Zealand">Wellington, New Zealand</option>';
+            Name_options_str  += '<option value="Weno, Chuuk">Weno, Chuuk</option>';
+            Name_options_str  += '<option value="West Africa Cable System (WACS)">West Africa Cable System (WACS)</option>';
+            Name_options_str  += '<option value="West Palm Beach, FL, United States">West Palm Beach, FL, United States</option>';
+            Name_options_str  += '<option value="Westbury, NY, United States">Westbury, NY, United States</option>';
+            Name_options_str  += '<option value="Wewak, Papua New Guinea">Wewak, Papua New Guinea</option>';
+            Name_options_str  += '<option value="Whenuapai, New Zealand">Whenuapai, New Zealand</option>';
+            Name_options_str  += '<option value="Whitehead, United Kingdom">Whitehead, United Kingdom</option>';
+            Name_options_str  += '<option value="Whitesands Bay, United Kingdom">Whitesands Bay, United Kingdom</option>';
+            Name_options_str  += '<option value="Whittier, Alaska, United States">Whittier, Alaska, United States</option>';
+            Name_options_str  += '<option value="Willemstad, Curaçao">Willemstad, Curaçao</option>';
+            Name_options_str  += '<option value="Williamsport, Alaska, United States">Williamsport, Alaska, United States</option>';
+            Name_options_str  += '<option value="Winterton-on-Sea, United Kingdom">Winterton-on-Sea, United Kingdom</option>';
+            Name_options_str  += '<option value="Wrangell, Alaska, United States">Wrangell, Alaska, United States</option>';
+            Name_options_str  += '<option value="X-Link Submarine Cable">X-Link Submarine Cable</option>';
+            Name_options_str  += '<option value="Xepenehe, New Caledonia">Xepenehe, New Caledonia</option>';
+            Name_options_str  += '<option value="Yanbu, Saudi Arabia">Yanbu, Saudi Arabia</option>';
+            Name_options_str  += '<option value="Yapen, Indonesia">Yapen, Indonesia</option>';
+            Name_options_str  += '<option value="Yellow">Yellow</option>';
+            Name_options_str  += '<option value="Yeroskipos, Cyprus">Yeroskipos, Cyprus</option>';
+            Name_options_str  += '<option value="Ystad, Sweden">Ystad, Sweden</option>';
+            Name_options_str  += '<option value="Yuzhno Kurilsk, Russia">Yuzhno Kurilsk, Russia</option>';
+            Name_options_str  += '<option value="Yuzhno-Sakhalinsk, Russia">Yuzhno-Sakhalinsk, Russia</option>';
+            Name_options_str  += '<option value="Yzerfontein, South Africa">Yzerfontein, South Africa</option>';
+            Name_options_str  += '<option value="Zafarana, Egypt">Zafarana, Egypt</option>';
+            Name_options_str  += '<option value="Zandvoort, Netherlands">Zandvoort, Netherlands</option>';
+            Name_options_str  += '<option value="Zawia, Libya">Zawia, Libya</option>';
+            Name_options_str  += '<option value="Zeebrugge, Belgium">Zeebrugge, Belgium</option>';
+            Name_options_str  += '<option value="Zeus">Zeus</option>';
+            Name_options_str  += '<option value="Zwara, Libya">Zwara, Libya</option>';
+            Name_options_str  += '<option value="i2i Cable Network (i2icn)">i2i Cable Network (i2icn)</option>';
+            Name_options_str  += '<option value="sea2shore">sea2shore</option>';
+            Name_options_str  += '<option value="Øygarden, Norway">Øygarden, Norway</option>';
+            sel_Name.innerHTML = Name_options_str;
+            div_Name.appendChild(sel_Name);
+            var lab_Name = document.createElement('div');
+            lab_Name.innerHTML = 'Name';
+            lab_Name.className = 'filterlabel';
+            div_Name.appendChild(lab_Name);
+            var reset_Name = document.createElement('div');
+            reset_Name.innerHTML = 'clear filter';
+            reset_Name.className = 'filterlabel';
+            reset_Name.onclick = function() {
+                var options = document.getElementById("sel_Name").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_Name.appendChild(reset_Name);
+        resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_3]);
         map.on("zoomend", function(){
-            resetLabels([layer_Countries_0]);
+            resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_3]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Countries_0]);
+            resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_3]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Countries_0]);
+            resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_3]);
         });
         </script>
     </body>
