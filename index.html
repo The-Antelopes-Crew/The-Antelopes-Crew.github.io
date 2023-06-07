@@ -98,18 +98,17 @@
                         <td colspan="2">' + (feature.properties['cable_name'] !== null ? autolinker.link(feature.properties['cable_name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">suppliers</th>\
-                        <td>' + (feature.properties['suppliers'] !== null ? autolinker.link(feature.properties['suppliers'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>suppliers</strong><br />' + (feature.properties['suppliers'] !== null ? autolinker.link(feature.properties['suppliers'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">suppliers_countries</th>\
-                        <td>' + (feature.properties['suppliers_countries'] !== null ? autolinker.link(feature.properties['suppliers_countries'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>suppliers_countries</strong><br />' + (feature.properties['suppliers_countries'] !== null ? autolinker.link(feature.properties['suppliers_countries'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['supplier_in_australia'] !== null ? autolinker.link(feature.properties['supplier_in_australia'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['supplier_in_canada'] !== null ? autolinker.link(feature.properties['supplier_in_canada'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">supplier_in_canada</th>\
+                        <td>' + (feature.properties['supplier_in_canada'] !== null ? autolinker.link(feature.properties['supplier_in_canada'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['supplier_in_china'] !== null ? autolinker.link(feature.properties['supplier_in_china'].toLocaleString()) : '') + '</td>\
@@ -118,7 +117,7 @@
                         <td colspan="2">' + (feature.properties['supplier_in_NZ'] !== null ? autolinker.link(feature.properties['supplier_in_NZ'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['supplier_in_russia'] !== null ? autolinker.link(feature.properties['supplier_in_russia'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>supplier_in_russia</strong><br />' + (feature.properties['supplier_in_russia'] !== null ? autolinker.link(feature.properties['supplier_in_russia'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['supplier_in_saudi_arabia'] !== null ? autolinker.link(feature.properties['supplier_in_saudi_arabia'].toLocaleString()) : '') + '</td>\
@@ -133,8 +132,7 @@
                         <td colspan="2">' + (feature.properties['supplier_in_5_eyes'] !== null ? autolinker.link(feature.properties['supplier_in_5_eyes'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">owners</th>\
-                        <td>' + (feature.properties['owners'] !== null ? autolinker.link(feature.properties['owners'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>owners</strong><br />' + (feature.properties['owners'] !== null ? autolinker.link(feature.properties['owners'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['owners_countries'] !== null ? autolinker.link(feature.properties['owners_countries'].toLocaleString()) : '') + '</td>\
@@ -167,8 +165,10 @@
                         <td colspan="2">' + (feature.properties['owner_in_5_eyes'] !== null ? autolinker.link(feature.properties['owner_in_5_eyes'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">landing_points</th>\
-                        <td>' + (feature.properties['landing_points'] !== null ? autolinker.link(feature.properties['landing_points'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['url'] !== null ? autolinker.link(feature.properties['url'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>landing_points</strong><br />' + (feature.properties['landing_points'] !== null ? autolinker.link(feature.properties['landing_points'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['lands_in_australia'] !== null ? autolinker.link(feature.properties['lands_in_australia'].toLocaleString()) : '') + '</td>\
@@ -204,19 +204,16 @@
                         <td colspan="2">' + (feature.properties['influence_canada'] !== null ? autolinker.link(feature.properties['influence_canada'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">influence_china</th>\
-                        <td>' + (feature.properties['influence_china'] !== null ? autolinker.link(feature.properties['influence_china'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['influence_china'] !== null ? autolinker.link(feature.properties['influence_china'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['influence_nz'] !== null ? autolinker.link(feature.properties['influence_nz'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">influence_russia</th>\
-                        <td>' + (feature.properties['influence_russia'] !== null ? autolinker.link(feature.properties['influence_russia'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['influence_russia'] !== null ? autolinker.link(feature.properties['influence_russia'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">influence_saudi_arabia</th>\
-                        <td>' + (feature.properties['influence_saudi_arabia'] !== null ? autolinker.link(feature.properties['influence_saudi_arabia'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['influence_saudi_arabia'] !== null ? autolinker.link(feature.properties['influence_saudi_arabia'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['influence_uk'] !== null ? autolinker.link(feature.properties['influence_uk'].toLocaleString()) : '') + '</td>\
@@ -225,8 +222,37 @@
                         <td colspan="2">' + (feature.properties['influence_us'] !== null ? autolinker.link(feature.properties['influence_us'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">influence_5_eyes</th>\
-                        <td>' + (feature.properties['influence_5_eyes'] !== null ? autolinker.link(feature.properties['influence_5_eyes'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['influence_5_eyes'] !== null ? autolinker.link(feature.properties['influence_5_eyes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape__Len'] !== null ? autolinker.link(feature.properties['Shape__Len'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['data_year'] !== null ? autolinker.link(feature.properties['data_year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_57'] !== null ? autolinker.link(feature.properties['field_57'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_58'] !== null ? autolinker.link(feature.properties['field_58'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_59'] !== null ? autolinker.link(feature.properties['field_59'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_60'] !== null ? autolinker.link(feature.properties['field_60'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_61'] !== null ? autolinker.link(feature.properties['field_61'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_62'] !== null ? autolinker.link(feature.properties['field_62'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_63'] !== null ? autolinker.link(feature.properties['field_63'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_64'] !== null ? autolinker.link(feature.properties['field_64'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -236,7 +262,7 @@
             return {
                 pane: 'pane_Allcables_1',
                 opacity: 1,
-                color: 'rgba(153,153,153,1.0)',
+                color: 'rgba(152,125,183,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
@@ -351,7 +377,7 @@
         document.getElementById("all").appendChild(col1);
         document.getElementById("all").appendChild(col2);
         col1.appendChild(mapDiv)
-        var Filters = {"influence_china": "str","influence_us": "str","influence_5_eyes": "str","influence_saudi_arabia": "str","influence_russia": "str"};
+        var Filters = {"influence_us": "bool","influence_saudi_arabia": "bool","influence_5_eyes": "bool","influence_canada": "bool","influence_china": "bool","influence_russia": "bool"};
         function filterFunc() {
           map.eachLayer(function(lyr){
           if ("options" in lyr && "dataVar" in lyr["options"]){
@@ -443,53 +469,18 @@
         }
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_influence_china = document.createElement('div');
-            div_influence_china.id = "div_influence_china";
-            div_influence_china.className= "filterselect";
-            document.getElementById("menu").appendChild(div_influence_china);
-            sel_influence_china = document.createElement('select');
-            sel_influence_china.multiple = true;
-            sel_influence_china.size = 4;
-            sel_influence_china.id = "sel_influence_china";
-            var influence_china_options_str = "<option value='' unselected></option>";
-            sel_influence_china.onchange = function(){filterFunc()};
-            influence_china_options_str  += '<option value="0">0</option>';
-            influence_china_options_str  += '<option value="1">1</option>';
-            influence_china_options_str  += '<option value="FALSE">FALSE</option>';
-            influence_china_options_str  += '<option value="TRUE">TRUE</option>';
-            sel_influence_china.innerHTML = influence_china_options_str;
-            div_influence_china.appendChild(sel_influence_china);
-            var lab_influence_china = document.createElement('div');
-            lab_influence_china.innerHTML = 'influence_china';
-            lab_influence_china.className = 'filterlabel';
-            div_influence_china.appendChild(lab_influence_china);
-            var reset_influence_china = document.createElement('div');
-            reset_influence_china.innerHTML = 'clear filter';
-            reset_influence_china.className = 'filterlabel';
-            reset_influence_china.onclick = function() {
-                var options = document.getElementById("sel_influence_china").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_influence_china.appendChild(reset_influence_china);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
             var div_influence_us = document.createElement('div');
             div_influence_us.id = "div_influence_us";
             div_influence_us.className= "filterselect";
             document.getElementById("menu").appendChild(div_influence_us);
             sel_influence_us = document.createElement('select');
             sel_influence_us.multiple = true;
-            sel_influence_us.size = 4;
+            sel_influence_us.size = 2;
             sel_influence_us.id = "sel_influence_us";
             var influence_us_options_str = "<option value='' unselected></option>";
             sel_influence_us.onchange = function(){filterFunc()};
-            influence_us_options_str  += '<option value="0">0</option>';
-            influence_us_options_str  += '<option value="1">1</option>';
-            influence_us_options_str  += '<option value="FALSE">FALSE</option>';
-            influence_us_options_str  += '<option value="TRUE">TRUE</option>';
+            influence_us_options_str  += '<option value="true">true</option>';
+            influence_us_options_str  += '<option value="false">false</option>';
             sel_influence_us.innerHTML = influence_us_options_str;
             div_influence_us.appendChild(sel_influence_us);
             var lab_influence_us = document.createElement('div');
@@ -509,53 +500,18 @@
             div_influence_us.appendChild(reset_influence_us);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
-            var div_influence_5_eyes = document.createElement('div');
-            div_influence_5_eyes.id = "div_influence_5_eyes";
-            div_influence_5_eyes.className= "filterselect";
-            document.getElementById("menu").appendChild(div_influence_5_eyes);
-            sel_influence_5_eyes = document.createElement('select');
-            sel_influence_5_eyes.multiple = true;
-            sel_influence_5_eyes.size = 4;
-            sel_influence_5_eyes.id = "sel_influence_5_eyes";
-            var influence_5_eyes_options_str = "<option value='' unselected></option>";
-            sel_influence_5_eyes.onchange = function(){filterFunc()};
-            influence_5_eyes_options_str  += '<option value="0">0</option>';
-            influence_5_eyes_options_str  += '<option value="1">1</option>';
-            influence_5_eyes_options_str  += '<option value="FALSE">FALSE</option>';
-            influence_5_eyes_options_str  += '<option value="TRUE">TRUE</option>';
-            sel_influence_5_eyes.innerHTML = influence_5_eyes_options_str;
-            div_influence_5_eyes.appendChild(sel_influence_5_eyes);
-            var lab_influence_5_eyes = document.createElement('div');
-            lab_influence_5_eyes.innerHTML = 'influence_5_eyes';
-            lab_influence_5_eyes.className = 'filterlabel';
-            div_influence_5_eyes.appendChild(lab_influence_5_eyes);
-            var reset_influence_5_eyes = document.createElement('div');
-            reset_influence_5_eyes.innerHTML = 'clear filter';
-            reset_influence_5_eyes.className = 'filterlabel';
-            reset_influence_5_eyes.onclick = function() {
-                var options = document.getElementById("sel_influence_5_eyes").options;
-                for (var i=0; i < options.length; i++) {
-                    options[i].selected = false;
-                }
-                filterFunc();
-            };
-            div_influence_5_eyes.appendChild(reset_influence_5_eyes);
-            document.getElementById("menu").appendChild(
-                document.createElement("div"));
             var div_influence_saudi_arabia = document.createElement('div');
             div_influence_saudi_arabia.id = "div_influence_saudi_arabia";
             div_influence_saudi_arabia.className= "filterselect";
             document.getElementById("menu").appendChild(div_influence_saudi_arabia);
             sel_influence_saudi_arabia = document.createElement('select');
             sel_influence_saudi_arabia.multiple = true;
-            sel_influence_saudi_arabia.size = 4;
+            sel_influence_saudi_arabia.size = 2;
             sel_influence_saudi_arabia.id = "sel_influence_saudi_arabia";
             var influence_saudi_arabia_options_str = "<option value='' unselected></option>";
             sel_influence_saudi_arabia.onchange = function(){filterFunc()};
-            influence_saudi_arabia_options_str  += '<option value="0">0</option>';
-            influence_saudi_arabia_options_str  += '<option value="1">1</option>';
-            influence_saudi_arabia_options_str  += '<option value="FALSE">FALSE</option>';
-            influence_saudi_arabia_options_str  += '<option value="TRUE">TRUE</option>';
+            influence_saudi_arabia_options_str  += '<option value="true">true</option>';
+            influence_saudi_arabia_options_str  += '<option value="false">false</option>';
             sel_influence_saudi_arabia.innerHTML = influence_saudi_arabia_options_str;
             div_influence_saudi_arabia.appendChild(sel_influence_saudi_arabia);
             var lab_influence_saudi_arabia = document.createElement('div');
@@ -575,19 +531,111 @@
             div_influence_saudi_arabia.appendChild(reset_influence_saudi_arabia);
             document.getElementById("menu").appendChild(
                 document.createElement("div"));
+            var div_influence_5_eyes = document.createElement('div');
+            div_influence_5_eyes.id = "div_influence_5_eyes";
+            div_influence_5_eyes.className= "filterselect";
+            document.getElementById("menu").appendChild(div_influence_5_eyes);
+            sel_influence_5_eyes = document.createElement('select');
+            sel_influence_5_eyes.multiple = true;
+            sel_influence_5_eyes.size = 2;
+            sel_influence_5_eyes.id = "sel_influence_5_eyes";
+            var influence_5_eyes_options_str = "<option value='' unselected></option>";
+            sel_influence_5_eyes.onchange = function(){filterFunc()};
+            influence_5_eyes_options_str  += '<option value="true">true</option>';
+            influence_5_eyes_options_str  += '<option value="false">false</option>';
+            sel_influence_5_eyes.innerHTML = influence_5_eyes_options_str;
+            div_influence_5_eyes.appendChild(sel_influence_5_eyes);
+            var lab_influence_5_eyes = document.createElement('div');
+            lab_influence_5_eyes.innerHTML = 'influence_5_eyes';
+            lab_influence_5_eyes.className = 'filterlabel';
+            div_influence_5_eyes.appendChild(lab_influence_5_eyes);
+            var reset_influence_5_eyes = document.createElement('div');
+            reset_influence_5_eyes.innerHTML = 'clear filter';
+            reset_influence_5_eyes.className = 'filterlabel';
+            reset_influence_5_eyes.onclick = function() {
+                var options = document.getElementById("sel_influence_5_eyes").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_influence_5_eyes.appendChild(reset_influence_5_eyes);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_influence_canada = document.createElement('div');
+            div_influence_canada.id = "div_influence_canada";
+            div_influence_canada.className= "filterselect";
+            document.getElementById("menu").appendChild(div_influence_canada);
+            sel_influence_canada = document.createElement('select');
+            sel_influence_canada.multiple = true;
+            sel_influence_canada.size = 2;
+            sel_influence_canada.id = "sel_influence_canada";
+            var influence_canada_options_str = "<option value='' unselected></option>";
+            sel_influence_canada.onchange = function(){filterFunc()};
+            influence_canada_options_str  += '<option value="true">true</option>';
+            influence_canada_options_str  += '<option value="false">false</option>';
+            sel_influence_canada.innerHTML = influence_canada_options_str;
+            div_influence_canada.appendChild(sel_influence_canada);
+            var lab_influence_canada = document.createElement('div');
+            lab_influence_canada.innerHTML = 'influence_canada';
+            lab_influence_canada.className = 'filterlabel';
+            div_influence_canada.appendChild(lab_influence_canada);
+            var reset_influence_canada = document.createElement('div');
+            reset_influence_canada.innerHTML = 'clear filter';
+            reset_influence_canada.className = 'filterlabel';
+            reset_influence_canada.onclick = function() {
+                var options = document.getElementById("sel_influence_canada").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_influence_canada.appendChild(reset_influence_canada);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
+            var div_influence_china = document.createElement('div');
+            div_influence_china.id = "div_influence_china";
+            div_influence_china.className= "filterselect";
+            document.getElementById("menu").appendChild(div_influence_china);
+            sel_influence_china = document.createElement('select');
+            sel_influence_china.multiple = true;
+            sel_influence_china.size = 2;
+            sel_influence_china.id = "sel_influence_china";
+            var influence_china_options_str = "<option value='' unselected></option>";
+            sel_influence_china.onchange = function(){filterFunc()};
+            influence_china_options_str  += '<option value="true">true</option>';
+            influence_china_options_str  += '<option value="false">false</option>';
+            sel_influence_china.innerHTML = influence_china_options_str;
+            div_influence_china.appendChild(sel_influence_china);
+            var lab_influence_china = document.createElement('div');
+            lab_influence_china.innerHTML = 'influence_china';
+            lab_influence_china.className = 'filterlabel';
+            div_influence_china.appendChild(lab_influence_china);
+            var reset_influence_china = document.createElement('div');
+            reset_influence_china.innerHTML = 'clear filter';
+            reset_influence_china.className = 'filterlabel';
+            reset_influence_china.onclick = function() {
+                var options = document.getElementById("sel_influence_china").options;
+                for (var i=0; i < options.length; i++) {
+                    options[i].selected = false;
+                }
+                filterFunc();
+            };
+            div_influence_china.appendChild(reset_influence_china);
+            document.getElementById("menu").appendChild(
+                document.createElement("div"));
             var div_influence_russia = document.createElement('div');
             div_influence_russia.id = "div_influence_russia";
             div_influence_russia.className= "filterselect";
             document.getElementById("menu").appendChild(div_influence_russia);
             sel_influence_russia = document.createElement('select');
             sel_influence_russia.multiple = true;
-            sel_influence_russia.size = 3;
+            sel_influence_russia.size = 2;
             sel_influence_russia.id = "sel_influence_russia";
             var influence_russia_options_str = "<option value='' unselected></option>";
             sel_influence_russia.onchange = function(){filterFunc()};
-            influence_russia_options_str  += '<option value="0">0</option>';
-            influence_russia_options_str  += '<option value="FALSE">FALSE</option>';
-            influence_russia_options_str  += '<option value="TRUE">TRUE</option>';
+            influence_russia_options_str  += '<option value="true">true</option>';
+            influence_russia_options_str  += '<option value="false">false</option>';
             sel_influence_russia.innerHTML = influence_russia_options_str;
             div_influence_russia.appendChild(sel_influence_russia);
             var lab_influence_russia = document.createElement('div');
