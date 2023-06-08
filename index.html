@@ -46,7 +46,8 @@
         <script src="data/Australianinfluence_8.js"></script>
         <script src="data/Americaninfluence_9.js"></script>
         <script src="data/FiveEyesinfluence_10.js"></script>
-        <script src="data/Landingpoints2018Raw_11.js"></script>
+        <script src="data/FiveEyesChineseinfluence_11.js"></script>
+        <script src="data/Landingpoints2018Raw_12.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:23, minZoom:1
@@ -869,7 +870,87 @@
             style: style_FiveEyesinfluence_10_0,
         });
         bounds_group.addLayer(layer_FiveEyesinfluence_10);
-        function pop_Landingpoints2018Raw_11(feature, layer) {
+        function pop_FiveEyesChineseinfluence_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Cable name</strong><br />' + (feature.properties['cable_name'] !== null ? autolinker.link(feature.properties['cable_name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Supplier(s)</strong><br />' + (feature.properties['suppliers'] !== null ? autolinker.link(feature.properties['suppliers'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>National origins of supplier(s)</strong><br />' + (feature.properties['suppliers_countries'] !== null ? autolinker.link(feature.properties['suppliers_countries'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Australian influence</th>\
+                        <td>' + (feature.properties['influence_australia'] !== null ? autolinker.link(feature.properties['influence_australia'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Canadian influence</th>\
+                        <td>' + (feature.properties['influence_canada'] !== null ? autolinker.link(feature.properties['influence_canada'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chinese influence</th>\
+                        <td>' + (feature.properties['influence_china'] !== null ? autolinker.link(feature.properties['influence_china'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">New Zealand influence</th>\
+                        <td>' + (feature.properties['influence_nz'] !== null ? autolinker.link(feature.properties['influence_nz'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Russian influence</th>\
+                        <td>' + (feature.properties['influence_russia'] !== null ? autolinker.link(feature.properties['influence_russia'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Saudi Arabian influence</th>\
+                        <td>' + (feature.properties['influence_saudi_arabia'] !== null ? autolinker.link(feature.properties['influence_saudi_arabia'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">British influence</th>\
+                        <td>' + (feature.properties['influence_uk'] !== null ? autolinker.link(feature.properties['influence_uk'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">American influence</th>\
+                        <td>' + (feature.properties['influence_us'] !== null ? autolinker.link(feature.properties['influence_us'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Five Eyes influence</th>\
+                        <td>' + (feature.properties['influence_5_eyes'] !== null ? autolinker.link(feature.properties['influence_5_eyes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_FiveEyesChineseinfluence_11_0() {
+            return {
+                pane: 'pane_FiveEyesChineseinfluence_11',
+                opacity: 1,
+                color: 'rgba(255,255,43,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_FiveEyesChineseinfluence_11');
+        map.getPane('pane_FiveEyesChineseinfluence_11').style.zIndex = 411;
+        map.getPane('pane_FiveEyesChineseinfluence_11').style['mix-blend-mode'] = 'normal';
+        var layer_FiveEyesChineseinfluence_11 = new L.geoJson(json_FiveEyesChineseinfluence_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FiveEyesChineseinfluence_11',
+            layerName: 'layer_FiveEyesChineseinfluence_11',
+            pane: 'pane_FiveEyesChineseinfluence_11',
+            onEachFeature: pop_FiveEyesChineseinfluence_11,
+            style: style_FiveEyesChineseinfluence_11_0,
+        });
+        bounds_group.addLayer(layer_FiveEyesChineseinfluence_11);
+        function pop_Landingpoints2018Raw_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
@@ -878,9 +959,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Landingpoints2018Raw_11_0() {
+        function style_Landingpoints2018Raw_12_0() {
             return {
-                pane: 'pane_Landingpoints2018Raw_11',
+                pane: 'pane_Landingpoints2018Raw_12',
                 radius: 1.8,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -894,28 +975,28 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Landingpoints2018Raw_11');
-        map.getPane('pane_Landingpoints2018Raw_11').style.zIndex = 411;
-        map.getPane('pane_Landingpoints2018Raw_11').style['mix-blend-mode'] = 'normal';
-        var layer_Landingpoints2018Raw_11 = new L.geoJson(json_Landingpoints2018Raw_11, {
+        map.createPane('pane_Landingpoints2018Raw_12');
+        map.getPane('pane_Landingpoints2018Raw_12').style.zIndex = 412;
+        map.getPane('pane_Landingpoints2018Raw_12').style['mix-blend-mode'] = 'normal';
+        var layer_Landingpoints2018Raw_12 = new L.geoJson(json_Landingpoints2018Raw_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Landingpoints2018Raw_11',
-            layerName: 'layer_Landingpoints2018Raw_11',
-            pane: 'pane_Landingpoints2018Raw_11',
-            onEachFeature: pop_Landingpoints2018Raw_11,
+            dataVar: 'json_Landingpoints2018Raw_12',
+            layerName: 'layer_Landingpoints2018Raw_12',
+            pane: 'pane_Landingpoints2018Raw_12',
+            onEachFeature: pop_Landingpoints2018Raw_12,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Landingpoints2018Raw_11_0(feature));
+                return L.circleMarker(latlng, style_Landingpoints2018Raw_12_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Landingpoints2018Raw_11);
-        map.addLayer(layer_Landingpoints2018Raw_11);
+        bounds_group.addLayer(layer_Landingpoints2018Raw_12);
+        map.addLayer(layer_Landingpoints2018Raw_12);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Landingpoints2018Raw_11.png" /> Landing points (2018 Raw)': layer_Landingpoints2018Raw_11,'<img src="legend/FiveEyesinfluence_10.png" /> Five Eyes influence': layer_FiveEyesinfluence_10,'<img src="legend/Americaninfluence_9.png" /> American influence': layer_Americaninfluence_9,'<img src="legend/Australianinfluence_8.png" /> Australian influence': layer_Australianinfluence_8,'<img src="legend/Britishinfluence_7.png" /> British influence': layer_Britishinfluence_7,'<img src="legend/Canadianinfluence_6.png" /> Canadian influence': layer_Canadianinfluence_6,'<img src="legend/Chineseinfluence_5.png" /> Chinese influence': layer_Chineseinfluence_5,'<img src="legend/NewZealandinfluence_4.png" /> New Zealand influence': layer_NewZealandinfluence_4,'<img src="legend/Russianinfluence_3.png" /> Russian influence': layer_Russianinfluence_3,'<img src="legend/SaudiArabianinfluence_2.png" /> Saudi Arabian influence': layer_SaudiArabianinfluence_2,'<img src="legend/Allcables_1.png" /> All cables': layer_Allcables_1,'<img src="legend/Countries_0.png" /> Countries': layer_Countries_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Landingpoints2018Raw_12.png" /> Landing points (2018 Raw)': layer_Landingpoints2018Raw_12,'<img src="legend/FiveEyesChineseinfluence_11.png" /> Five Eyes & Chinese influence': layer_FiveEyesChineseinfluence_11,'<img src="legend/FiveEyesinfluence_10.png" /> Five Eyes influence': layer_FiveEyesinfluence_10,'<img src="legend/Americaninfluence_9.png" /> American influence': layer_Americaninfluence_9,'<img src="legend/Australianinfluence_8.png" /> Australian influence': layer_Australianinfluence_8,'<img src="legend/Britishinfluence_7.png" /> British influence': layer_Britishinfluence_7,'<img src="legend/Canadianinfluence_6.png" /> Canadian influence': layer_Canadianinfluence_6,'<img src="legend/Chineseinfluence_5.png" /> Chinese influence': layer_Chineseinfluence_5,'<img src="legend/NewZealandinfluence_4.png" /> New Zealand influence': layer_NewZealandinfluence_4,'<img src="legend/Russianinfluence_3.png" /> Russian influence': layer_Russianinfluence_3,'<img src="legend/SaudiArabianinfluence_2.png" /> Saudi Arabian influence': layer_SaudiArabianinfluence_2,'<img src="legend/Allcables_1.png" /> All cables': layer_Allcables_1,'<img src="legend/Countries_0.png" /> Countries': layer_Countries_0,},{collapsed:false}).addTo(map);
         map.on("zoomend", function(){
 
                 if (map.hasLayer(layer_Countries_0)) {
@@ -1636,15 +1717,15 @@
                 filterFunc();
             };
             div_cable_name.appendChild(reset_cable_name);
-        resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_11]);
+        resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_12]);
         map.on("zoomend", function(){
-            resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_11]);
+            resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_12]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_11]);
+            resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_12]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_11]);
+            resetLabels([layer_Countries_0,layer_Landingpoints2018Raw_12]);
         });
         </script>
     </body>
